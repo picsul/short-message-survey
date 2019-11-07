@@ -1,1 +1,8 @@
+# Virtualenv
 venv
+
+# PyCharm IDE Config
+.idea
+
+# Credentials
+ignore.yml

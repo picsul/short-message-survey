@@ -1,0 +1,5 @@
+# A weak way to store credentials because can be accidentally
+# uploaded but better than hardcoding.
+
+ssid: '*****'
+secret_key: '*****'
