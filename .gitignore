@@ -6,3 +6,6 @@ venv
 
 # Credentials
 ignore.py
+
+# Build files
+*.egg-info/
