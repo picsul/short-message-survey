@@ -19,6 +19,7 @@
 - Store the data we receive
 - Prioritize data privacy/confidentiality and the safety of storing the data
 - Allow natural text (i.e., "I'm at the library studying with friends") as well as more closed-form types of answers (i.e., A-E or 1-5)
+- Includes tests
 
 ### Desired functionality
 
