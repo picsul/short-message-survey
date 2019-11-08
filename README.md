@@ -16,7 +16,7 @@
 ## Desired functionaity
 
 - Doing some kind of validation of responses
-- Making a python library available to others (free and open-source
+- Making a python library available to others (free and open-source)
 
 ## Other ideas
 
