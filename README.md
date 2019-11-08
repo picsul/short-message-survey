@@ -7,7 +7,9 @@
 - Create a minimal viable product locally
 - Taking the local instance and figuring out how to deploy it (via some cloud service; possibly AWS)
 
-## Necessary functionality
+## Functionality
+
+### Necessary functionality
 
 - Send messages at random intervals within some parameters
   - Parameters: which days, which hours
@@ -18,12 +20,12 @@
 - Prioritize data privacy/confidentiality and the safety of storing the data
 - Allow natural text (i.e., "I'm at the library studying with friends") as well as more closed-form types of answers (i.e., A-E or 1-5)
 
-## Desired functionaity
+### Desired functionality
 
 - Doing some kind of validation of responses
 - Making a python library available to others (free and open-source)
 
-## Other ideas
+### Other ideas
 
 - Be able to allow users to nominate to share their location
 - Be able to take audio/photos
@@ -31,6 +33,6 @@
 - Having a web interface (for $ and open-source)
 - Having the functionality to do some kind of intervention via a chat bot
 
-### Acknowledgment
+## Acknowledgment
 
 This material is based upon work supported by the National Science Foundation under Grant No. 1937700. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not reflect the views of the National Science Foundation.
