@@ -18,7 +18,7 @@
 - Doing some kind of validation of responses
 - Making a python library available to others (free and open-source
 
-# Other ideas
+## Other ideas
 
 - Be able to allow users to nominate to share their location
 - Be able to take audio/photos
