@@ -1,3 +1,3 @@
-# sms_app
+# Short Message Survey
 
-SMS app for sending out text-based ESM surveys
+*Short Message Survey* is an app for sending out text-based ESM surveys
