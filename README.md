@@ -25,3 +25,7 @@
 - Making an R package available to others (free and open-source)
 - Having a web interface (for $ and open-source)
 - Having the functionality to do some kind of intervention via a chat bot
+
+### Acknowledgment
+
+Please note that this material is based upon work supported by the National Science Foundation under Grant No. 1937700. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not reflect the views of the National Science Foundation.
