@@ -37,3 +37,17 @@
 ## Acknowledgment
 
 This material is based upon work supported by the National Science Foundation under Grant No. 1937700. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not reflect the views of the National Science Foundation.
+
+# Installation
+
+## Setting up the virtual environment
+
+- `brew install python3 -venv`
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+
+## Installing requirements
+
+- `pip install -r requirements.txt`
+
+## Setting up Database
