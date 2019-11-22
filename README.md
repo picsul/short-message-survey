@@ -50,4 +50,10 @@ This material is based upon work supported by the National Science Foundation un
 
 - `pip install -r requirements.txt`
 
-## Setting up Database
+## Setting up database
+
+`sqlite3 survey.db`
+
+## Checking that Python works (requires v.3)
+
+- `python which`
