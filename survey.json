@@ -1,0 +1,21 @@
+{
+  "questions": [
+    {
+      "body": "What is your full name?",
+      "type": "text"
+    },
+    {
+      "body": "Are you a CS major?",
+      "type": "boolean"
+    },
+    {
+      "body": "In a scale of 1-10, how interested are you in what you're doing right now?",
+      "type": "numeric"
+    },
+    {
+      "body": "Describe how you feel about what you're doing right now.",
+      "type": "text"
+    }
+  ],
+  "title": "Survey"
+}

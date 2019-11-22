@@ -1,0 +1,9 @@
+# Virtualenv
+venv
+
+# Creds
+twilio.env
+
+# env
+.env
+.env.example
