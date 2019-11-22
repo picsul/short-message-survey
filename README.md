@@ -42,40 +42,41 @@ This material is based upon work supported by the National Science Foundation un
 
 ## Setting up the virtual environment
 
-- `brew install python3 -venv`
-- `python3 -m venv venv`
-- `source venv/bin/activate`
+- `brew install python3 -venv` (only have to do first time)
+- `python3 -m venv venv` (only have to do first time)
+- `source venv/bin/activate` (only have to do first time)
 
 ## Installing requirements
 
-- `pip install -r requirements.txt`
+- `pip install -r requirements.txt` (only have to do first time)
 
 ## Setting up database
 
-- `sqlite3 survey.db`
+- `sqlite3 survey.db` (only have to do first time)
 
 ## Checking that Python works (requires v.3)
 
-- `python --version`
+- `python --version` (only have to do first time)
 
 ## Adding Twilio credentials
 
-- `source twilio.env`
+- `source twilio.env` (*may* have to do every time)
 
 ## Check that creds were added
 
-- `os.environ.get('TWILIO_ACCOUNT_SID')`
-- `os.environ.get('TWILIO_AUTH_TOKEN')`
+- `os.environ.get('TWILIO_ACCOUNT_SID')` (only have to do first time)
+- `os.environ.get('TWILIO_AUTH_TOKEN')` (only have to do first time)
 
 ## Updating the database and running the server
 
-- `python manage.py db upgrade`
-- `python manage.py dbseed`
-- `python manage.py runserver`
+- `python manage.py db upgrade` (only have to do first time)
+- `python manage.py dbseed` (only have to do first time)
+- `python manage.py runserver` 
 
 ## Telling Twilio to send HTTP requests to forward requests to our number to our local server
 
-- `brew tap twilio/brew && brew install twilio`
+- `twilio login` 
+- `brew tap twilio/brew && brew install twilio` (only have to do first time)
 - `twilio phone-numbers:update "+18652639199" --sms-url="http://localhost:5000/message"`
 
 # Example
