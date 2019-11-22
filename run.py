@@ -38,8 +38,8 @@ from threading import Thread
 
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
-account_sid = 'AC95b72498be67f507f91808f694b99e40'
-auth_token = '7787c2f7ebc9b0bbde1c916f729f39dc'
+account_sid = ''
+auth_token = ''
 client = Client(account_sid, auth_token)
 
 def message_1():
@@ -47,7 +47,7 @@ def message_1():
                 .create(
                      body="Just.",
                      from_='+18652639199',
-                     to='+15172400923'
+                     to='+'
                  )
 
     print(message.sid)
