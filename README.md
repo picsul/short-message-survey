@@ -67,10 +67,16 @@ This material is based upon work supported by the National Science Foundation un
 - `os.environ.get('TWILIO_ACCOUNT_SID')`
 - `os.environ.get('TWILIO_AUTH_TOKEN')`
 
-## Updating the database
+## Updating the database and running the server
 
 - `python manage.py db upgrade`
 - `python manage.py dbseed`
+- `python manage.py runserver`
+
+## Telling Twilio to send HTTP requests to forward requests to our number to our local server
+
+- `brew tap twilio/brew && brew install twilio`
+- `twilio phone-numbers:update "+18652639199" --sms-url="http://localhost:5000/message"`
 
 # Example
 
