@@ -67,6 +67,11 @@ This material is based upon work supported by the National Science Foundation un
 - `os.environ.get('TWILIO_ACCOUNT_SID')`
 - `os.environ.get('TWILIO_AUTH_TOKEN')`
 
+## Updating the database
+
+- `python manage.py db upgrade`
+- `python manage.py dbseed`
+
 # Example
 
 ![Imgur](https://i.imgur.com/phHIZRt.png)
