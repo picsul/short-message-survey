@@ -7,7 +7,7 @@ import os
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.environ.get('HOME') + '/new_flask_app/survey.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.environ.get('HOME') + '/short-message-survey/survey.db'
 app.config['SECRET_KEY'] = '\x91V}\x10\x8d\xa3lC\xac\x8c.\xdb\xa6\xb1\xa6\xe8\\\xf4\x19\xc2\x05\xd5\xbc'
 db = SQLAlchemy(app)
 
