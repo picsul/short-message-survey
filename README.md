@@ -69,4 +69,4 @@ This material is based upon work supported by the National Science Foundation un
 
 # Example
 
-![screenshot](https://imgur.com/a/e5t76IN)
+[Imgur](https://i.imgur.com/phHIZRt.png)
