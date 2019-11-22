@@ -69,4 +69,4 @@ This material is based upon work supported by the National Science Foundation un
 
 # Example
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/e5t76IN" data-context="false" ><a href="//imgur.com/a/e5t76IN"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![screenshot](https://imgur.com/a/e5t76IN)
