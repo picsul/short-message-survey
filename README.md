@@ -37,7 +37,3 @@
 ## Acknowledgment
 
 This material is based upon work supported by the National Science Foundation under Grant No. 1937700. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not reflect the views of the National Science Foundation.
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
