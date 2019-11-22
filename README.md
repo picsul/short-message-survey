@@ -57,3 +57,12 @@ This material is based upon work supported by the National Science Foundation un
 ## Checking that Python works (requires v.3)
 
 - `python --version`
+
+## Adding Twilio credentials
+
+- `source twilio.env`
+
+## Check that creds were added
+
+- `os.environ.get('TWILIO_ACCOUNT_SID')`
+- `os.environ.get('TWILIO_AUTH_TOKEN')`
