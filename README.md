@@ -56,4 +56,4 @@ This material is based upon work supported by the National Science Foundation un
 
 ## Checking that Python works (requires v.3)
 
-- `python which`
+- `python --version`
