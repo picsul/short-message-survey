@@ -52,7 +52,7 @@ This material is based upon work supported by the National Science Foundation un
 
 ## Setting up database
 
-`sqlite3 survey.db`
+- `sqlite3 survey.db`
 
 ## Checking that Python works (requires v.3)
 
