@@ -66,3 +66,7 @@ This material is based upon work supported by the National Science Foundation un
 
 - `os.environ.get('TWILIO_ACCOUNT_SID')`
 - `os.environ.get('TWILIO_AUTH_TOKEN')`
+
+# Example
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/e5t76IN" data-context="false" ><a href="//imgur.com/a/e5t76IN"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
