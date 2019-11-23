@@ -65,8 +65,9 @@ This material is based upon work supported by the National Science Foundation un
 ### Check that creds were added
 
 - `import os` (only have to do first time)
+- `python` (only for checking; not necessary)
 - `os.environ.get('TWILIO_ACCOUNT_SID')` (only for checking; not necessary)
-- `os.environ.get('TWILIO_AUTH_TOKEN')` (only have to do first time)
+- `os.environ.get('TWILIO_AUTH_TOKEN')` (only for checking; not necessary)
 
 ## Updating the database and running the server
 
