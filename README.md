@@ -77,7 +77,7 @@ This material is based upon work supported by the National Science Foundation un
 
 - `twilio login` 
 - `brew tap twilio/brew && brew install twilio` (only have to do first time)
-- `twilio phone-numbers:update "+18652639199" --sms-url="http://localhost:5000/message"`
+- `twilio phone-numbers:update "+<add number>" --sms-url="http://localhost:5000/message"`
 
 # Example
 
