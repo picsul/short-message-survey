@@ -9,7 +9,7 @@
       "type": "boolean"
     },
     {
-      "body": "In a scale of 1-10, how interested are you in what you're doing right now?",
+      "body": "On a scale of 1-10, how interested are you in what you're doing right now?",
       "type": "numeric"
     },
     {
