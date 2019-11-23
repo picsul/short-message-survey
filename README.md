@@ -62,10 +62,12 @@ This material is based upon work supported by the National Science Foundation un
 
 - `source twilio.env` (*may* have to do every time)
 
-## Check that creds were added
+### Check that creds were added
 
-- `os.environ.get('TWILIO_ACCOUNT_SID')` (only have to do first time)
-- `os.environ.get('TWILIO_AUTH_TOKEN')` (only have to do first time)
+- `python` (only for checking; not necessary)
+- `import os` (only have to do first time)
+- `os.environ.get('TWILIO_ACCOUNT_SID')` (only for checking; not necessary)
+- `os.environ.get('TWILIO_AUTH_TOKEN')` (only for checking; not necessary)
 
 ## Updating the database and running the server
 
