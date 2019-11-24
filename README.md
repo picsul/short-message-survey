@@ -44,7 +44,7 @@ This material is based upon work supported by the National Science Foundation un
 
 - `brew install python3 -venv` (only have to do first time)
 - `python3 -m venv my_venv` (only have to do first time)
-- `source my_venv/bin/activate` (only have to do first time)
+- `source my_venv/bin/activate`
 
 ## Installing requirements
 
