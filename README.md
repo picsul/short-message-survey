@@ -2,11 +2,6 @@
 
 *Short Message Survey* is an app for sending out text-based ESM surveys.
 
-## To-do in the immediate term
-
-- Create a minimal viable product locally
-- Taking the local instance and figuring out how to deploy it (via some cloud service; possibly AWS)
-
 ## Functionality
 
 ### Necessary functionality
