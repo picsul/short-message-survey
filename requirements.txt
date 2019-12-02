@@ -6,12 +6,14 @@ Flask==1.1.1
 Flask-Migrate==2.5.2
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.4.1
+gunicorn
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.3
 Mako==1.1.0
 MarkupSafe==1.1.1
 phonenumbers==8.10.23
+psycopg2
 PyJWT==1.7.1
 python-dateutil==2.8.1
 python-editor==1.0.4
