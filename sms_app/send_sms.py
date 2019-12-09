@@ -1,5 +1,6 @@
 from twilio.rest import Client
 import os
+from .models import Number
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
@@ -17,11 +18,21 @@ def outgoing_sms(number, body):
 
     print(message.sid)
 
+# This is the database query for the questions module, I'll need something like this
+# question = Question.query.get(question_id)
+
+# This is the database Saving code
+#    db.save(Answer(content=extract_content(question),
+#                   question=question,
+#                   session_id=session_id()))
+
+#number = Number.query.get()
 
 
+list_of_numbers = [] 
 
-
-list_of_numbers = [] # ideally the numbers will be stored in the database and we will pull them from there instead of just coding them here
+for i in range(0, Number.query.count()):
+    list_of_numbers.append(Number.query.get(i+1))
 
 
 def message_the_list(num_list, body = body):
