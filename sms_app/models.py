@@ -68,5 +68,6 @@ class Number(db.Model):
     number = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, number, name):
+        self.number = number
         self.name = name
