@@ -63,9 +63,11 @@ class Answer(db.Model):
         
 class Number(db.Model):
     __tablename__ = 'numbers'
-
-    number = db.Column(db.String, primary_key=True)
+    
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, number, name):
+        self.number = number
         self.name = name
