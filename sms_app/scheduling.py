@@ -7,7 +7,7 @@ from .send_sms import outgoing_sms, message_the_list, list_of_numbers
 # so we'll have a list of phone numbers, ideally in the database that makes up our list. We also want to make sure that every instance of contacting the same person gets linked up in the database. Will need to mess around with the database model in all likelihood to make sure that we have timestamps and suc
 
 # create a scheduler instance to keep the schedule of when to trigger the survey text
-the_schedule = Scheduler()
+the_schedule = schedule.Scheduler()
 
 # create job instances to specify that we blast out the text to the numbers list
 #the_schedule.every().monday.at("14:00").do(message_the_list, body = "Happy Monday, are you available to take the survey?")
