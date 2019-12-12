@@ -2,6 +2,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
+from sms_app.scheduling import the_schedule
 
 prepare_app(environment='development')
 migrate = Migrate(app, db)
