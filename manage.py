@@ -36,6 +36,6 @@ def run_schedule():
         time.sleep(1)       
         
 if __name__ == "__main__":
-    t = Thread(target=run_schedule)
-    t.start()  
+    #t = Thread(target=run_schedule)
+    #t.start()  
     manager.run()
