@@ -35,6 +35,6 @@ for i in range(0, Number.query.count()):
     list_of_numbers.append(Number.query.get(i+1))
 
 
-def message_the_list(num_list, body = body):
+def message_the_list(num_list, body):
     for num in num_list:
         outgoing_sms(num, body)
