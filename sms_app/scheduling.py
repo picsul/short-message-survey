@@ -17,7 +17,7 @@ the_schedule = Scheduler()
 #the_schedule.every().friday.at("12:00").do(message_the_list)
 
 
-the_schedule.every(1).minute.do(outgoing_sms, body = "Happy Monday, are you available to take the survey?")
+the_schedule.every(1).minute.do(outgoing_sms, number = "+15172400923", body = "Happy Monday, are you available to take the survey?")
 
 # if only want to do each one once, add return schedule.CancelJob to the bottom of the message the list function
 
