@@ -3,6 +3,9 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
 #from sms_app.scheduling import the_schedule
+From apscheduler.schedulers.background import BackgroundScheduler
+from sms_app.send_sms import outgoing_sms
+
 
 prepare_app(environment='development')
 migrate = Migrate(app, db)
@@ -38,4 +41,8 @@ def dbseed():
 if __name__ == "__main__":
     #t = Thread(target=run_schedule)
     #t.start()  
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(outgoing_sms, 'interval', minutes=1, args = ['+15172400923', 'Lets see if this works'])
+    scheduler.start()
+
     manager.run()
