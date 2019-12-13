@@ -30,12 +30,12 @@ def dbseed():
     with open('survey.json') as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
 
-#def run_schedule():        
-#    while 1:
-#        the_schedule.run_pending()
-#        time.sleep(1)       
+def run_schedule():        
+    while 1:
+        the_schedule.run_pending()
+        time.sleep(1)       
         
 if __name__ == "__main__":
-    #t = Thread(target=run_schedule)
-    #t.start()  
+    t = Thread(target=run_schedule)
+    t.start()  
     manager.run()
