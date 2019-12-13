@@ -22,9 +22,9 @@ the_schedule.every(1).minute.do(outgoing_sms, number = "+15172400923", body = "H
 # if only want to do each one once, add return schedule.CancelJob to the bottom of the message the list function
 
 # this runs all the pending jobs at their appointed time, need to run this when the app is up
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+#while True:
+ #   schedule.run_pending()
+#    time.sleep(1)
 
 # This is one way to do it
 
