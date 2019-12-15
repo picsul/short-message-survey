@@ -1,1 +1,2 @@
-web: gunicorn -w 1 --threads 12 manage:app
+web: gunicorn 12 manage:app
+clock: python jobs.py
