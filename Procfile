@@ -1,2 +1,2 @@
-web: gunicorn 12 manage:app
+web: gunicorn manage:app
 clock: python jobs.py
