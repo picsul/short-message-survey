@@ -6,6 +6,7 @@ from sms_app import app, db, parsers, prepare_app
 from apscheduler.schedulers.background import BackgroundScheduler
 from sms_app.send_sms import outgoing_sms
 
+from flask_apscheduler import APScheduler
 
 prepare_app(environment='development')
 migrate = Migrate(app, db)
@@ -41,8 +42,14 @@ def dbseed():
 if __name__ == "__main__":
     #t = Thread(target=run_schedule)
     #t.start()  
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(outgoing_sms, 'interval', minutes=1, args = ['+15172400923', 'Lets see if this works'])
+    #scheduler = BackgroundScheduler()
+    #scheduler.add_job(outgoing_sms, 'interval', minutes=1, args = ['+15172400923', 'Lets see if this works'])
+    #scheduler.start()
+    
+    scheduler = APScheduler()
+    scheduler.init_app(app)
     scheduler.start()
+    
+    app.apscheduler.add_job(outgoing_sms, 'interval', minutes=1, args = ['+15172400923', 'Lets see if this works'])
 
     manager.run()
