@@ -5,17 +5,17 @@
 ## Setup on Heroku
 
 1. Create a branch or fork of this repo
-1. Create a new app on Heroku
-1. Connect the new app to GitHub
-1. Select the branch (that was created in Step 1) to deploy
-1. Manually enter config variables for: Twilio (acccount SID and API key) and database (URL and secret key) 
+2. Create a new app on Heroku
+3. Connect the new app to GitHub
+4. Select the branch (that was created in Step 1) to deploy
+5. Manually enter config variables for: Twilio (acccount SID and API key) and database (URL and secret key) 
   - For the database key, use (in Python) `import os; os.urandom(24)` to generate the secret key for the database
-1. Login to Heroku [via the CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+6. Login to Heroku [via the CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
   - `heroku login`
   - `heroku run bash -a <name-of-app>`
-1. Initialize the database for the new app
+7. Initialize the database for the new app
   - `rm -rf migrations`
-1. Run database commands through Heroku Bash
+8. Run database commands through Heroku Bash
   - `python manage.py db init`
   - `python manage.py db migrate`
   - `python manage.py db upgrade`
