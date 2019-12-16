@@ -30,5 +30,4 @@ def dbseed():
         db.save(parsers.survey_from_json(survey_file.read()))
         
 if __name__ == "__main__":
-
     manager.run()
