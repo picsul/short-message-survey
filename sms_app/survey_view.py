@@ -1,22 +1,7 @@
 from . import app
 from .models import Survey
 from flask import url_for, session
-#from twilio.twiml.voice_response import VoiceResponse
 from twilio.twiml.messaging_response import MessagingResponse
-
-
-#@app.route('/voice')
-#def voice_survey():
-#    response = VoiceResponse()
-
-#    survey = Survey.query.first()
-#    if survey_error(survey, response.say):
-#        return str(response)
-
-#    welcome_user(survey, response.say)
-#    redirect_to_first_question(response, survey)
-#    return str(response)
-
 
 @app.route('/message')
 def sms_survey():
@@ -44,7 +29,6 @@ def redirect_to_first_question(response, survey):
 def welcome_user(survey, send_function):
     welcome_text = 'Welcome to the %s' % survey.title
     send_function(welcome_text)
-
 
 def survey_error(survey, send_function):
     if not survey:
