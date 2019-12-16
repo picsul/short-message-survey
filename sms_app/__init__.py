@@ -1,10 +1,7 @@
 from sms_app.config import config_env_files
 from flask import Flask
-
 from flask_sqlalchemy import SQLAlchemy
-
 import os
-
 
 app = Flask(__name__)
 # this path works locally
