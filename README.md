@@ -18,6 +18,12 @@ This material is based upon work supported by the National Science Foundation un
 
 ## Setup
 
+1. Create a branch or fork of this repo
+1. Create a new app on Heroku
+1. Connect the new app to GitHub
+1. Select the branch (that was created in Step 1) to deploy
+1. Manually enter config variables for: Twilio (acccount SID and API key) and database (URL and secret key) 
+  - For the database key, use (in Python) `import os; os.urandom(24)` to generate the secret key for the database
 
 
 ## Installation
