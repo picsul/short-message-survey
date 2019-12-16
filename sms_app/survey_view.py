@@ -1,13 +1,29 @@
 from . import app
 from .models import Survey
-from flask import url_for, session
+from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
+from sms_app.send_sms import client
 
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
 
-    survey = Survey.query.first()
+    #survey = Survey.query.first()
+    
+    from_num = request.values['From']
+    to_num = request.values['To']
+    
+    messages = client.messages.list(from_=to_num, to=from_num, limit=1)
+    
+    message_text = messages[0].body
+    
+    if message_text == "Ready to take survey 1?":
+        survey = Survey.query.get(1)
+    elif message_text == "Ready to take survey 2?":
+        survey = Survey.query.get(2)
+    else:
+        print("Sorry couldn't figure it out")
+
     if survey_error(survey, response.message):
         return str(response)
 
