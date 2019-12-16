@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 # still don't know how this works so don't know if I need it
-app.config['SECRET_KEY'] = '\x91V}\x10\x8d\xa3lC\xac\x8c.\xdb\xa6\xb1\xa6\xe8\\\xf4\x19\xc2\x05\xd5\xbc'
+#app.config['SECRET_KEY'] = '\x91V}\x10\x8d\xa3lC\xac\x8c.\xdb\xa6\xb1\xa6\xe8\\\xf4\x19\xc2\x05\xd5\xbc'
 db = SQLAlchemy(app)
 
 def prepare_app(environment='development', p_db=db):
