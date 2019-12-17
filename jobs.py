@@ -7,7 +7,7 @@ sched = BlockingScheduler()
 #def josh_message():
 #    outgoing_sms('+18652361445', 'Come on, man!')
 
-@sched.scheduled_job('cron', day_of_week='tue', hour='03', minute='05', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='tue', hour='03', minute='08', timezone='America/New_York')
 def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 2?')
     
