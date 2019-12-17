@@ -28,6 +28,8 @@ def sms_survey():
         survey = Survey.query.get(2)
     else:
         print("Sorry couldn't figure it out")
+        
+    print(survey)
 
     if survey_error(survey, response.message):
         return str(response)
