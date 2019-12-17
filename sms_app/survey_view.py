@@ -10,28 +10,11 @@ def sms_survey():
 
     #survey = Survey.query.first()
     
-    from_num = request.values['From']
-    to_num = request.values['To']
-    
-    print(from_num)
-    print(to_num)
-    
-    messages = client.messages.list(from_=to_num, to=from_num, limit=1)
-    
-    message_text = messages[0].body
-    
-    print(message_text)
-    
-    if message_text == "Ready to take survey 1?":
-        survey = Survey.query.get(1)
-    elif message_text == "Ready to take survey 2?":
-        survey = Survey.query.get(2)
-    else:
-        print("Sorry couldn't figure it out")
-        
-    print(survey)
-    
-    print('question_id' in session)
+    #print(from_num)
+    #print(to_num)
+    #print(message_text)
+    #print(survey)
+    #print('question_id' in session)
 
     if survey_error(survey, response.message):
         return str(response)
@@ -40,6 +23,19 @@ def sms_survey():
         response.redirect(url_for('answer',
                                   question_id=session['question_id']))
     else:
+        from_num = request.values['From']
+        to_num = request.values['To']
+        
+        messages = client.messages.list(from_=to_num, to=from_num, limit=1)
+        message_text = messages[0].body
+        
+        if message_text == "Ready to take survey 1?":
+            survey = Survey.query.get(1)
+        elif message_text == "Ready to take survey 2?":
+            survey = Survey.query.get(2)
+        else:
+            print("Sorry couldn't figure it out")
+        
         welcome_user(survey, response.message)
         redirect_to_first_question(response, survey)
     return str(response)
