@@ -16,9 +16,6 @@ def sms_survey():
     #print(survey)
     print('question_id' in session)
 
-    if survey_error(survey, response.message):
-        return str(response)
-
     if 'question_id' in session:
         response.redirect(url_for('answer',
                                   question_id=session['question_id']))
@@ -35,6 +32,9 @@ def sms_survey():
             survey = Survey.query.get(2)
         else:
             print("Sorry couldn't figure it out")
+            
+        if survey_error(survey, response.message):
+            return str(response)
         
         welcome_user(survey, response.message)
         redirect_to_first_question(response, survey)
