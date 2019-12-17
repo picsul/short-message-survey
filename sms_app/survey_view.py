@@ -8,16 +8,6 @@ from sms_app.send_sms import client
 def sms_survey():
     response = MessagingResponse()
 
-    #survey = Survey.query.first()
-    
-    #print(from_num)
-    #print(to_num)
-    #print(message_text)
-    #print(survey)
-    print('question_id' in session)
-    
-    #print(session['question_id'])
-
     if 'question_id' in session:
         response.redirect(url_for('answer',
                                   question_id=session['question_id']))
@@ -33,7 +23,7 @@ def sms_survey():
         elif message_text == "Ready to take survey 2?":
             survey = Survey.query.get(2)
         else:
-            print("Sorry couldn't figure it out")
+            survey = Survey.query.first()
             
         if survey_error(survey, response.message):
             return str(response)
