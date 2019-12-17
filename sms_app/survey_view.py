@@ -16,7 +16,7 @@ def sms_survey():
     #print(survey)
     print('question_id' in session)
     
-    print(session['question_id'])
+    #print(session['question_id'])
 
     if 'question_id' in session:
         response.redirect(url_for('answer',
