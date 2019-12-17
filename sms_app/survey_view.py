@@ -20,6 +20,8 @@ def sms_survey():
     
     message_text = messages[0].body
     
+    print(message_text)
+    
     if message_text == "Ready to take survey 1?":
         survey = Survey.query.get(1)
     elif message_text == "Ready to take survey 2?":
