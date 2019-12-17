@@ -13,6 +13,9 @@ def sms_survey():
     from_num = request.values['From']
     to_num = request.values['To']
     
+    print(from_num)
+    print(to_num)
+    
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     
     message_text = messages[0].body
