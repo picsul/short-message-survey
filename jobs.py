@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from sms_app.send_sms import outgoing_sms
+from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers
 
 sched = BlockingScheduler()
 
@@ -7,12 +7,16 @@ sched = BlockingScheduler()
 #def josh_message():
 #    outgoing_sms('+18652361445', 'Come on, man!')
 
-@sched.scheduled_job('cron', day_of_week='sun', hour='20', minute='40', timezone='America/New_York')
-def josh_message():
-    outgoing_sms('+18652361445', 'I hope you get this, man!')
+#@sched.scheduled_job('cron', day_of_week='sun', hour='20', minute='40', timezone='America/New_York')
+#def josh_message():
+#    outgoing_sms('+18652361445', 'I hope you get this, man!')
     
-@sched.scheduled_job('cron', day_of_week='sun', hour='20', minute='45', timezone='America/New_York')
-def josh_message():
-    outgoing_sms('+15172400923', 'I hope you get this, man!')
-
+@sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 9:30:00', end_date = '2020-05-12 10:00:00', timezone='America/New_York')
+def pre_survey():
+    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
+    
+@sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 11:15:00', end_date = '2020-05-12 12:00:00', timezone='America/New_York')
+def post_survey():
+    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 2?')
+        
 sched.start()
