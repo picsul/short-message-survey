@@ -30,6 +30,8 @@ def sms_survey():
         print("Sorry couldn't figure it out")
         
     print(survey)
+    
+    print('question_id' in session:)
 
     if survey_error(survey, response.message):
         return str(response)
