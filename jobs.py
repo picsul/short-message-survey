@@ -7,9 +7,9 @@ sched = BlockingScheduler()
 #def josh_message():
 #    outgoing_sms('+18652361445', 'Come on, man!')
 
-#@sched.scheduled_job('cron', day_of_week='sun', hour='20', minute='40', timezone='America/New_York')
-#def josh_message():
-#    outgoing_sms('+18652361445', 'I hope you get this, man!')
+@sched.scheduled_job('cron', day_of_week='tue', hour='03', minute='05', timezone='America/New_York')
+def message():
+    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 2?')
     
 @sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 9:30:00', end_date = '2020-05-12 10:00:00', timezone='America/New_York')
 def pre_survey():
