@@ -1,16 +1,20 @@
 {
   "questions": [
     {
-      "body": "On a scale of 1-5, how anxious do you expect to feel in class? (1 = not at all anxious, 5 = extremely anxious)",
+      "body": "What is your full name?",
+      "type": "text"
+    },
+    {
+      "body": "Are you a computer science (CS) major?",
+      "type": "boolean"
+    },
+    {
+      "body": "On a scale of 1-7, how interested are you in what you're doing right now?",
       "type": "numeric"
     },
     {
-      "body": "On a scale of 1-5, how bored do you expect to feel in class? (1 = not at all bored, 5 = extremely bored)",
-      "type": "numeric"
-    },
-    {
-      "body": "On a scale of 1-5, how much do you expect to feel enjoyment in class? (1 = no enjoyment at all, 5 = maxiumum enjoyment)",
-      "type": "numeric"
+      "body": "Describe how you feel about what you're doing right now.",
+      "type": "text"
     }
   ],
   "title": "Survey"
