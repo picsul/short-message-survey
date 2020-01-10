@@ -38,3 +38,12 @@ def survey_error(survey, send_function):
         send_function('Sorry, there are no questions for this survey.')
         return True
     return False
+
+# Static Response 
+@app.route('/static')
+def sms_survey():
+    resp = MessagingResponse()
+    
+    resp.message("Please use the link above to access the survey.")
+    
+    return str(resp)
