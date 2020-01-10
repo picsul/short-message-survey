@@ -41,7 +41,7 @@ def survey_error(survey, send_function):
 
 # Static Response 
 @app.route('/static')
-def sms_survey():
+def sms_static():
     resp = MessagingResponse()
     
     resp.message("Please use the link above to access the survey.")
