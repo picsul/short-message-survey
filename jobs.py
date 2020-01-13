@@ -4,7 +4,7 @@ from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers
 sched = BlockingScheduler()
 
 usc_numbers = ['+18652361445', '+12022588130', '+18186205367', '+18593947313']
-picsul_numbers = ['+15172400923', '+18652361445', '+15127551139']
+picsul_numbers = ['+15172400923', '+18652361445']
 
 # test jobs
 
@@ -12,11 +12,11 @@ picsul_numbers = ['+15172400923', '+18652361445', '+15127551139']
 def josh_message():
     message_the_list(picsul_numbers, 'Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: http://bit.ly/sm-math')
    
-@sched.scheduled_job('cron', day_of_week='sun', hour='21', minute='59', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='09', minute='19', timezone='America/New_York')
 def test_demo_1():
     message_the_list(picsul_numbers,'Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: http://bit.ly/sm-math')
 
-@sched.scheduled_job('cron', day_of_week='sun', hour='22', minute='00', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='09', minute='35', timezone='America/New_York')
 def test_demo_2():
     message_the_list(picsul_numbers,'Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: http://bit.ly/sm-math')
 
