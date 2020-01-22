@@ -7,9 +7,22 @@ sched = BlockingScheduler()
 #def josh_message():
 #    outgoing_sms('+18652361445', 'Come on, man!')
 
+new_list = ['+15172400923']
+
 @sched.scheduled_job('cron', day_of_week='wed', hour='12', minute='18', timezone='America/New_York')
 def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
+    
+
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='59', timezone='America/New_York')
+def message():
+    message_the_list(new_list, '+19179949576', 'Ready to take survey 1?')
+    
+
+@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='04', timezone='America/New_York')
+def message():
+    message_the_list(new_list, '+19179949576', 'Ready to take survey 2?')
+        
     
 @sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 9:30:00', end_date = '2020-05-12 10:00:00', timezone='America/New_York')
 def pre_survey():
