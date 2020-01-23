@@ -14,12 +14,12 @@ def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='59', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='thu', hour='12', minute='35', timezone='America/New_York')
 def message():
     message_the_list(new_list, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='04', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='thu', hour='12', minute='40', timezone='America/New_York')
 def message():
     message_the_list(new_list, '+19179949576', 'Ready to take survey 2?')
         
