@@ -7,6 +7,8 @@ from sms_app.send_sms import client
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
+    
+    print(request.values)
 
     if 'question_id' in session:
         response.redirect(url_for('answer',
