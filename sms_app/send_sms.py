@@ -15,15 +15,6 @@ def outgoing_sms(number, origin, body):
                      from_= origin,
                      to = number 
                  )
-    
-    try:
-        print(session)
-        del session['question_id']
-        del session['start_time']
-    except NameError:
-        pass
-    except KeyError:
-        pass
 
     print(message.sid)
 
