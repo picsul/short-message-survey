@@ -1,4 +1,4 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
+l need morfrom apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers
 
 sched = BlockingScheduler()
@@ -14,12 +14,12 @@ def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='fri', hour='11', minute='08', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='fri', hour='11', minute='16', timezone='America/New_York')
 def message():
     message_the_list(new_list, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='12', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='fri', hour='11', minute='20', timezone='America/New_York')
 def message():
     message_the_list(new_list, '+19179949576', 'Ready to take survey 2?')
         
