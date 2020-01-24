@@ -10,6 +10,18 @@ def sms_survey():
     response = MessagingResponse()
     
     now = datetime.datetime.now()
+    
+    from_num = request.values['From']
+    to_num = request.values['To']
+       
+    messages = client.messages.list(from_=to_num, to=from_num, limit=1)
+    message_text = messages[0].body
+    
+    if message_text == "Ready to take survey 1?" or message_text == "Ready to take survey 2?":
+        if 'question_id' in session:
+            del session['question_id']
+        if 'start_time' in session:
+            del session['start_time']
 
     if 'question_id' in session:
         delta = now - session['start_time']
@@ -20,12 +32,6 @@ def sms_survey():
         else:
             response.redirect(url_for('answer', question_id=session['question_id']))
     else:
-        from_num = request.values['From']
-        to_num = request.values['To']
-        
-        messages = client.messages.list(from_=to_num, to=from_num, limit=1)
-        message_text = messages[0].body
-        
         if message_text == "Ready to take survey 1?":
             survey = Survey.query.get(1)
         elif message_text == "Ready to take survey 2?":
