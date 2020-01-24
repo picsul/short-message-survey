@@ -1,6 +1,7 @@
 from twilio.rest import Client
 import os
 from .models import Number
+from Flask import session
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
@@ -14,6 +15,14 @@ def outgoing_sms(number, origin, body):
                      from_= origin,
                      to = number 
                  )
+    
+    try:
+        del session['question_id']
+        del session['start_time']
+    except NameError:
+        pass
+    except KeyError:
+        pass
 
     print(message.sid)
 
