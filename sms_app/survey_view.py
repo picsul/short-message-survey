@@ -3,16 +3,22 @@ from .models import Survey
 from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
 from sms_app.send_sms import client
+import datetime
 
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
     
-    print(request.values)
+    now = datetime.datetime.now()
 
     if 'question_id' in session:
-        response.redirect(url_for('answer',
-                                  question_id=session['question_id']))
+        delta = now - session['start_time']
+        if delta.seconds > 300:
+            del session['start_time']
+            del session['question_id']
+            response.message("The time to complete the survey has expired")
+        else:
+            response.redirect(url_for('answer', question_id=session['question_id']))
     else:
         from_num = request.values['From']
         to_num = request.values['To']
@@ -38,7 +44,7 @@ def sms_survey():
 def redirect_to_first_question(response, survey):
     first_question = survey.questions.order_by('id').first()
     first_question_url = url_for('question', question_id=first_question.id)
-    print("Session.permanent equals", session.permanent)
+    session['start_time'] = datetime.datetime.now()
     response.redirect(url=first_question_url, method='GET')
 
 
