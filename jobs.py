@@ -14,7 +14,7 @@ def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='fri', hour='11', minute='06', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='fri', hour='11', minute='08', timezone='America/New_York')
 def message():
     message_the_list(new_list, '+19179949576', 'Ready to take survey 1?')
     
