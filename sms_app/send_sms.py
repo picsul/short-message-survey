@@ -1,7 +1,7 @@
 from twilio.rest import Client
 import os
 from .models import Number
-from Flask import session
+from flask import session
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
