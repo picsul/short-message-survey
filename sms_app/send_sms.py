@@ -17,6 +17,7 @@ def outgoing_sms(number, origin, body):
                  )
     
     try:
+        print(session)
         del session['question_id']
         del session['start_time']
     except NameError:
