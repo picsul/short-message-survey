@@ -39,3 +39,8 @@ for i in range(0, Number.query.count()):
 def message_the_list(num_list, body):
     for num in num_list:
         outgoing_sms(num, body)
+        
+         
+def message_the_list_unique(num_list, body):
+    for num, mess in zip(num_list, body):
+        outgoing_sms(num, mess)
