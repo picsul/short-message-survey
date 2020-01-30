@@ -59,7 +59,7 @@ def test_message():
 ### SURVEY MESSAGE JOBS
 
 
-@sched.scheduled_job('cron', day_of_week='thu', hour='13', minute='36', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='thu', hour='13', minute='39', timezone='America/New_York')
 def test_message_2():
     message_the_list(picsul_numbers, "test message")
 
