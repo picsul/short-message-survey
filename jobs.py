@@ -43,7 +43,7 @@ names = ['Alex', 'Josh']
 
 test_links = ["https://usc-survey.herokuapp.com/", "https://hunter-college-survey.herokuapp.com/"]
 
-@sched.scheduled_job('cron', day_of_week='thu', hour='12', minute='40', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='thu', hour='12', minute='46', timezone='America/New_York')
 def test_message():
     static = " should get link "
 
