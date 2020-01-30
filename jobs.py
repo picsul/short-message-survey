@@ -55,13 +55,70 @@ def test_message():
         comb_message.append(name + static + link)
 
     message_the_list_unique(picsul_numbers, comb_message)
+
+    
+@sched.scheduled_job('cron', day_of_week='thu', hour='16', minute='45', timezone='US/Eastern')
+def test_message_2():
+    message_the_list(usc_numbers, "You should receive 4 test messages over the next 4 hours, starting in 15 minutes, let me know if you don't, and no need to click the links.")    
+    
+    
+# Eastern time test
+@sched.scheduled_job('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Eastern')
+def eastern_message_test():
+    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+
+    comb_message = []
+
+    links = pacific_links + mountain_links
+
+    for link in links:
+        comb_message.append(static + link)
+
+    message_the_list_unique(usc_numbers, comb_message)
+   
+# Central time people
+@sched.scheduled_job('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Central')
+def central_message_test():
+    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+
+    comb_message = []
+
+    links = pacific_links + mountain_links
+
+    for link in links:
+        comb_message.append(static + link)
+
+    message_the_list_unique(usc_numbers, comb_message)
+    
+# Mountain time people
+@sched.scheduled_job('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Mountain')
+def mountain_message_test():
+    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+
+    comb_message = []
+
+    links = pacific_links + mountain_links
+
+    for link in links:
+        comb_message.append(static + link)
+
+    message_the_list_unique(usc_numbers, comb_message)
+
+# Pacific time people
+@sched.scheduled_job_test('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Pacific')
+def pacific_message():
+    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+
+    comb_message = []
+
+    links = pacific_links + mountain_links
+
+    for link in links:
+        comb_message.append(static + link)
+
+    message_the_list_unique(usc_numbers, comb_message)
       
 ### SURVEY MESSAGE JOBS
-
-
-@sched.scheduled_job('cron', day_of_week='thu', hour='15', minute='40', timezone='US/Eastern')
-def test_message_2():
-    message_the_list(picsul_numbers, "test message")
 
 # Eastern time people
 @sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
