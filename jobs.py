@@ -105,8 +105,8 @@ def mountain_message_test():
     message_the_list_unique(usc_numbers, comb_message)
 
 # Pacific time people
-@sched.scheduled_job_test('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Pacific')
-def pacific_message():
+@sched.scheduled_job('cron', day_of_week='thu', hour='17', minute='00', timezone='US/Pacific')
+def pacific_message_test():
     static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
 
     comb_message = []
