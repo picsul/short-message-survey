@@ -122,7 +122,7 @@ def pacific_message_test():
 # Eastern time people
 @sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
 def eastern_message():
-    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+    static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
 
@@ -136,7 +136,7 @@ def eastern_message():
 # Central time people
 @sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Central')
 def central_message():
-    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+    static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
 
@@ -150,7 +150,7 @@ def central_message():
 # Mountain time people
 @sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Mountain')
 def mountain_message():
-    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+    static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
 
@@ -164,7 +164,7 @@ def mountain_message():
 # Pacific time people
 @sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Pacific')
 def pacific_message():
-    static = "Please complete this short survey related to your teaching and the planning related to your teaching over the past few days: "
+    static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
 
