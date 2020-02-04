@@ -31,7 +31,7 @@ for i in range(0, Number.query.count()):
 
 def message_the_list(num_list, body, from_num):
     for num in num_list:
-        outgoing_sms(num, body, from)
+        outgoing_sms(num, body, from_num)
         
          
 def message_the_list_unique(num_list, body, from_num):
