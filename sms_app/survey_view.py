@@ -53,5 +53,5 @@ def sms_static():
          resp.message("Please respond with A, B, C, or D")
          return str(resp)
     else:
-        resp.message("Thanks for providing that information!.")
+        resp.message("Thanks for providing that information!")
         return str(resp)
