@@ -7,9 +7,9 @@ usc_numbers = ['+18652361445', '+12022588130', '+18186205367', '+18593947313', '
 picsul_numbers = ['+15172400923', '+18652361445']
 alex_numbers = ['+15172400923']
 
-twilio_numbers = ['+18652369199', '+18652369184']
+twilio_numbers = ['+18652639199', '+18652639184']
 
-@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='29', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='37', timezone='US/Eastern')
 def test_message():
     message_the_list(alex_numbers, "Hey", twilio_numbers[1])
    
