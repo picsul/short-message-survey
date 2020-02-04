@@ -13,8 +13,8 @@ twilio_numbers = ['+18652639199', '+18652639184']
 def test_message():
     message_the_list(picsul_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
 
-@sched.scheduled_job('cron', day_of_week='tue', hour='16', minute='33', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='tue', hour='16', minute='38', timezone='US/Eastern')
 def section_query_message():
-    message_the_list(alex_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
+    message_the_list(list_of_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
    
 sched.start()
