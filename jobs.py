@@ -9,8 +9,9 @@ alex_numbers = ['+15172400923']
 
 twilio_numbers = ['+18652639199', '+18652639184']
 
-@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='37', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='51', timezone='US/Eastern')
 def test_message():
-    message_the_list(alex_numbers, "Hey", twilio_numbers[1])
+    message_the_list(alex_numbers, "Thank you for participating in our CS education study! Please indicate the start time of your lab section by responding with one of the following letters or times: A (12:20), B (1:25), C (2:30), or D (3:35).
+", twilio_numbers[1])
    
 sched.start()
