@@ -1,6 +1,6 @@
 from . import app
 from .models import Survey
-from flask import url_for, session
+from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
 
 @app.route('/message')
@@ -44,6 +44,8 @@ def survey_error(survey, send_function):
 @app.route('/static')
 def sms_static():
     resp = MessagingResponse()
+    
+    print(request.values['Body'])
     
     resp.message("Please use the link above to access the survey.")
     
