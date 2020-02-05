@@ -32,7 +32,7 @@ def redirect_twiml(question):
 def goodbye_twiml():
     if is_sms_request():
         response = MessagingResponse()
-        response.message("Thank you for answering our survey. Good bye!")
+        response.message("Thanks!")
     if 'question_id' in session:
         del session['question_id']
         del session['start_time']
