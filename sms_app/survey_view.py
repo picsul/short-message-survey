@@ -35,7 +35,7 @@ def sms_survey():
     
     # new code with 5 minute time limit, and reprompt reset
 
-    if message_text == "Are you ready to take the COSC 102 survey? It'll only take a minute.":
+    if message_text == "Are you ready to take the COSC 102 survey? Please respond when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes.":
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
@@ -68,7 +68,7 @@ def redirect_to_first_question(response, survey):
 
 def welcome_user(survey, send_function):
     #welcome_text = 'Welcome to the %s' % survey.title
-    welcome_text = 'Please answer the following 4 questions on your feelings about COSC 102 on a scale of 1 - 5: 1 = not at all, 5 = a lot' 
+    welcome_text = 'Please indicate your agreement with the following statements with respect to your last COSC 102 class on a 1 - 5 scale, with 1 indicating strong disagreement, 3 indicating that you neither agree nor disagree, and 5 indicating strong agreement.' 
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
