@@ -1,5 +1,6 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
+from sms_app.models import Number
 
 sched = BlockingScheduler()
 
