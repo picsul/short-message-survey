@@ -28,7 +28,7 @@ def redirect_to_first_question(response, survey):
 
 def welcome_user(survey, send_function):
     #welcome_text = 'Welcome to the %s' % survey.title
-    welcome_text = 'Please answer the following questions on a scale of 1 - 5 with 1 meaning not at all and 5 meaning a lot' 
+    welcome_text = 'Please answer the following 4 questions on your feelings about COSC 102 on a scale of 1 - 5: 1 = not at all, 5 = a lot' 
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
