@@ -2,23 +2,62 @@ from . import app
 from .models import Survey
 from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
+from sms_app.send_sms import client
+import datetime
 
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
+    
+    now = datetime.datetime.now()
+    
+    # Get the to/from numbers from the latest request
+    from_num = request.values['From']
+    to_num = request.values['To']
+       
+    # Get the message most recently sent from us
+    messages = client.messages.list(from_=to_num, to=from_num, limit=1)
+    message_text = messages[0].body
 
-    survey = Survey.query.first()
-    if survey_error(survey, response.message):
-        return str(response)
+    
+    # old code
+    #survey = Survey.query.first()
+    #if survey_error(survey, response.message):
+    #    return str(response)
+
+    #if 'question_id' in session:
+    #    response.redirect(url_for('answer',
+    #                              question_id=session['question_id']))
+    #else:
+    #    welcome_user(survey, response.message)
+    #    redirect_to_first_question(response, survey)
+    #return str(response)
+    
+    # new code with 5 minute time limit, and reprompt reset
+
+    if message_text == "Are you ready to take the COSC 102 survey? It'll only take a minute.":
+        if 'question_id' in session:
+            del session['question_id']
+        if 'start_time' in session:
+            del session['start_time']
 
     if 'question_id' in session:
-        response.redirect(url_for('answer',
-                                  question_id=session['question_id']))
+        delta = now - session['start_time']
+        if delta.seconds > 300:
+            del session['start_time']
+            del session['question_id']
+            response.message("The time to complete the survey has expired")
+        else:
+            response.redirect(url_for('answer', question_id=session['question_id']))
     else:
+        survey = Survey.query.first()
+            
+        if survey_error(survey, response.message):
+            return str(response)
+        
         welcome_user(survey, response.message)
         redirect_to_first_question(response, survey)
     return str(response)
-
 
 def redirect_to_first_question(response, survey):
     first_question = survey.questions.order_by('id').first()
