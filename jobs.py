@@ -63,22 +63,35 @@ for thing in dez:
 # Initial Prompt message
 prompt = "Are you ready to take the survey?"
 
-# Section 1
+# Test
+@sched.scheduled_job('cron', day_of_week='wed', hour='09', minute='25', timezone='US/Eastern')
+def test_message():
+    print("A Numbers:")
+    print(a_numbers)
+    print("B Numbers:")
+    print(b_numbers)
+    print("C Numbers:")
+    print(c_numbers)
+    print("D Numbers:")
+    print(d_numbers)
+    message_the_list(alex_numbers, prompt, twilio_numbers[0])
+
+# Section A
 @sched.scheduled_job('cron', day_of_week='wed', hour='13', minute='15', timezone='US/Eastern')
-def section_query_message():
+def section_a_prompt():
     message_the_list(a_numbers, prompt, twilio_numbers[0])
     
-# Section 2
+# Section B
 @sched.scheduled_job('cron', day_of_week='wed', hour='14', minute='20', timezone='US/Eastern')
-def section_query_message():
+def section_b_prompt():
     message_the_list(b_numbers, prompt, twilio_numbers[0])
     
-# Section 3
+# Section C
 @sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='25', timezone='US/Eastern')
 def section_query_message():
     message_the_list(c_numbers, prompt, twilio_numbers[0])
 
-# Section 4
+# Section D
 @sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='30', timezone='US/Eastern')
 def section_query_message():
     message_the_list(d_numbers, prompt, twilio_numbers[0])
