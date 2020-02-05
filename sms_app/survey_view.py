@@ -62,6 +62,7 @@ def sms_survey():
 def redirect_to_first_question(response, survey):
     first_question = survey.questions.order_by('id').first()
     first_question_url = url_for('question', question_id=first_question.id)
+    session['start_time'] = datetime.datetime.now()
     response.redirect(url=first_question_url, method='GET')
 
 
