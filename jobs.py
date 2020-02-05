@@ -72,9 +72,9 @@ for thing in dez:
 prompt = "Are you ready to take the COSC 102 survey? It'll only take a minute."
 
 # Test
-@sched.scheduled_job('cron', day_of_week='wed', hour='09', minute='45', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='wed', hour='10', minute='28', timezone='US/Eastern')
 def test_message():
-    message_the_list(picsul_numbers, prompt, twilio_numbers[0])
+    message_the_list(alex_numbers, prompt, twilio_numbers[0])
 
 # Section A
 @sched.scheduled_job('cron', day_of_week='wed', hour='13', minute='15', timezone='US/Eastern')
