@@ -62,6 +62,22 @@ eastern_links = ["https://usc.qualtrics.com/jfe/form/SV_4O71QSUkeKYWL1X?Q_DL=bmD
 #@sched.scheduled_job('cron', day_of_week='thu', hour='16', minute='45', timezone='US/Eastern')
 #def test_message_2():
 #    message_the_list(usc_numbers, "You should receive 4 test messages over the next 4 hours, starting in 15 minutes, let me know if you don't, and no need to click the links.")    
+
+test_links = ["www.google.com"]
+
+@sched.scheduled_job('cron', day_of_week='thu', hour='13', minute='55', timezone='US/Eastern')
+def test_message_2():
+    static = "Hi, the link is: "
+    
+    comb_message = []
+    
+    for link in links:
+        comb_message.append(static + link)
+        
+    numbers = Number.query.filter_by(name = 'alex').all()
+  
+    message_the_list_unique(numbers, comb_message)
+    
     
     
 ### SURVEY MESSAGE JOBS
