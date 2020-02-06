@@ -1,5 +1,6 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
+from sms_app.models import Number
 
 sched = BlockingScheduler()
 
@@ -65,7 +66,7 @@ eastern_links = ["https://usc.qualtrics.com/jfe/form/SV_4O71QSUkeKYWL1X?Q_DL=bmD
 
 test_links = ["www.google.com"]
 
-@sched.scheduled_job('cron', day_of_week='thu', hour='14', minute='57', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='thu', hour='15', minute='03', timezone='US/Eastern')
 def test_message_2():
     static = "Hi, the link is: "
     
