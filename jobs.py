@@ -65,7 +65,7 @@ eastern_links = ["https://usc.qualtrics.com/jfe/form/SV_4O71QSUkeKYWL1X?Q_DL=bmD
 
 test_links = ["www.google.com"]
 
-@sched.scheduled_job('cron', day_of_week='thu', hour='13', minute='55', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='thu', hour='14', minute='57', timezone='US/Eastern')
 def test_message_2():
     static = "Hi, the link is: "
     
