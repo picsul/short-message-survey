@@ -71,7 +71,7 @@ def test_message_2():
     
     comb_message = []
     
-    for link in links:
+    for link in test_links:
         comb_message.append(static + link)
         
     numbers = Number.query.filter_by(name = 'alex').all()
