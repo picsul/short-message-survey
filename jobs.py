@@ -10,28 +10,14 @@ alex_numbers = ['+15172400923']
 
 twilio_numbers = ['+18652639199', '+18652639184']
 
-stragglers = Number.query.filter_by(name = "NA").all()
-
-straggle_numbers = []
-
-for thing in stragglers:
-    straggle_numbers.append(thing.number)
-
-@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='59', timezone='US/Eastern')
-def test_message():
-    message_the_list(picsul_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
-
-@sched.scheduled_job('cron', day_of_week='wed', hour='09', minute='50', timezone='US/Eastern')
-def section_query_message():
-    message_the_list(straggle_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
-   
+#@sched.scheduled_job('cron', day_of_week='tue', hour='15', minute='59', timezone='US/Eastern')
+#def test_message():
+#    message_the_list(picsul_numbers, "Thank you for participating in our CS education study. Please indicate the start time of your COSC 102 lab section by responding with one of the following options: A (12:20), B (1:25), C (2:30), or D (3:35).", twilio_numbers[1])
 
 # section times 1220, 125, 230, 335, all 50 minutes long
 # launch times 115 220 325 430
 
-
 # Get the numbers from the database
-
 # Section A
 
 ace = Number.query.filter_by(name = "A").all()
@@ -72,26 +58,50 @@ for thing in dez:
 prompt = "Are you ready to take the COSC 102 survey? Please respond when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes."
 
 # Test
-@sched.scheduled_job('cron', day_of_week='wed', hour='12', minute='47', timezone='US/Eastern')
-def test_message():
-    message_the_list(picsul_numbers, prompt, twilio_numbers[0])
+#@sched.scheduled_job('cron', day_of_week='wed', hour='12', minute='47', timezone='US/Eastern')
+#def test_message():
+#    message_the_list(picsul_numbers, prompt, twilio_numbers[0])
 
 # Section A
+# Tuesday after Lecture
+@sched.scheduled_job('cron', day_of_week='tue', hour='11', minute='00', timezone='US/Eastern')
+def section_a_prompt():
+    message_the_list(a_numbers, prompt, twilio_numbers[0])
+
+# Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='13', minute='15', timezone='US/Eastern')
 def section_a_prompt():
     message_the_list(a_numbers, prompt, twilio_numbers[0])
     
 # Section B
+# Tuesday after lecture
+@sched.scheduled_job('cron', day_of_week='tue', hour='11', minute='00', timezone='US/Eastern')
+def section_b_prompt():
+    message_the_list(b_numbers, prompt, twilio_numbers[0])
+
+# Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='14', minute='20', timezone='US/Eastern')
 def section_b_prompt():
     message_the_list(b_numbers, prompt, twilio_numbers[0])
     
 # Section C
+# Tuesday after lecture
+@sched.scheduled_job('cron', day_of_week='tue', hour='11', minute='00', timezone='US/Eastern')
+def section_query_message():
+    message_the_list(c_numbers, prompt, twilio_numbers[0])
+
+# Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='25', timezone='US/Eastern')
 def section_query_message():
     message_the_list(c_numbers, prompt, twilio_numbers[0])
 
 # Section D
+# Tuesday after lecture
+@sched.scheduled_job('cron', day_of_week='tue', hour='11', minute='00', timezone='US/Eastern')
+def section_query_message():
+    message_the_list(d_numbers, prompt, twilio_numbers[0])
+    
+# Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='30', timezone='US/Eastern')
 def section_query_message():
     message_the_list(d_numbers, prompt, twilio_numbers[0])
