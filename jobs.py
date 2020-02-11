@@ -32,7 +32,7 @@ picsul_numbers = ['+15172400923', '+18652361445']
 #def test_message_2():
 #    message_the_list(usc_numbers, "You should receive 4 test messages over the next 4 hours, starting in 15 minutes, let me know if you don't, and no need to click the links.")    
 
-test_lintimezones = [
+timezones = [
 'US/Pacific',
 'US/Eastern',
 'US/Central',
