@@ -153,7 +153,7 @@ def test_message_2():
 ### SURVEY MESSAGE JOBS
 
 # Eastern time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='tue', hour='17', minute='00', timezone='US/Eastern')
 def eastern_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
@@ -172,7 +172,7 @@ def eastern_message():
     message_the_list_unique(eastern_numbers, comb_message)
    
 # Central time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Central')
+@sched.scheduled_job('cron', day_of_week='tue', hour='17', minute='00', timezone='US/Central')
 def central_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
@@ -191,7 +191,7 @@ def central_message():
     message_the_list_unique(central_numbers, comb_message)
     
 # Mountain time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Mountain')
+@sched.scheduled_job('cron', day_of_week='tue', hour='17', minute='00', timezone='US/Mountain')
 def mountain_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
@@ -210,7 +210,7 @@ def mountain_message():
     message_the_list_unique(mountain_numbers, comb_message)
 
 # Pacific time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Pacific')
+@sched.scheduled_job('cron', day_of_week='tue', hour='17', minute='00', timezone='US/Pacific')
 def pacific_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
