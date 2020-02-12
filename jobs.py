@@ -14,15 +14,14 @@ def message():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
     
 
-@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='23', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='wed', hour='13', minute='30', timezone='America/New_York')
 def message():
-    message_the_list(new_list, '+19179949576', 'Ready to take survey 1?')
+    message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
     
 
-@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='28', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='fri', hour='13', minute='35', timezone='America/New_York')
 def message():
-    message_the_list(new_list, '+19179949576', 'Ready to take survey 2?')
-        
+    message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
     
 @sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 9:30:00', end_date = '2020-05-12 10:00:00', timezone='America/New_York')
 def pre_survey():
