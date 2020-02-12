@@ -20,11 +20,12 @@ def outgoing_sms(number, origin, body):
 
 list_of_numbers = [] 
 
-for i in range(0, Number.query.count()):
-    num = Number.query.get(i+1)
-    list_of_numbers.append(num.number)
+#for i in range(0, Number.query.count()):
+#    num = Number.query.get(i+1)
+#    list_of_numbers.append(num.number)
 
     
 def message_the_list(num_list, origin, body):
     for num in num_list:
         outgoing_sms(num, origin, body)
+postgresql-s
