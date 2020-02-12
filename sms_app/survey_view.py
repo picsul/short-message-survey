@@ -17,7 +17,7 @@ def sms_survey():
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
     
-    if message_text == "Ready to take survey 1?" or message_text == "Ready to take survey 2?":
+    if message_text == "Ready to take the CSci 127 pre-class survey?" or message_text == "Ready to take the CSci 127 post-class survey?":
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
@@ -32,9 +32,9 @@ def sms_survey():
         else:
             response.redirect(url_for('answer', question_id=session['question_id']))
     else:
-        if message_text == "Ready to take survey 1?":
+        if message_text == "Ready to take the CSci 127 pre-class survey?":
             survey = Survey.query.get(1)
-        elif message_text == "Ready to take survey 2?":
+        elif message_text == "Ready to take the CSci 127 post-class survey?":
             survey = Survey.query.get(2)
         else:
             survey = Survey.query.first()
