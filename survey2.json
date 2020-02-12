@@ -1,15 +1,15 @@
 {
   "questions": [
     {
-      "body": "On a scale of 1-5, how anxious do you expect to feel in class? (1 = not at all anxious, 5 = extremely anxious)",
+      "body": "I thought class was boring today.",
       "type": "numeric"
     },
     {
-      "body": "On a scale of 1-5, how bored do you expect to feel in class? (1 = not at all bored, 5 = extremely bored)",
+      "body": "I enjoyed class today",
       "type": "numeric"
     },
     {
-      "body": "On a scale of 1-5, how much do you expect to feel enjoyment in class? (1 = no enjoyment at all, 5 = maxiumum enjoyment)",
+      "body": "I felt anxious in class today.",
       "type": "numeric"
     }
   ],
