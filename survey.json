@@ -1,20 +1,16 @@
 {
   "questions": [
     {
-      "body": "What is your full name?",
-      "type": "text"
-    },
-    {
-      "body": "Are you a computer science (CS) major?",
-      "type": "boolean"
-    },
-    {
-      "body": "On a scale of 1-7, how interested are you in what you're doing right now?",
+      "body": "I expect class to be boring today.",
       "type": "numeric"
     },
     {
-      "body": "Describe how you feel about what you're doing right now.",
-      "type": "text"
+      "body": "I expect to enjoy class today.",
+      "type": "numeric"
+    },
+    {
+      "body": "I expect to feel anxious in class today",
+      "type": "numeric"
     }
   ],
   "title": "Survey"
