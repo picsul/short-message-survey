@@ -28,4 +28,3 @@ list_of_numbers = []
 def message_the_list(num_list, origin, body):
     for num in num_list:
         outgoing_sms(num, origin, body)
-postgresql-s
