@@ -34,15 +34,18 @@ def sms_survey():
     else:
         if message_text == "Ready to take the CSci 127 pre-class survey?":
             survey = Survey.query.get(1)
+            survey_number = 1
         elif message_text == "Ready to take the CSci 127 post-class survey?":
             survey = Survey.query.get(2)
+            survey_number = 2
         else:
             survey = Survey.query.first()
+            survey_number = 1
             
         if survey_error(survey, response.message):
             return str(response)
         
-        welcome_user(survey, response.message)
+        welcome_user(survey, response.message, survey_number)
         redirect_to_first_question(response, survey)
     return str(response)
 
@@ -54,8 +57,11 @@ def redirect_to_first_question(response, survey):
     response.redirect(url=first_question_url, method='GET')
 
 
-def welcome_user(survey, send_function):
-    welcome_text = 'Welcome to the %s' % survey.title
+def welcome_user(survey, send_function, survey_number):
+    if survey_number == 1:
+        welcome_text = 'Please only answer these questions if you have consented to participating in the study. Please answer the following three questions about your upcoming computer science class (CSci 127). Text “STOP” to withdraw from the study.'
+    if survey_number == 2:
+        welcome_text = 'Please answer the following three questions about your computer science class (CSci 127). Text “STOP” to withdraw from the study.'
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
