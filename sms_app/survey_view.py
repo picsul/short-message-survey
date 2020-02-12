@@ -59,9 +59,9 @@ def redirect_to_first_question(response, survey):
 
 def welcome_user(survey, send_function, survey_number):
     if survey_number == 1:
-        welcome_text = 'Please only answer these questions if you have consented to participating in the study. Please answer the following three questions about your upcoming computer science class (CSci 127). Text “STOP” to withdraw from the study.'
+        welcome_text = 'Please only answer these questions if you have consented to participating in the study. Please answer the following three questions about your upcoming computer science class (CSci 127) on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree). Text “STOP” to withdraw from the study.'
     if survey_number == 2:
-        welcome_text = 'Please answer the following three questions about your computer science class (CSci 127). Text “STOP” to withdraw from the study.'
+        welcome_text = 'Please answer the following three questions about your computer science class (CSci 127) on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree). Text “STOP” to withdraw from the study.'
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
