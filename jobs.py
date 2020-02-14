@@ -87,26 +87,11 @@ links_w4_fri = ['https://usc.qualtrics.com/jfe/form/SV_eVdRktZlwZTCcPX?Q_DL=2lTd
 'https://usc.qualtrics.com/jfe/form/SV_eVdRktZlwZTCcPX?Q_DL=2lTdCe7RGfx5Op7_eVdRktZlwZTCcPX_MLRP_5ijiq8AYRMCiZ7L&Q_CHL=gl',
 'https://usc.qualtrics.com/jfe/form/SV_eVdRktZlwZTCcPX?Q_DL=2lTdCe7RGfx5Op7_eVdRktZlwZTCcPX_MLRP_1yTlsuplG4THHUh&Q_CHL=gl',
 'https://usc.qualtrics.com/jfe/form/SV_eVdRktZlwZTCcPX?Q_DL=2lTdCe7RGfx5Op7_eVdRktZlwZTCcPX_MLRP_1B4qLoACivOVvLf&Q_CHL=gl']
-
-@sched.scheduled_job('cron', day_of_week='thu', hour='15', minute='03', timezone='US/Eastern')
-def test_message_2():
-    static = "Hi, the link is: "
-    
-    comb_message = []
-    
-    for link in test_links:
-        comb_message.append(static + link)
-        
-    numbers = Number.query.filter_by(name = 'alex').all()
-  
-    message_the_list_unique(numbers, comb_message)
-    
-    
     
 ### SURVEY MESSAGE JOBS
 
 # Eastern time people
-@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='07', timezone='US/Eastern')
 def eastern_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
