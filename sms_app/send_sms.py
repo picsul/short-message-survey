@@ -25,8 +25,11 @@ def outgoing_sms(number, body, out_num):
 list_of_numbers = [] 
 
 for i in range(0, Number.query.count()):
-    num = Number.query.get(i+1)
-    list_of_numbers.append(num.number)
+    try:
+        num = Number.query.get(i+1)
+        list_of_numbers.append(num.number)
+    except AttributeError:
+        pass
 
 
 def message_the_list(num_list, body, from_num):
