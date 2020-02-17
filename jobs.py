@@ -30,11 +30,11 @@ for student in students:
 
 print(student_numbers)
 ### Tests
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='10', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='20', timezone='America/New_York')
 def test_message_post():
     message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
     
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='15', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='25', timezone='America/New_York')
 def test_message_post():
     message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
   
