@@ -1,6 +1,7 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers
 from sms_app.models import Number
+from sms_app.survey_view import pre_message, post_message
 
 sched = BlockingScheduler()
 
@@ -30,13 +31,13 @@ for student in students:
 
 print(student_numbers)
 ### Tests
-@sched.scheduled_job('cron', day_of_week='mon', hour='15', minute='40', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='15', minute='55', timezone='America/New_York')
 def test_message_post():
-    message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
+    message_the_list(alex_numbers, '+19179949576', pre_message)
     
-@sched.scheduled_job('cron', day_of_week='mon', hour='15', minute='45', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='00', timezone='America/New_York')
 def test_message_post():
-    message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
+    message_the_list(alex_numbers, '+19179949576', post_message)       
   
 ### Real Messages
 
