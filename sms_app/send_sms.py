@@ -5,7 +5,6 @@ from .models import Number
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
 
-
 client = Client(account_sid, auth_token)
 
 def outgoing_sms(number, body, out_num):
@@ -31,11 +30,9 @@ for i in range(0, Number.query.count()):
     except AttributeError:
         pass
 
-
 def message_the_list(num_list, body, from_num):
     for num in num_list:
         outgoing_sms(num, body, from_num)
-        
          
 def message_the_list_unique(num_list, body, from_num):
     for num, mess in zip(num_list, body):
