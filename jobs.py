@@ -29,25 +29,24 @@ student_numbers = []
 for student in students:
     student_numbers.append(student.number)
 
-print(student_numbers)
 ### Tests
-@sched.scheduled_job('cron', day_of_week='mon', hour='15', minute='55', timezone='America/New_York')
-def test_message_post():
-    message_the_list(alex_numbers, '+19179949576', pre_message)
+@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='10', timezone='America/New_York')
+def test_message_pre():
+    message_the_list(test_numbers, '+19179949576', pre_message)
     
-@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='00', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='25', timezone='America/New_York')
 def test_message_post():
-    message_the_list(alex_numbers, '+19179949576', post_message)       
+    message_the_list(test_numbers, '+19179949576', post_message)       
   
 ### Real Messages
 
 @sched.scheduled_job('cron', day_of_week='tue', hour='09', minute='30', timezone='America/New_York')
-def test_message_post():
-    message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
+def message_pre():
+    message_the_list(student_numbers, '+19179949576', pre_message)
     
 @sched.scheduled_job('cron', day_of_week='wed', hour='11', minute='05', timezone='America/New_York')
-def test_message_post():
-    message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
+def message_post():
+    message_the_list(student_numbers, '+19179949576', post_message)       
   
 
 
