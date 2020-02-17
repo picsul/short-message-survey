@@ -1,34 +1,55 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers
+from sms_app.models import Number
 
 sched = BlockingScheduler()
 
-#@sched.scheduled_job('interval', minutes=1)
-#def josh_message():
-#    outgoing_sms('+18652361445', 'Come on, man!')
+# Pull Test #s from the DB
 
-new_list = ['+15172400923']
+alex = Number.query.filter_by(name = 'alex').all()
+josh = Number.query.filter_by(name = 'josh').all()
+john = Number.query.filter_by(name = 'john').all()
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='12', minute='18', timezone='America/New_York')
-def message():
-    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
+test_group = alex + josh + john
+
+test_numbers = []
+
+for person in test_group:
+    test_numbers.append(person.number)
+
+# Just me for testing
+alex_numbers = [alex[0].number]
+
+# Pull Students' numbers from the DB
+students = Number.query.filter(name = 'NA').all()
+
+student_numbers = []
+
+for student in students:
+    student_numbers.append(student.number)
+
+print(student_numbers)
+### Tests
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='10', timezone='America/New_York')
+def test_message_post():
+    message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
     
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='15', timezone='America/New_York')
+def test_message_post():
+    message_the_list(alex_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
+  
+### Real Messages
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='14', minute='15', timezone='America/New_York')
-def message():
+@sched.scheduled_job('cron', day_of_week='tue', hour='09', minute='30', timezone='America/New_York')
+def test_message_post():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 pre-class survey?')
     
-
-@sched.scheduled_job('cron', day_of_week='wed', hour='14', minute='35', timezone='America/New_York')
-def message():
+@sched.scheduled_job('cron', day_of_week='wed', hour='11', minute='05', timezone='America/New_York')
+def test_message_post():
     message_the_list(list_of_numbers, '+19179949576', 'Ready to take the CSci 127 post-class survey?')       
-    
-@sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 9:30:00', end_date = '2020-05-12 10:00:00', timezone='America/New_York')
-def pre_survey():
-    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 1?')
-    
-@sched.scheduled_job('interval', weeks = 1, start_date = '2020-01-28 11:15:00', end_date = '2020-05-12 12:00:00', timezone='America/New_York')
-def post_survey():
-    message_the_list(list_of_numbers, '+19179949576', 'Ready to take survey 2?')
+  
+
+
+
         
 sched.start()
