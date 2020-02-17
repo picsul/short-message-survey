@@ -5,6 +5,9 @@ from twilio.twiml.messaging_response import MessagingResponse
 from sms_app.send_sms import client
 import datetime
 
+pre_message = "Ready to take the CSci 127 pre-class survey? Please respond when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes."
+post_message = "Ready to take the CSci 127 post-class survey? Please respond when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes."
+
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
@@ -17,7 +20,7 @@ def sms_survey():
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
     
-    if message_text == "Ready to take the CSci 127 pre-class survey?" or message_text == "Ready to take the CSci 127 post-class survey?":
+    if message_text == pre_message or message_text == post_message:
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
@@ -32,10 +35,10 @@ def sms_survey():
         else:
             response.redirect(url_for('answer', question_id=session['question_id']))
     else:
-        if message_text == "Ready to take the CSci 127 pre-class survey?":
+        if message_text == pre_message:
             survey = Survey.query.get(1)
             survey_number = 1
-        elif message_text == "Ready to take the CSci 127 post-class survey?":
+        elif message_text == post_message:
             survey = Survey.query.get(2)
             survey_number = 2
         else:
