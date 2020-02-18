@@ -32,11 +32,11 @@ for student in students:
 print(student_numbers)
 
 ### Tests
-@sched.scheduled_job('cron', day_of_week='tue', hour='08', minute='15', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='tue', hour='08', minute='00', timezone='America/New_York')
 def test_message_pre():
     message_the_list(test_numbers, '+19179949576', pre_message)
     
-@sched.scheduled_job('cron', day_of_week='tue', hour='08', minute='30', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='tue', hour='08', minute='15', timezone='America/New_York')
 def test_message_post():
     message_the_list(test_numbers, '+19179949576', post_message)       
   
