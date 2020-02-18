@@ -7,36 +7,36 @@ sched = BlockingScheduler()
 
 # Pull Test #s from the DB
 
-#alex = Number.query.filter_by(name = 'alex').all()
-#josh = Number.query.filter_by(name = 'josh').all()
-#john = Number.query.filter_by(name = 'john').all()
+alex = Number.query.filter_by(name = 'alex').all()
+josh = Number.query.filter_by(name = 'josh').all()
+john = Number.query.filter_by(name = 'john').all()
 
-#test_group = alex + josh + john
+test_group = alex + josh + john
 
 test_numbers = []
 
-#for person in test_group:
-#    test_numbers.append(person.number)
+for person in test_group:
+    test_numbers.append(person.number)
 
 # Just me for testing
-#alex_numbers = [alex[0].number]
+alex_numbers = [alex[0].number]
 
 # Pull Students' numbers from the DB
-#students = Number.query.filter_by(name = 'NA').all()
+students = Number.query.filter_by(name = 'NA').all()
 
 student_numbers = []
 
-#for student in students:
+for student in students:
     student_numbers.append(student.number)
 
 ### Tests
-@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='10', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='21', minute='37', timezone='America/New_York')
 def test_message_pre():
-    message_the_list(test_numbers, '+19179949576', pre_message)
+    message_the_list(alex_numbers, '+19179949576', pre_message)
     
-@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='25', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='21', minute='42', timezone='America/New_York')
 def test_message_post():
-    message_the_list(test_numbers, '+19179949576', post_message)       
+    message_the_list(alex_numbers, '+19179949576', post_message)       
   
 ### Real Messages
 
