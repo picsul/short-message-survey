@@ -1,11 +1,11 @@
 {
   "questions": [
     {
-      "body": "I expect class to be boring today.",
+      "body": "I expect to enjoy class today.",
       "type": "numeric"
     },
     {
-      "body": "I expect to enjoy class today.",
+      "body": "I expect class to be boring today.",
       "type": "numeric"
     },
     {
