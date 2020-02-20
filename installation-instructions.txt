@@ -1,0 +1,22 @@
+## Setup on Heroku
+
+1. Create a branch or fork of this repo
+2. If you don't have one, register an account on [Heroku](https://heroku.com) and create a new app
+3. Connect the new app to GitHub
+4. Select the branch (that was created in Step 1) to deploy
+5. Manually enter config variables for: Twilio (acccount SID and API key) and database (URL and secret key) 
+  - For the database key, use (in Python) `import os; os.urandom(24)` to generate the secret key for the database
+6. Login to Heroku [via the CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+  - `heroku login`
+  - `heroku run bash -a <name-of-app>`
+7. Initialize the database for the new app
+  - `rm -rf migrations`
+8. Run database commands through Heroku Bash
+  - `python manage.py db init`
+  - `python manage.py db migrate`
+  - `python manage.py db upgrade`
+  - `python manage.py dbseed`
+9. If you don't have one, register an account on [Twilio](https://twilio.com) and create a new phone number
+10. Configure the phone number within Twilio
+  - Add the Messaging webook as URL for the app from Heroku, with `/message` at the end of the URL
+  - Select `HTTP GET` as the protocol
