@@ -28,25 +28,6 @@ timezones = [
 'US/Mountain',
 'US/Central']
 
-links_w5_mon = ['https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_2hLHbz5Hyf5NBTn&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_9GZflsMcnfG5DF3&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_cMcQoUkQvJ4fPxP&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_9MG6ZcTjGBSZteR&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_a8CSWgVFh1lXZ7D&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_7a1R5dSFJSeS073&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_cCo86CmUBi2yIh7&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_dhePwP0GqDTu5zT&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_1Y2uCGvdVZXBjkp&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_3zcn3K7bOxN3W8R&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_bei1a3O9UCJcZw1&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_86M4CaqRe3mXAd7&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_bENvkQCurQsEEHr&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_7NDerHqFiDoygkZ&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_bDgxYnWNiNzGonP&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_8iulysbXuJYk2GN&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_5ijiq8AYRMCiZ7L&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_1yTlsuplG4THHUh&Q_CHL=gl',
-'https://usc.qualtrics.com/jfe/form/SV_esS5PaMIPbo4M9T?Q_DL=5C1pioU1MyPvipn_esS5PaMIPbo4M9T_MLRP_1B4qLoACivOVvLf&Q_CHL=gl']
 
     
 ### SURVEY MESSAGE JOBS
