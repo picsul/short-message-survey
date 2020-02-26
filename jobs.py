@@ -29,14 +29,14 @@ timezones = [
 'US/Central']
 
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='45', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='05', timezone='US/Eastern')
 def eastern_message():    
-    message_the_list(picsul_numbers, "Test too", "+1852639184")
+    message_the_list(picsul_numbers, "Test too", "+18652639184")
     
     
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='47', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='07', timezone='US/Eastern')
 def eastern_message():    
-    message_the_list(picsul_numbers, "Test too", "+1852639184")
+    message_the_list(picsul_numbers, "Test too", "+18652639184")
     
     
 ### SURVEY MESSAGE JOBS
