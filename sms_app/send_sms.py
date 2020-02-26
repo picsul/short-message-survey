@@ -1,4 +1,5 @@
 from twilio.rest import Client
+import twilio
 import os
 from .models import Number
 
@@ -30,9 +31,16 @@ for i in range(0, Number.query.count()):
     except AttributeError:
         pass
 
+#def message_the_list(num_list, body, from_num):
+#    for num in num_list:
+#        outgoing_sms(num, body, from_num)
+        
 def message_the_list(num_list, body, from_num):
     for num in num_list:
-        outgoing_sms(num, body, from_num)
+        try:
+            outgoing_sms(num, body, from_num)
+        except twilio.base.exceptions.TwilioRestException:
+            pass 
          
 def message_the_list_unique(num_list, body, from_num):
     for num, mess in zip(num_list, body):
