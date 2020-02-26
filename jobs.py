@@ -29,7 +29,7 @@ timezones = [
 'US/Central']
 
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='31', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='33', timezone='US/Eastern')
 def eastern_message():    
     message_the_list(picsul_numbers, "Test too", "+1852639184")
     
