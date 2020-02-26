@@ -1,4 +1,5 @@
 from twilio.rest import Client
+import twilio
 import os
 from .models import Number
 from flask import session
@@ -27,6 +28,13 @@ list_of_numbers = []
 #    except AttributeError:
 #        pass
     
-def message_the_list(num_list, origin, body):
+#def message_the_list(num_list, origin, body):
+#    for num in num_list:
+#        outgoing_sms(num, origin, body)
+        
+def message_the_list(num_list, body, from_num):
     for num in num_list:
-        outgoing_sms(num, origin, body)
+        try:
+            outgoing_sms(num, body, from_num)
+        except twilio.base.exceptions.TwilioRestException:
+            pass   
