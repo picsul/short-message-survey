@@ -64,9 +64,9 @@ prompt = "Are you ready to take the COSC 102 survey? Please respond when you are
 
 # Section A
 # Tuesday after Lecture
-@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
-def section_a_prompt():
-    message_the_list(a_numbers, prompt, twilio_numbers[0])
+#@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
+#def section_a_prompt():
+#    message_the_list(a_numbers, prompt, twilio_numbers[0])
 
 # Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='13', minute='15', timezone='US/Eastern')
@@ -75,9 +75,9 @@ def section_a_prompt():
     
 # Section B
 # Tuesday after lecture
-@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
-def section_b_prompt():
-    message_the_list(b_numbers, prompt, twilio_numbers[0])
+#@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
+#def section_b_prompt():
+#    message_the_list(b_numbers, prompt, twilio_numbers[0])
 
 # Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='14', minute='20', timezone='US/Eastern')
@@ -86,9 +86,9 @@ def section_b_prompt():
     
 # Section C
 # Tuesday after lecture
-@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
-def section_query_message():
-    message_the_list(c_numbers, prompt, twilio_numbers[0])
+#@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
+#def section_query_message():
+#    message_the_list(c_numbers, prompt, twilio_numbers[0])
 
 # Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='15', minute='25', timezone='US/Eastern')
@@ -97,9 +97,9 @@ def section_query_message():
 
 # Section D
 # Tuesday after lecture
-@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
-def section_query_message():
-    message_the_list(d_numbers, prompt, twilio_numbers[0])
+#@sched.scheduled_job('cron', day_of_week='thu', hour='11', minute='00', timezone='US/Eastern')
+#def section_query_message():
+#    message_the_list(d_numbers, prompt, twilio_numbers[0])
     
 # Wednesday after lab
 @sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='30', timezone='US/Eastern')
