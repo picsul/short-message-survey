@@ -4,7 +4,7 @@
 
 ## Example
 
-![Imgur](https://i.imgur.com/o4cV4D4.png)
+![](screenshot.png)
 
 ## License
 
