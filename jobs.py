@@ -42,11 +42,11 @@ for student in students:
   
 ### Real Messages
 
-@sched.scheduled_job('cron', day_of_week='tue', hour='09', minute='30', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='tue', hour='10', minute='30', timezone='America/New_York')
 def message_pre():
     message_the_list(student_numbers, '+19179949576', pre_message)
     
-@sched.scheduled_job('cron', day_of_week='tue', hour='11', minute='05', timezone='America/New_York')
+@sched.scheduled_job('cron', day_of_week='mon', hour='16', minute='30', timezone='America/New_York')
 def message_post():
     message_the_list(student_numbers, '+19179949576', post_message)       
   
