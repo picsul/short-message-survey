@@ -18,7 +18,7 @@ test_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=IunX81MIL25ovHh_4SYnBkWsvp23LmJ_MLRP_"
 
 ### Test jobs
     
-@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='47', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='50', timezone='US/Eastern')
 def test_message_picsul():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
