@@ -36,8 +36,8 @@ def test_message_picsul():
     
     message_the_list_unique(numbers, comb_message)
     
-@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
-def test_message_():
+@sched.scheduled_job('cron', day_of_week='fri', hour='13', minute='22', timezone='US/Eastern')
+def test_message_2():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
@@ -47,7 +47,7 @@ def test_message_():
     numbers = [number.number for number in usc_numbers]
     codes = [number.code for number in usc_numbers]
     
-    links = [link_base + link_instance + code + link_tail for code in codes]
+    links = [link_base + test_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
