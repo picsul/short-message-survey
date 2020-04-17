@@ -7,33 +7,9 @@ sched = BlockingScheduler()
 usc_numbers = ['+18652361445', '+12022588130', '+18186205367', '+18593947313', '+15172400923']
 picsul_numbers = ['+15172400923', '+18652361445']
 
-timezones = [
-'US/Pacific',
-'US/Eastern',
-'US/Central',
-'US/Central',
-'US/Eastern',
-'US/Eastern',
-'US/Eastern',
-'US/Pacific',
-'US/Central',
-'US/Central',
-'US/Eastern',
-'US/Eastern',
-'US/Mountain',
-'US/Mountain',
-'US/Eastern',
-'US/Eastern',
-'US/Central',
-'US/Mountain',
-'US/Central']
-
-
 link_base = "https://usc.qualtrics.com/jfe/form/"
     
 link_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=aLnasIxMU1FJYJd_4SYnBkWsvp23LmJ_MLRP_"
-
-link_person = "3lbQqEZWnWACSTH"
 
 link_tail = "&Q_CHL=gl"
 
@@ -51,7 +27,8 @@ def eastern_message():
 ### SURVEY MESSAGE JOBS
 
 ### Monday messages 
-    
+
+### testing out 
 # Eastern time people
 @sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Eastern')
 def eastern_message():
@@ -59,74 +36,75 @@ def eastern_message():
 
     comb_message = []
     
-    eastern_indices = [i for i, time in enumerate(timezones) if time == 'US/Eastern']
-    eastern_links = [links_w5_mon[i] for i in eastern_indices]
+    eastern_numbers = Number.query.filter_by(name = 'EST').all()
 
-    links = eastern_links
+    numbers = [number.number for number in eastern_numbers]
+    codes = [number.code for number in eastern_numbers]
+    
+    links = [link_base + link_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
-        
-    eastern_numbers = Number.query.filter_by(name = 'EST').all()
-
-    message_the_list_unique(eastern_numbers, comb_message)
-   
-# Central time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Central')
+    
+    message_the_list_unique(numbers, comb_message)
+    
+### CST people
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Central')
 def central_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
     
-    central_indices = [i for i, time in enumerate(timezones) if time == 'US/Central']
-    central_links = [links_w5_mon[i] for i in central_indices]
+    central_numbers = Number.query.filter_by(name = 'CST').all()
 
-    links = central_links
+    numbers = [number.number for number in central_numbers]
+    codes = [number.code for number in central_numbers]
+    
+    links = [link_base + link_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
-        
-    central_numbers = Number.query.filter_by(name = 'CST').all()
-
-    message_the_list_unique(central_numbers, comb_message)
     
-# Mountain time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Mountain')
+    message_the_list_unique(numbers, comb_message)
+    
+    
+### MST people
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Mountain')
 def mountain_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
     
-    mountain_indices = [i for i, time in enumerate(timezones) if time == 'US/Mountain']
-    mountain_links = [links_w5_mon[i] for i in mountain_indices]
+    mountain_numbers = Number.query.filter_by(name = 'MST').all()
 
-    links = mountain_links
+    numbers = [number.number for number in mountain_numbers]
+    codes = [number.code for number in mountain_numbers]
+    
+    links = [link_base + link_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
-        
-    mountain_numbers = Number.query.filter_by(name = 'MST').all()
-
-    message_the_list_unique(mountain_numbers, comb_message)
-
-# Pacific time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Pacific')
+    
+    message_the_list_unique(numbers, comb_message)
+    
+### PST people
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Pacific')
 def pacific_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
     comb_message = []
     
-    pacific_indices = [i for i, time in enumerate(timezones) if time == 'US/Pacific']
-    pacific_links = [links_w5_mon[i] for i in pacific_indices]
+    pacific_numbers = Number.query.filter_by(name = 'PST').all()
 
-    links = pacific_links
+    numbers = [number.number for number in pacific_numbers]
+    codes = [number.code for number in pacific_numbers]
+    
+    links = [link_base + link_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
-        
-    pacific_numbers = Number.query.filter_by(name = 'PST').all()
-
-    message_the_list_unique(pacific_numbers, comb_message)
     
+    message_the_list_unique(numbers, comb_message)    
+
 
 sched.start()
