@@ -9,28 +9,56 @@ picsul_numbers = ['+15172400923', '+18652361445']
 
 link_base = "https://usc.qualtrics.com/jfe/form/"
     
+# this changes each time
 link_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=aLnasIxMU1FJYJd_4SYnBkWsvp23LmJ_MLRP_"
 
 link_tail = "&Q_CHL=gl"
 
 
-@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='05', timezone='US/Eastern')
-def eastern_message():    
-    message_the_list(picsul_numbers, "Test too", "+18652639184")
+### Test jobs
     
+@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='00', timezone='US/Eastern')
+def test_message_picsul():
+    static = "Please complete this short survey related to your recent teaching and planning: "
+
+    comb_message = []
     
-@sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='07', timezone='US/Eastern')
-def eastern_message():    
-    message_the_list(picsul_numbers, "Test too", "+18652639184")
+    picsul_numbers = Number.query.filter_by(name = 'picsul').all()
+
+    numbers = [number.number for number in picsul_numbers]
+    codes = [number.code for number in picsul_numbers]
     
+    links = [link_base + link_instance + code + link_tail for code in codes]
+
+    for link in links:
+        comb_message.append(static + link)
+    
+    message_the_list_unique(numbers, comb_message)
+    
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
+def test_message_():
+    static = "Please complete this short survey related to your recent teaching and planning: "
+
+    comb_message = []
+    
+    usc_numbers = Number.query.filter_by(name = 'usc').all()
+
+    numbers = [number.number for number in usc_numbers]
+    codes = [number.code for number in usc_numbers]
+    
+    links = [link_base + link_instance + code + link_tail for code in codes]
+
+    for link in links:
+        comb_message.append(static + link)
+    
+    message_the_list_unique(numbers, comb_message)
     
 ### SURVEY MESSAGE JOBS
 
 ### Monday messages 
 
-### testing out 
-# Eastern time people
-@sched.scheduled_job('cron', day_of_week='mon', hour='17', minute='00', timezone='US/Eastern')
+### EST people
+@sched.scheduled_job('cron', day_of_week='fri', hour='17', minute='00', timezone='US/Eastern')
 def eastern_message():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
