@@ -14,10 +14,11 @@ link_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=aLnasIxMU1FJYJd_4SYnBkWsvp23LmJ_MLRP_"
 
 link_tail = "&Q_CHL=gl"
 
+test_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=IunX81MIL25ovHh_4SYnBkWsvp23LmJ_MLRP_"
 
 ### Test jobs
     
-@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='20', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='40', timezone='US/Eastern')
 def test_message_picsul():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
@@ -28,7 +29,7 @@ def test_message_picsul():
     numbers = [number.number for number in picsul_numbers]
     codes = [number.code for number in picsul_numbers]
     
-    links = [link_base + link_instance + code + link_tail for code in codes]
+    links = [link_base + test_instance + code + link_tail for code in codes]
 
     for link in links:
         comb_message.append(static + link)
