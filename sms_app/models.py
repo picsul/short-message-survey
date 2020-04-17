@@ -67,7 +67,9 @@ class Number(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
+    code = db.Column(db.String, nullable=False)
 
-    def __init__(self, number, name):
+    def __init__(self, number, name, code):
         self.number = number
         self.name = name
+        self.code = code
