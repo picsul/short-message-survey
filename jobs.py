@@ -17,7 +17,7 @@ link_tail = "&Q_CHL=gl"
 
 ### Test jobs
     
-@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='05', timezone='US/Eastern')
+@sched.scheduled_job('cron', day_of_week='fri', hour='12', minute='10', timezone='US/Eastern')
 def test_message_picsul():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
