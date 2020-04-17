@@ -29,6 +29,15 @@ timezones = [
 'US/Central']
 
 
+link_base = "https://usc.qualtrics.com/jfe/form/"
+    
+link_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=aLnasIxMU1FJYJd_4SYnBkWsvp23LmJ_MLRP_"
+
+link_person = "3lbQqEZWnWACSTH"
+
+link_tail = "&Q_CHL=gl"
+
+
 @sched.scheduled_job('cron', day_of_week='wed', hour='16', minute='05', timezone='US/Eastern')
 def eastern_message():    
     message_the_list(picsul_numbers, "Test too", "+18652639184")
