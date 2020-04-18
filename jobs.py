@@ -60,6 +60,28 @@ link_instance_fri = "SV_01xn9Duxb02kVy5?Q_DL=gzAgkZQuo2q56uR_01xn9Duxb02kVy5_MLR
 #link_instance_mon = "SV_cHGlSgdKzpL3Zad?Q_DL=lPes8RAhGH9aogf_cHGlSgdKzpL3Zad_MLRP_"
 
 
+send_dates = ['2020-04-18 16:32:00', '2020-04-18 16:36:00', '2020-04-18 16:40:00']
+
+for i in range(0, len(send_dates)):
+    @sched.scheduled_job('date', run_date=send_dates[i], timezone='US/Eastern')
+    def test_message_picsul():
+        static = "Please complete this short survey related to your recent teaching and planning: "
+
+        comb_message = []
+    
+        picsul_numbers = Number.query.filter_by(name = 'picsul').all()
+
+        numbers = [number.number for number in picsul_numbers]
+        codes = [number.code for number in picsul_numbers]
+    
+        links = [link_base + test_instance + code + link_tail for code in codes]
+
+        for link in links:
+            comb_message.append(static + link)
+    
+        message_the_list_unique(numbers, comb_message)
+    
+
 ### Test jobs
 @sched.scheduled_job('date', run_date='2020-04-18 16:26:00', timezone='US/Eastern')
 def test_message_picsul():
