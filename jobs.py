@@ -61,7 +61,7 @@ link_instance_fri = "SV_01xn9Duxb02kVy5?Q_DL=gzAgkZQuo2q56uR_01xn9Duxb02kVy5_MLR
 
 
 ### Test jobs
-@sched.scheduled_job('date', run_date=datetime(2020, 4, 18, 4, 17), timezone='US/Eastern')
+@sched.scheduled_job('date', run_date=datetime(2020, 4, 18, 16, 18), timezone='US/Eastern')
 def test_message_picsul():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
