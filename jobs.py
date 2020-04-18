@@ -1,7 +1,7 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
 from sms_app.models import Number
-from datetime import date
+from datetime import date, datetime
 
 sched = BlockingScheduler()
 
@@ -61,7 +61,7 @@ link_instance_fri = "SV_01xn9Duxb02kVy5?Q_DL=gzAgkZQuo2q56uR_01xn9Duxb02kVy5_MLR
 
 
 ### Test jobs
-@sched.scheduled_job('date', run_date=datetime(2020, 4, 18, 4, 4), timezone='US/Eastern')
+@sched.scheduled_job('date', run_date=datetime(2020, 4, 18, 4, 11), timezone='US/Eastern')
 def test_message_picsul():
     static = "Please complete this short survey related to your recent teaching and planning: "
 
