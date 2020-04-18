@@ -4,9 +4,6 @@ from sms_app.models import Number
 
 sched = BlockingScheduler()
 
-usc_numbers = ['+18652361445', '+12022588130', '+18186205367', '+18593947313', '+15172400923']
-picsul_numbers = ['+15172400923', '+18652361445']
-
 link_base = "https://usc.qualtrics.com/jfe/form/"
     
 # this changes each time
