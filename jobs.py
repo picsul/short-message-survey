@@ -11,11 +11,6 @@ link_tail = "&Q_CHL=gl"
 
 test_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=IunX81MIL25ovHh_4SYnBkWsvp23LmJ_MLRP_"
 
-# monday 4/20
-link_instance_mon = "SV_b166qIhL6OXUdx3?Q_DL=zEb1chDZqGMjroK_b166qIhL6OXUdx3_MLRP_"
-# friday 4/24
-link_instance_fri = "SV_01xn9Duxb02kVy5?Q_DL=gzAgkZQuo2q56uR_01xn9Duxb02kVy5_MLRP_"
-
 links = [
 # monday 4/20
 "SV_b166qIhL6OXUdx3?Q_DL=zEb1chDZqGMjroK_b166qIhL6OXUdx3_MLRP_",
