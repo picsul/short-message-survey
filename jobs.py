@@ -68,8 +68,6 @@ send_dates = ['2020-04-20 17:00:00', '2020-04-24 17:00:00', '2020-04-27 17:00:00
               '2020-06-12 17:00:00', '2020-06-15 17:00:00', '2020-06-19 17:00:00',
               '2020-06-22 17:00:00', '2020-06-26 17:00:00', '2020-06-29 17:00:00']
 
-#timezones = ['US/Eastern', 'US/Central', 'US/Mountain', 'US/Pacific']
-
 timezones = {'EST':'US/Eastern', 'CST':'US/Central', 'MST':'US/Mountain', 'PST':'US/Pacific'}
 
 def send_message(date, survey_link, timezone, filter_key):
@@ -91,35 +89,29 @@ def send_message(date, survey_link, timezone, filter_key):
     
         message_the_list_unique(numbers, comb_message)    
         
-        
 for date in send_dates:
     for timezone in timezones:
         send_message(date, links[send_dates.index(date)], timezones[timezone], timezone)        
 
-### Tomorrow alex: you shouldn't need anything below here if you wrote the code above correctly. you should test it tomorrow
+### Test job
+#@sched.scheduled_job('date', run_date='2020-04-18 16:26:00', timezone='US/Eastern')
+#def test_message_picsul():
+#    static = "Please complete this short survey related to your recent teaching and planning: "
 
-### Test jobs
-@sched.scheduled_job('date', run_date='2020-04-18 16:26:00', timezone='US/Eastern')
-def test_message_picsul():
-    static = "Please complete this short survey related to your recent teaching and planning: "
-
-    comb_message = []
+#    comb_message = []
     
-    picsul_numbers = Number.query.filter_by(name = 'picsul').all()
+#    picsul_numbers = Number.query.filter_by(name = 'picsul').all()
 
-    numbers = [number.number for number in picsul_numbers]
-    codes = [number.code for number in picsul_numbers]
+#    numbers = [number.number for number in picsul_numbers]
+#    codes = [number.code for number in picsul_numbers]
     
-    links = [link_base + test_instance + code + link_tail for code in codes]
+#    links = [link_base + test_instance + code + link_tail for code in codes]
 
-    for link in links:
-        comb_message.append(static + link)
+#    for link in links:
+#        comb_message.append(static + link)
     
-    message_the_list_unique(numbers, comb_message)
+#    message_the_list_unique(numbers, comb_message)
       
-
-sched.print_jobs()
+#sched.print_jobs()
 
 sched.start()
-
-sched.print_jobs()
