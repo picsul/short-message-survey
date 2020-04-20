@@ -337,6 +337,7 @@ def test_message_2():
     
 #    message_the_list_unique(numbers, comb_message)    
 
+sched.print_jobs()
 
 sched.start()
 
