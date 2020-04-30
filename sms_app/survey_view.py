@@ -85,13 +85,7 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    mess = request.values['Body']
+    resp.message("Please use the link above to access the survey.")
     
-    mess = mess.strip().upper()
+    return str(resp)
     
-    if mess not in ['A', 'B', 'C', 'D']:
-         resp.message("Please respond with A, B, C, or D")
-         return str(resp)
-    else:
-        resp.message("Thanks for providing that information!")
-        return str(resp)
