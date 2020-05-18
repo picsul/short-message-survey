@@ -85,7 +85,7 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    resp.message("Please use the link above to access the survey.")
+    resp.message("Thanks for your response.")
     
     return str(resp)
     
