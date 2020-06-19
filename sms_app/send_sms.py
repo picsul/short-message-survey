@@ -51,4 +51,4 @@ def message_the_list(num_list, body, from_num):
          
 def message_the_list_unique(num_list, body):
     for num, mess in zip(num_list, body):
-        outgoing_sms(num, mess, '+18652639199')
+        outgoing_sms(num, mess, '+18652639184')
