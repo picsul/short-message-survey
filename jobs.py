@@ -1,19 +1,57 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
 from sms_app.models import Number
+import smtplib
+import time
+import imaplib
+import email
+import os 
+
+ORG_EMAIL   = "@gmail.com"
+FROM_EMAIL  = os.environ.get("email") + ORG_EMAIL
+FROM_PWD    = os.environ.get("email_password"
+SMTP_SERVER = "imap.gmail.com"
+SMTP_PORT   = 993
 
 sched = BlockingScheduler()
 
-twilio_numbers = ['+18652639199', '+18652639184']
+#            for response_part in data:
+#                if isinstance(response_part, tuple):
+#                    msg = email.message_from_string(response_part[1])
+#                    email_subject = msg['subject']
+#                    email_from = msg['from']
+#                    print('From : ' + email_from + '\n')
+#                    print('Subject : ' + email_subject + '\n')
 
-# post-survey reminder
-#nums = [number.number for number in Number.query.all()]
-nums = ["+19313063791", "+13018362777", "+19012828292", "+14233550342", "+16158154541", "+18653820776", "+18656221002", "+14073104075", "+18656077555", "+18655676872", "+16158814866"]
+def read_email_from_gmail():
+    try:
+        mail = imaplib.IMAP4_SSL(SMTP_SERVER)
+        mail.login(FROM_EMAIL,FROM_PWD)
+        mail.select('inbox')
 
-message = "Thanks again for participating in the COSC 102 study. Please provide your UTK NetID so that we can process your participant payment. Thanks!"
+        type, data = mail.search(None, 'ALL')
+        mail_ids = data[0]
 
-@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
-def post_reminder():
-    message_the_list(nums, message, twilio_numbers[0])
+        id_list = mail_ids.split()
+
+        for i in reversed(id_list)[1:10]:
+            typ, data = mail.fetch(i, '(RFC822)' )
+
+            for response_part in data:
+                if isinstance(response_part, tuple):
+                msg = email.message_from_string(response_part[1].decode('utf-8'))
+            
+            
+        except Exception as e:
+            print(str(e))
+
+
+@sched.scheduled_job('interval', id='my_job_id', minutes=1)
+def check_email():
+    read_email_from_gmail()
+
+#@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
+#def post_reminder():
+#    message_the_list(nums, message, twilio_numbers[0])
 
 sched.start()
