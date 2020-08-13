@@ -45,8 +45,8 @@ def read_email_from_gmail():
                     print('From : ' + email_from + '\n')
                     print('Subject : ' + email_subject + '\n')
             
-        except Exception as e:
-            print(str(e))
+    except Exception as e:
+        print(str(e))
 
 
 @sched.scheduled_job('interval', id='my_job_id', minutes=1)
