@@ -33,7 +33,7 @@ def read_email_from_gmail():
         mail_ids = data[0]
 
         id_list = mail_ids.split()
-
+        id_list = list(reversed(id_list))
         for i in reversed(id_list)[1:10]:
             typ, data = mail.fetch(i, '(RFC822)' )
 
