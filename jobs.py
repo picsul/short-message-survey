@@ -9,7 +9,7 @@ import os
 
 ORG_EMAIL   = "@gmail.com"
 FROM_EMAIL  = os.environ.get("email") + ORG_EMAIL
-FROM_PWD    = os.environ.get("email_password"
+FROM_PWD    = os.environ.get("email_password")
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT   = 993
 
