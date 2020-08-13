@@ -8,8 +8,8 @@ import email
 import os 
 
 ORG_EMAIL   = "@gmail.com"
-FROM_EMAIL  = os.environ.get("email") + ORG_EMAIL
-FROM_PWD    = os.environ.get("email_password")
+FROM_EMAIL  = os.environ.get("EMAIL_ADDRESS") + ORG_EMAIL
+FROM_PWD    = os.environ.get("EMAIL_PASSWORD")
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT   = 993
 
