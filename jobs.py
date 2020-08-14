@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
+from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique, parse_email
 from sms_app.models import Number
 import smtplib
 import time
@@ -40,6 +40,7 @@ def read_email_from_gmail():
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
+                    #parse_email(msg, "Assignment name")
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
