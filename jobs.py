@@ -44,6 +44,8 @@ def read_email_from_gmail():
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
                     print('Subject : ' + email_subject + '\n')
+                    
+        mail.logout()
             
     except Exception as e:
         print(str(e))
