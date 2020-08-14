@@ -45,3 +45,14 @@ def message_the_list(num_list, body, from_num):
 def message_the_list_unique(num_list, body, from_num):
     for num, mess in zip(num_list, body):
         outgoing_sms(num, mess, from_num)
+        
+def parse_email(message, assignment):
+    if 'notifications@instructure.com' in message['from']:
+        subject = message['subject']
+        if assignment in subject:
+            name = message['from'].split("<")[0].strip(' "')
+            number = Number.query.filter_by(name = name).all()
+            outgoing_sms(number, survey_prompt, picsul_number)
+        else:
+            pass
+            
