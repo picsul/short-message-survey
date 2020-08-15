@@ -23,6 +23,9 @@ sched = BlockingScheduler()
 #                    print('From : ' + email_from + '\n')
 #                    print('Subject : ' + email_subject + '\n')
 
+survey_prompt = "Please answer the following survey"
+picsul_number = "+18652639184"
+
 def read_email_from_gmail():
     try:
         mail = imaplib.IMAP4_SSL(SMTP_SERVER)
@@ -40,7 +43,7 @@ def read_email_from_gmail():
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
-                    #parse_email(msg, "Assignment name")
+                    parse_email(msg, "Assignment name")
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
@@ -52,7 +55,7 @@ def read_email_from_gmail():
         print(str(e))
 
 
-@sched.scheduled_job('interval', id='my_job_id', minutes=1)
+@sched.scheduled_job('interval', id='my_job_id', minutes=5)
 def check_email():
     read_email_from_gmail()
 
