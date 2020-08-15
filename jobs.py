@@ -43,7 +43,7 @@ def read_email_from_gmail():
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
-                    parse_email(msg, "Assignment name")
+                    parse_email(msg, "Lesson Plan #2")
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
