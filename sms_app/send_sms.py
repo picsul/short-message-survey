@@ -6,6 +6,9 @@ from .models import Number
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
 
+survey_prompt = "Please respond to this text to begin the survey"
+picsul_number = "+18652639184"
+
 client = Client(account_sid, auth_token)
 
 def outgoing_sms(number, body, out_num):
