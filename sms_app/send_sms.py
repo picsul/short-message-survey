@@ -51,8 +51,8 @@ def parse_email(message, assignment):
         subject = message['subject']
         if assignment in subject:
             name = message['from'].split("<")[0].strip(' "')
-            number = Number.query.filter_by(name = name).all()
-            outgoing_sms(number, survey_prompt, picsul_number)
+            number = Number.query.filter_by(name = name).first()
+            outgoing_sms(number.number, survey_prompt, picsul_number)
         else:
             pass
             
