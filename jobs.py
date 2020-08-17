@@ -57,7 +57,7 @@ def read_email_from_gmail(assignment):
 
 @sched.scheduled_job('interval', id='my_job_id', minutes=5)
 def check_email():
-    read_email_from_gmail("Lesson Plan #1")
+    read_email_from_gmail("Lesson Plan #2")
 
 #@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
 #def post_reminder():
