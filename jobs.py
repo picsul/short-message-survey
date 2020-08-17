@@ -15,14 +15,6 @@ SMTP_PORT   = 993
 
 sched = BlockingScheduler()
 
-#            for response_part in data:
-#                if isinstance(response_part, tuple):
-#                    msg = email.message_from_string(response_part[1])
-#                    email_subject = msg['subject']
-#                    email_from = msg['from']
-#                    print('From : ' + email_from + '\n')
-#                    print('Subject : ' + email_subject + '\n')
-
 survey_prompt = "Please respond to this text to begin the survey"
 picsul_number = "+18652639184"
 
