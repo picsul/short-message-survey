@@ -23,7 +23,7 @@ sched = BlockingScheduler()
 #                    print('From : ' + email_from + '\n')
 #                    print('Subject : ' + email_subject + '\n')
 
-survey_prompt = "Please answer the following survey"
+survey_prompt = "Please respond to this text to begin the survey"
 picsul_number = "+18652639184"
 
 def read_email_from_gmail(assignment):
@@ -43,7 +43,10 @@ def read_email_from_gmail(assignment):
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
-                    parse_email(msg, assignment)
+                    if parse_email(msg, assignment):'
+                        outgoing_sms()
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        mail.expunge()
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
