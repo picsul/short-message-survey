@@ -43,7 +43,7 @@ def read_email_from_gmail(assignment):
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
-                    if parse_email(msg, assignment):'
+                    if parse_email(msg, assignment):
                         outgoing_sms()
                         mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
