@@ -56,6 +56,8 @@ def parse_email(message, assignment):
             name = message['from'].split("<")[0].strip(' "')
             number = Number.query.filter_by(name = name).first()
             outgoing_sms(number.number, survey_prompt, picsul_number)
+            mail.store(i, '+X-GM-LABELS', '\\Trash')
+            mail.expunge()
         else:
             pass
             
