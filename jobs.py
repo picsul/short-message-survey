@@ -44,7 +44,9 @@ def read_email_from_gmail(assignment):
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
                     if parse_email(msg, assignment):
-                        outgoing_sms()
+                        name = msg['from'].split("<")[0].strip(' "')
+                        number = Number.query.filter_by(name = name).first()
+                        outgoing_sms(number.number, survey_prompt, picsul_number)
                         mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
                     email_subject = msg['subject']
