@@ -60,7 +60,7 @@ def read_email_from_gmail(assignment):
         print(str(e))
 
 
-@sched.scheduled_job('interval', id='my_job_id', minutes=5)
+@sched.scheduled_job('interval', id='my_job_id', minutes=1)
 def check_email():
     read_email_from_gmail("Lesson Plan #2")
 
