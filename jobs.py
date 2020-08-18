@@ -38,7 +38,10 @@ def read_email_from_gmail(assignment):
                     if parse_email(msg, assignment):
                         name = msg['from'].split("<")[0].strip(' "')
                         number = Number.query.filter_by(name = name).first()
-                        outgoing_sms(number.number, survey_prompt, picsul_number)
+                        try:
+                            outgoing_sms(number.number, survey_prompt, picsul_number)
+                        except twilio.base.exceptions.TwilioRestException:
+                            pass 
                         mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
                     email_subject = msg['subject']
