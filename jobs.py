@@ -16,7 +16,7 @@ SMTP_PORT   = 993
 sched = BlockingScheduler()
 
 survey_prompt = "Please respond to this text to begin the survey"
-picsul_number = "+18652639184"
+picsul_number = os.environ.get("TWILIO_NUMBER_1")
 
 def read_email_from_gmail(assignment):
     try:
