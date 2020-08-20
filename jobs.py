@@ -73,6 +73,6 @@ def lesson_2():
 
 #@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
 #def post_reminder():
-#    message_the_list(student_numbers, message, twilio_numbers[0])
+#    message_the_list(student_numbers, message, picsul_number)
 
 sched.start()
