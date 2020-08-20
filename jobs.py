@@ -62,8 +62,17 @@ def lesson_1():
 def lesson_2():
     read_email_from_gmail("Lesson Plan #2")
 
+    
+#students = Number.query.filter_by(name = 'NA').all()
+
+#student_numbers = []
+
+#for student in students:
+#    student_numbers.append(student.number)
+    
+
 #@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
 #def post_reminder():
-#    message_the_list(nums, message, twilio_numbers[0])
+#    message_the_list(student_numbers, message, twilio_numbers[0])
 
 sched.start()
