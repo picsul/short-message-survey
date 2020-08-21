@@ -44,6 +44,9 @@ def read_email_from_gmail(assignment):
                             mail.expunge()
                         except twilio.base.exceptions.TwilioRestException:
                             pass 
+                        # to deal with non participating studnets that arent found in the database
+                        except AttributeError:
+                            pass
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
