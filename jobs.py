@@ -57,15 +57,10 @@ def read_email_from_gmail(assignment):
             
     except Exception as e:
         print(str(e))
-        
-@sched.scheduled_job('interval', id='lesson_1', minutes=1)
-def lesson_1():
-    read_email_from_gmail("Lesson Plan #1")
-
-@sched.scheduled_job('interval', id='lesson_2', minutes=1)
+    
+@sched.scheduled_job('interval', id='cosc102_lab1a', minutes=1)
 def lesson_2():
-    read_email_from_gmail("Lesson Plan #2")
-
+    read_email_from_gmail("Lab 1a")
     
 #students = Number.query.filter_by(name = 'NA').all()
 
