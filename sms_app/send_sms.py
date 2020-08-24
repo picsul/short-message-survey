@@ -22,8 +22,8 @@ list_of_numbers = []
 
 for i in range(0, Number.query.count()):
     try:
-        num = Number.query.get(i+1)
-        list_of_numbers.append(num.number)
+        #num = Number.query.get(i+1)
+        #list_of_numbers.append(num.number)
     except AttributeError:
         pass
         
