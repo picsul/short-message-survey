@@ -19,6 +19,9 @@ sched = BlockingScheduler()
 survey_prompt = "Please respond to this text to begin the survey"
 picsul_number = os.environ.get("TWILIO_NUMBER_1")
 
+cosc102_prompt = "Ready to take the COSC 102 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
+cosc111_prompt = "Ready to take the COSC 111 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
+
 def read_email_from_gmail(assignment):
     try:
         mail = imaplib.IMAP4_SSL(SMTP_SERVER)
