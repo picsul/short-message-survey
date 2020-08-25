@@ -16,11 +16,8 @@ SMTP_PORT   = 993
 
 sched = BlockingScheduler()
 
-survey_prompt = "Please respond to this text to begin the survey"
+survey_prompt = "Ready to take the COSC 102 / 111 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
 picsul_number = os.environ.get("TWILIO_NUMBER_1")
-
-cosc102_prompt = "Ready to take the COSC 102 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
-cosc111_prompt = "Ready to take the COSC 111 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
 
 def read_email_from_gmail(assignment):
     try:
@@ -62,7 +59,7 @@ def read_email_from_gmail(assignment):
         print(str(e))
     
 @sched.scheduled_job('interval', id='cosc102_lab1a', minutes=1)
-def lesson_2():
+def cosc102_lab1a():
     read_email_from_gmail("Lab 1a")
     
 #students = Number.query.filter_by(name = 'NA').all()
