@@ -9,12 +9,6 @@ import imaplib
 import email
 import os 
 
-ORG_EMAIL   = "@gmail.com"
-FROM_EMAIL  = os.environ.get("EMAIL_ADDRESS") + ORG_EMAIL
-FROM_PWD    = os.environ.get("EMAIL_PASSWORD")
-SMTP_SERVER = "imap.gmail.com"
-SMTP_PORT   = 993
-
 sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', id='cosc102_lab1a', minutes=1)
