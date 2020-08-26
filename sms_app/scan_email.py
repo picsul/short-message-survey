@@ -4,6 +4,12 @@ import imaplib
 import email
 import os 
 
+ORG_EMAIL   = "@gmail.com"
+FROM_EMAIL  = os.environ.get("EMAIL_ADDRESS") + ORG_EMAIL
+FROM_PWD    = os.environ.get("EMAIL_PASSWORD")
+SMTP_SERVER = "imap.gmail.com"
+SMTP_PORT   = 993
+
 survey_prompt = "Ready to take the COSC 102 / 111 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
 picsul_number = os.environ.get("TWILIO_NUMBER_1")
 
