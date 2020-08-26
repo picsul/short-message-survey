@@ -42,7 +42,7 @@ def parse_email(message, assignment):
     if 'notifications@instructure.com' in message['from']:
         subject = message['subject']
         if assignment in subject:
-            if not 'Re-Submission' in msg['Subject']
+            if not 'Re-Submission' in msg['Subject']:
                 return True
             else:
                 pass
