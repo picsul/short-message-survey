@@ -26,7 +26,7 @@ def read_email_from_gmail(assignment):
 
         id_list = mail_ids.split()
         id_list = list(reversed(id_list))
-        for i in id_list[0:10]:
+        for i in id_list:
             typ, data = mail.fetch(i, '(RFC822)' )
 
             for response_part in data:
