@@ -19,9 +19,9 @@ sched = BlockingScheduler()
 #def cosc102_lab1a():
 #    read_email_from_gmail("Lab 1a")
     
-@sched.scheduled_job('interval', id='cosc102_lab1b', minutes=1, end_date='2020-09-23 23:59:00', timezone='US/Eastern')
-def cosc102_lab1b():
-    read_email_from_gmail("Lab 1b")
+#@sched.scheduled_job('interval', id='cosc102_lab1b', minutes=1, end_date='2020-09-23 23:59:00', timezone='US/Eastern')
+#def cosc102_lab1b():
+#    read_email_from_gmail("Lab 1b")
     
 
 #students = Number.query.filter_by(name = 'NA').all()
