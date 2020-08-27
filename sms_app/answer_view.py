@@ -9,7 +9,8 @@ def answer(question_id):
 
     db.save(Answer(content=extract_content(question),
                    question=question,
-                   session_id=session_id()))
+                   session_id=session_id(),
+                   instance='5552a'))
 
     next_question = question.next()
     if next_question:
