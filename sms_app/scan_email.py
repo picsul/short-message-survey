@@ -38,7 +38,7 @@ def read_email_from_gmail(assignment):
                         number = Number.query.filter_by(name = name).first()
                         try:
                             sms = outgoing_sms(number.number, survey_prompt, picsul_number)
-                            db.save(Instance(sid = sms, assign = assignment)
+                            db.save(Instance(sid = sms, assign = assignment))
                             mail.store(i, '+X-GM-LABELS', '\\Trash')
                             mail.expunge()
                         except twilio.base.exceptions.TwilioRestException:
