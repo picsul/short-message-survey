@@ -20,7 +20,7 @@ def sms_survey():
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
 
-    
+    print(type(messages))
     # old code
     #survey = Survey.query.first()
     #if survey_error(survey, response.message):
