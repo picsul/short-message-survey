@@ -22,6 +22,7 @@ def sms_survey():
     
     print(type(messages))
     print(messages)
+    print(messages[0].sid)
     # old code
     #survey = Survey.query.first()
     #if survey_error(survey, response.message):
