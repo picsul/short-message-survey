@@ -1,7 +1,7 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique, parse_email
 from sms_app.scan_email import read_email_from_gmail, survey_prompt, picsul_number
-from sms_app.models import Number
+#from sms_app.models import Number
 import twilio
 import smtplib
 import time
