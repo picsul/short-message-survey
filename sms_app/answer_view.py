@@ -9,7 +9,7 @@ def answer(question_id):
     
     instance = Instance.query.get('SMf618ee7e23d1425899889d1182cc42ab')
     
-    print(session['HelloDere'])
+    print(session['instance_id'])
     
     db.save(Answer(content=extract_content(question),
                    question=question,
