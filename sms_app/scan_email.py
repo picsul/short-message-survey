@@ -1,5 +1,6 @@
 from sms_app.send_sms import outgoing_sms, parse_email
 from sms_app.models import Number
+from sms_app import app, db
 import twilio
 import smtplib
 import time
