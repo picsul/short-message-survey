@@ -58,10 +58,11 @@ class Answer(db.Model):
         db.session.add(existing_answer)
         db.session.commit()
 
-    def __init__(self, content, question, session_id):
+    def __init__(self, content, question, session_id, instance):
         self.content = content
         self.question = question
         self.session_id = session_id
+        self.instance = instance
         
 class Number(db.Model):
     __tablename__ = 'numbers'
