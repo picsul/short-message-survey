@@ -7,7 +7,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 def answer(question_id):
     question = Question.query.get(question_id)
     
-    instance = Instance.query.get('SM2e844c8e726345eaa3ef37427e6be68c')
+    instance = Instance.query.get('SMf618ee7e23d1425899889d1182cc42ab')
     
     db.save(Answer(content=extract_content(question),
                    question=question,
