@@ -39,7 +39,7 @@ def goodbye_twiml():
     if 'question_id' in session:
         del session['question_id']
         del session['start_time']
-        del session['instance_id']
+        #del session['instance_id']
     return str(response)
 
 
