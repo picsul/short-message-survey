@@ -19,8 +19,9 @@ def sms_survey():
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
-
+    
     print(type(messages))
+    print(messages)
     # old code
     #survey = Survey.query.first()
     #if survey_error(survey, response.message):
