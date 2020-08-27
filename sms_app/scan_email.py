@@ -1,5 +1,5 @@
 from sms_app.send_sms import outgoing_sms, parse_email
-from sms_app.models import Number
+from sms_app.models import Number, Instance
 from sms_app import app, db
 import twilio
 import smtplib
@@ -38,8 +38,8 @@ def read_email_from_gmail(assignment):
                         name = msg['from'].split("<")[0].strip(' "')
                         number = Number.query.filter_by(name = name).first()
                         try:
-                            outgoing_sms(number.number, survey_prompt, picsul_number)
-                            #db.save(Instance(sid = sms, assign = assignment))
+                            sms = outgoing_sms(number.number, survey_prompt, picsul_number)
+                            db.save(Instance(sid = sms, assign = assignment))
                             mail.store(i, '+X-GM-LABELS', '\\Trash')
                             mail.expunge()
                         except twilio.base.exceptions.TwilioRestException:
