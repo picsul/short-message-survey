@@ -96,9 +96,9 @@ def cosc111_homework_Loops():
     read_email_from_gmail("Loops Homework")
     
 ## HW Functions
-@sched.scheduled_job('interval', id='cosc111_homework_functions', minutes=1, start_date='2020-10-05 08:00:00', end_date='2020-10-13 20:00:00', timezone='US/Eastern')
-def cosc111_homework_functions():
-    read_email_from_gmail("Functions Homework")
+#@sched.scheduled_job('interval', id='cosc111_homework_functions', minutes=1, start_date='2020-10-05 08:00:00', end_date='2020-10-13 20:00:00', timezone='US/Eastern')
+#def cosc111_homework_functions():
+#    read_email_from_gmail("Functions Homework")
     
 
 #students = Number.query.filter_by(name = 'NA').all()
