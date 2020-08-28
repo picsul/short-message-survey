@@ -3,7 +3,7 @@ from .models import Survey
 from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
 from sms_app.send_sms import client
-from sms_app.scan_email import survey_prompt
+from sms_app.scan_email import survey_prompt, welcome_message
 import datetime
 
 @app.route('/message')
@@ -58,8 +58,7 @@ def redirect_to_first_question(response, survey):
 
 
 def welcome_user(survey, send_function):
-    #welcome_text = 'Welcome to the %s' % survey.title
-    welcome_text = 'Please indicate your agreement right now with the following statements with respect to your COSC 102 / 111 class on a 1 - 5 scale, with 1 indicating strong disagreement, 3 indicating that you neither agree nor disagree, and 5 indicating strong agreement.' 
+    welcome_text = welcome_message
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
