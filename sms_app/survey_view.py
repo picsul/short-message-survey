@@ -19,27 +19,7 @@ def sms_survey():
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
-    
-    print(type(messages))
-    print(messages)
-    print(messages[0].sid)
-    
-    #session['HelloDere'] = "Well, hello dere!"
-    
-    #session['instance_id'] = messages[0].sid
-    # old code
-    #survey = Survey.query.first()
-    #if survey_error(survey, response.message):
-    #    return str(response)
-
-    #if 'question_id' in session:
-    #    response.redirect(url_for('answer',
-    #                              question_id=session['question_id']))
-    #else:
-    #    welcome_user(survey, response.message)
-    #    redirect_to_first_question(response, survey)
-    #return str(response)
-    
+        
     # new code with 5 minute time limit, and reprompt reset
 
     if message_text == survey_prompt:
