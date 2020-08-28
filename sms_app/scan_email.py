@@ -48,6 +48,9 @@ def read_email_from_gmail(assignment):
                         # to deal with non participating studnets that arent found in the database
                         except AttributeError:
                             pass
+                    elif 'Assessment' in msg['subject']:
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        mail.expunge()
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
