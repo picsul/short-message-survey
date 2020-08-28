@@ -76,7 +76,7 @@ def cosc111_homework_intro_python():
     read_email_from_gmail("Intro to Python Homework")
     
 ## HW Variables and Types
-@sched.scheduled_job('interval', id='cosc111_homework_var_types', minutes=1, start_date='2020-09-07 08:00:00', end_date='2020-09-55 20:00:00', timezone='US/Eastern')
+@sched.scheduled_job('interval', id='cosc111_homework_var_types', minutes=1, start_date='2020-09-07 08:00:00', end_date='2020-09-15 20:00:00', timezone='US/Eastern')
 def cosc111_homework_var_types():
     read_email_from_gmail("Variables and Types Homework")
     
