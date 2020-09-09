@@ -45,9 +45,10 @@ def read_email_from_gmail(assignment):
                             mail.expunge()
                         except twilio.base.exceptions.TwilioRestException:
                             pass 
-                        # to deal with non participating studnets that arent found in the database
+                        # to deal with non participating students that arent found in the database
                         except AttributeError:
-                            pass
+                            mail.store(i, '+X-GM-LABELS', '\\Trash')
+                            mail.expunge()
                     elif 'Assessment' in msg['subject']:
                         mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
