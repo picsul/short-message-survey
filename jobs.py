@@ -62,6 +62,11 @@ def cosc102_lab2b():
 #@sched.scheduled_job('interval', id='cosc102_lab6', minutes=1, end_date='2020-11-26 23:59:00', timezone='US/Eastern')
 #def cosc102_lab6():
 #    read_email_from_gmail("Lab 6")
+
+## Exam 1 
+@sched.scheduled_job('interval', id='cosc102_exam1', minutes=1, end_date='2020-09-09 23:59:00', timezone='US/Eastern')
+def cosc102_exam1():
+    read_email_from_gmail("Exam 1")
     
     
 # Homework COSC 111    
