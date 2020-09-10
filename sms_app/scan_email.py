@@ -55,6 +55,7 @@ def read_email_from_gmail(assignment):
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
+                    print(assignment)
                     #print('Subject : ' + email_subject + '\n')
                     
         mail.logout()
