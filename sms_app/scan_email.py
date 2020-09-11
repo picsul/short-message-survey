@@ -38,6 +38,7 @@ def read_email_from_gmail(assignment):
                     if parse_email(msg, assignment):
                         name = msg['from'].split("<")[0].strip(' "')
                         number = Number.query.filter_by(name = name).first()
+                        print(number.number)
                         try:
                             sms = outgoing_sms(number.number, survey_prompt, picsul_number)
                             db.save(Instance(sid = sms, assign = assignment))
