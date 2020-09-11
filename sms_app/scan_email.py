@@ -1,3 +1,4 @@
+
 from sms_app.send_sms import outgoing_sms, parse_email
 from sms_app.models import Number, Instance
 from sms_app import app, db
@@ -35,35 +36,35 @@ def read_email_from_gmail(assignment):
             for response_part in data:
                 if isinstance(response_part, tuple):
 
-		    # get the email message into a readable format, get the name readable, and query the database
+            # get the email message into a readable format, get the name readable, and query the database
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
                     name = msg['from'].split("<")[0].strip(' "')
-	            number = Number.query.filter_by(name = name).first()
+                    number = Number.query.filter_by(name = name).first()
                     
                     # print message info so that I can make sure it's still running 
-		    email_subject = msg['subject']
+                    email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
                     print(assignment)
                     #print('Subject : ' + email_subject + '\n')
 
-	            # If the name (confusingly named 'number') isn't in the database, delete the message
-		    if number is None:
-			mail.store(i, '+X-GM-LABELS', '\\Trash')
+                # If the name (confusingly named 'number') isn't in the database, delete the message
+                    if number is None:
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
 
-		    # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
-		    elif parse_email(msg, assignment):
-	                try:
-			    sms = outgoing_sms(number.number, survey_prompt, picsul_number)
+            # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
+                    elif parse_email(msg, assignment):
+                        try:
+                            sms = outgoing_sms(number.number, survey_prompt, picsul_number)
                             db.save(Instance(sid = sms, assign = assignment))
-			    print("Survey sent")
+                            print("Survey sent")
                             mail.store(i, '+X-GM-LABELS', '\\Trash')
                             mail.expunge()
-			except twilio.base.exceptions.TwilioRestException:
+                        except twilio.base.exceptions.TwilioRestException:
                             pass 
 
-		    # There are a lot of emails about assessments, and we definitely never want those, so move them to trash
+            # There are a lot of emails about assessments, and we definitely never want those, so move them to trash
                     elif 'Assessment' in msg['subject']:
                         mail.store(i, '+X-GM-LABELS', '\\Trash')
                         mail.expunge()
