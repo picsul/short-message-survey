@@ -32,13 +32,13 @@ def cosc102_lab2b():
     read_email_from_gmail("Lab 2b")
 
 ## Lab 3    
-#@sched.scheduled_job('interval', id='cosc102_lab3a', minutes=1, end_date='2020-10-04 23:59:00', timezone='US/Eastern')
-#def cosc102_lab3a():
-#    read_email_from_gmail("Lab 3a")
+@sched.scheduled_job('interval', id='cosc102_lab3a', minutes=1, end_date='2020-10-04 23:59:00', timezone='US/Eastern')
+def cosc102_lab3a():
+    read_email_from_gmail("Lab 3a")
     
-#@sched.scheduled_job('interval', id='cosc102_lab3b', minutes=1, end_date='2020-10-11 23:59:00', timezone='US/Eastern')
-#def cosc102_lab13b():
-#    read_email_from_gmail("Lab 3b")
+@sched.scheduled_job('interval', id='cosc102_lab3b', minutes=1, end_date='2020-10-11 23:59:00', timezone='US/Eastern')
+def cosc102_lab3b():
+    read_email_from_gmail("Lab 3b")
   
 ## Lab 4  
 #@sched.scheduled_job('interval', id='cosc102_lab4a', minutes=1, end_date='2020-10-18 23:59:00', timezone='US/Eastern')
