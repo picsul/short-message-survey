@@ -27,10 +27,11 @@ list_of_numbers = []
 #    except AttributeError:
 #        pass
         
-def message_the_list(num_list, body, from_num):
+def message_the_list(num_list, body, from_num, assignment):
     for num in num_list:
         try:
-            outgoing_sms(num, body, from_num)
+            sms = outgoing_sms(num, body, from_num)
+            db.save(Instance(sid = sms, assign = assignment))
         except twilio.base.exceptions.TwilioRestException:
             pass 
          
