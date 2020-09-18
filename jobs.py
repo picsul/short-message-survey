@@ -41,13 +41,13 @@ def cosc102_lab3b():
     read_email_from_gmail("Lab 3b")
   
 ## Lab 4  
-#@sched.scheduled_job('interval', id='cosc102_lab4a', minutes=1, end_date='2020-10-18 23:59:00', timezone='US/Eastern')
-#def cosc102_lab4a():
-#    read_email_from_gmail("Lab 4a")
+@sched.scheduled_job('interval', id='cosc102_lab4a', minutes=1, end_date='2020-10-18 23:59:00', timezone='US/Eastern')
+def cosc102_lab4a():
+    read_email_from_gmail("Lab 4a")
     
-#@sched.scheduled_job('interval', id='cosc102_lab4b', minutes=1, end_date='2020-10-25 23:59:00', timezone='US/Eastern')
-#def cosc102_lab4b():
-#    read_email_from_gmail("Lab 4b")
+@sched.scheduled_job('interval', id='cosc102_lab4b', minutes=1, end_date='2020-10-25 23:59:00', timezone='US/Eastern')
+def cosc102_lab4b():
+    read_email_from_gmail("Lab 4b")
 
 ## Lab 5
 #@sched.scheduled_job('interval', id='cosc102_lab5a', minutes=1, end_date='2020-11-08 23:59:00', timezone='US/Eastern')
@@ -105,16 +105,33 @@ def cosc111_homework_Loops():
 #def cosc111_homework_functions():
 #    read_email_from_gmail("Functions Homework")
     
+# Generic jobs sent to everyone
 
-#students = Number.query.filter_by(name = 'NA').all()
+students = Number.query.all()
 
-#student_numbers = []
+student_numbers = []
 
-#for student in students:
-#    student_numbers.append(student.number)
-    
-#@sched.scheduled_job('cron', day_of_week='mon', hour='14', minute='55', timezone='US/Eastern')
-#def post_reminder():
-#    message_the_list(student_numbers, message, picsul_number)
+for student in students:
+    student_numbers.append(student.number)
+
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:00:00', timezone='US/Eastern')
+def cosc_timed():
+    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
+
+@sched.scheduled_job('date', id='cosc_timed_2', run_date='2020-10-05 12:00:00', timezone='US/Eastern')
+def cosc_timed2():
+    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 2")
+
+@sched.scheduled_job('date', id='cosc_timed_3', run_date='2020-10-19 12:00:00', timezone='US/Eastern')
+def cosc_timed3():
+    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 3")
+
+@sched.scheduled_job('date', id='cosc_timed_4', run_date='2020-11-02 12:00:00', timezone='US/Eastern')
+def cosc_timed4():
+    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 4")
+
+@sched.scheduled_job('date', id='cosc_timed_5', run_date='2020-11-16 12:00:00', timezone='US/Eastern')
+def cosc_timed5():
+    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 5")
 
 sched.start()
