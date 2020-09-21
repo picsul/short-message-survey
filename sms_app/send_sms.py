@@ -1,7 +1,7 @@
 from twilio.rest import Client
 import twilio
 import os
-from .models import Number
+from .models import Number, Instance
 from sms_app import app, db
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
