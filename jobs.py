@@ -114,7 +114,7 @@ student_numbers = []
 for student in students:
     student_numbers.append(student.number)
 
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:00:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:05:00', timezone='US/Eastern')
 def cosc_timed():
     message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
 
