@@ -2,6 +2,7 @@ from twilio.rest import Client
 import twilio
 import os
 from .models import Number
+from sms_app import app, db
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
