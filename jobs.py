@@ -14,22 +14,22 @@ sched = BlockingScheduler()
 # COSC 102
 # Labs
 ## Lab 1
-@sched.scheduled_job('interval', id='cosc102_lab1a', minutes=1, end_date='2020-09-06 23:59:00', timezone='US/Eastern')
-def cosc102_lab1a():
-    read_email_from_gmail("Lab 1a")
+#@sched.scheduled_job('interval', id='cosc102_lab1a', minutes=1, end_date='2020-09-06 23:59:00', timezone='US/Eastern')
+#def cosc102_lab1a():
+#    read_email_from_gmail("Lab 1a")
 
-@sched.scheduled_job('interval', id='cosc102_lab1b', minutes=1, end_date='2020-09-13 23:59:00', timezone='US/Eastern')
-def cosc102_lab1b():
-    read_email_from_gmail("Lab 1b")
+#@sched.scheduled_job('interval', id='cosc102_lab1b', minutes=1, end_date='2020-09-13 23:59:00', timezone='US/Eastern')
+#def cosc102_lab1b():
+#    read_email_from_gmail("Lab 1b")
 
 ## Lab 2
-@sched.scheduled_job('interval', id='cosc102_lab2a', minutes=1, end_date='2020-09-20 23:59:00', timezone='US/Eastern')
-def cosc102_lab2a():
-    read_email_from_gmail("Lab 2a")
+#@sched.scheduled_job('interval', id='cosc102_lab2a', minutes=1, end_date='2020-09-20 23:59:00', timezone='US/Eastern')
+#def cosc102_lab2a():
+#    read_email_from_gmail("Lab 2a")
     
-@sched.scheduled_job('interval', id='cosc102_lab2b', minutes=1, end_date='2020-09-27 23:59:00', timezone='US/Eastern')
-def cosc102_lab2b():
-    read_email_from_gmail("Lab 2b")
+#@sched.scheduled_job('interval', id='cosc102_lab2b', minutes=1, end_date='2020-09-27 23:59:00', timezone='US/Eastern')
+#def cosc102_lab2b():
+#    read_email_from_gmail("Lab 2b")
 
 ## Lab 3    
 @sched.scheduled_job('interval', id='cosc102_lab3a', minutes=1, end_date='2020-10-04 23:59:00', timezone='US/Eastern')
@@ -50,13 +50,13 @@ def cosc102_lab4b():
     read_email_from_gmail("Lab 4b")
 
 ## Lab 5
-#@sched.scheduled_job('interval', id='cosc102_lab5a', minutes=1, end_date='2020-11-08 23:59:00', timezone='US/Eastern')
-#def cosc102_lab5a():
-#    read_email_from_gmail("Lab 5a")
+@sched.scheduled_job('interval', id='cosc102_lab5a', minutes=1, end_date='2020-11-08 23:59:00', timezone='US/Eastern')
+def cosc102_lab5a():
+    read_email_from_gmail("Lab 5a")
     
-#@sched.scheduled_job('interval', id='cosc102_lab5b', minutes=1, end_date='2020-11-15 23:59:00', timezone='US/Eastern')
-#def cosc102_lab5b():
-#    read_email_from_gmail("Lab 5b")
+@sched.scheduled_job('interval', id='cosc102_lab5b', minutes=1, end_date='2020-11-15 23:59:00', timezone='US/Eastern')
+def cosc102_lab5b():
+    read_email_from_gmail("Lab 5b")
   
 ## Lab 6    
 #@sched.scheduled_job('interval', id='cosc102_lab6', minutes=1, end_date='2020-11-26 23:59:00', timezone='US/Eastern')
@@ -101,9 +101,9 @@ def cosc111_homework_Loops():
     read_email_from_gmail("Loops Homework")
     
 ## HW Functions
-#@sched.scheduled_job('interval', id='cosc111_homework_functions', minutes=1, start_date='2020-10-05 08:00:00', end_date='2020-10-13 20:00:00', timezone='US/Eastern')
-#def cosc111_homework_functions():
-#    read_email_from_gmail("Functions Homework")
+@sched.scheduled_job('interval', id='cosc111_homework_functions', minutes=1, start_date='2020-10-05 08:00:00', end_date='2020-10-13 20:00:00', timezone='US/Eastern')
+def cosc111_homework_functions():
+    read_email_from_gmail("Functions Homework")
     
 # Generic jobs sent to everyone
 
