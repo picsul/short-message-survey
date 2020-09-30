@@ -68,6 +68,10 @@ def cosc102_lab5b():
 def cosc102_exam1():
     read_email_from_gmail("Exam 1")
     
+## Exam 1 
+@sched.scheduled_job('interval', id='cosc102_exam2', minutes=1, end_date='2020-10-02 23:59:00', timezone='US/Eastern')
+def cosc102_exam2():
+    read_email_from_gmail("Exam 2")
     
 # Homework COSC 111    
 ## HW Programming Language
