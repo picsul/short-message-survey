@@ -128,17 +128,17 @@ student_numbers = []
 for student in students:
     student_numbers.append(student.number)
 
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:10:00', timezone='US/Eastern')
-def cosc_timed():
-    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
+#@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:10:00', timezone='US/Eastern')
+#def cosc_timed():
+#    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
 
-@sched.scheduled_job('date', id='cosc_timed_2', run_date='2020-10-05 12:00:00', timezone='US/Eastern')
-def cosc_timed2():
-    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 2")
+#@sched.scheduled_job('date', id='cosc_timed_2', run_date='2020-10-05 12:00:00', timezone='US/Eastern')
+#def cosc_timed2():
+#    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 2")
 
-@sched.scheduled_job('date', id='cosc_timed_3', run_date='2020-10-19 12:00:00', timezone='US/Eastern')
-def cosc_timed3():
-    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 3")
+#@sched.scheduled_job('date', id='cosc_timed_3', run_date='2020-10-19 12:00:00', timezone='US/Eastern')
+#def cosc_timed3():
+#    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 3")
 
 @sched.scheduled_job('date', id='cosc_timed_4', run_date='2020-11-02 12:00:00', timezone='US/Eastern')
 def cosc_timed4():
