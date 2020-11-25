@@ -1,6 +1,6 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique, parse_email
-from sms_app.scan_email import read_email_from_gmail, survey_prompt, picsul_number
+from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique, parse_email, message_the_list_static
+from sms_app.scan_email import read_email_from_gmail, survey_prompt, picsul_number, picsul_number_static, survey_reminder
 from sms_app.models import Number
 import twilio
 import smtplib
@@ -50,13 +50,13 @@ sched = BlockingScheduler()
 #    read_email_from_gmail("Lab 4b")
 
 ## Lab 5
-@sched.scheduled_job('interval', id='cosc102_lab5a', minutes=1, end_date='2020-11-08 23:59:00', timezone='US/Eastern')
-def cosc102_lab5a():
-    read_email_from_gmail("Lab 5a")
+#@sched.scheduled_job('interval', id='cosc102_lab5a', minutes=1, end_date='2020-11-08 23:59:00', timezone='US/Eastern')
+#def cosc102_lab5a():
+#    read_email_from_gmail("Lab 5a")
     
-@sched.scheduled_job('interval', id='cosc102_lab5b', minutes=1, end_date='2020-11-15 23:59:00', timezone='US/Eastern')
-def cosc102_lab5b():
-    read_email_from_gmail("Lab 5b")
+#@sched.scheduled_job('interval', id='cosc102_lab5b', minutes=1, end_date='2020-11-15 23:59:00', timezone='US/Eastern')
+#def cosc102_lab5b():
+#    read_email_from_gmail("Lab 5b")
   
 ## Lab 6    
 @sched.scheduled_job('interval', id='cosc102_lab6', minutes=1, end_date='2020-11-26 23:59:00', timezone='US/Eastern')
@@ -110,14 +110,14 @@ def cosc102_lab6():
 #    read_email_from_gmail("Functions Homework")
     
 ## HW Libraries
-@sched.scheduled_job('interval', id='cosc111_homework_libraries', minutes=1, end_date='2020-11-03 20:00:00', timezone='US/Eastern')
-def cosc111_homework_libraries():
-    read_email_from_gmail("Libraries Homework")
+#@sched.scheduled_job('interval', id='cosc111_homework_libraries', minutes=1, end_date='2020-11-03 20:00:00', timezone='US/Eastern')
+#def cosc111_homework_libraries():
+#    read_email_from_gmail("Libraries Homework")
     
 ## HW Files
-@sched.scheduled_job('interval', id='cosc111_homework_files', minutes=1, end_date='2020-11-17 20:00:00', timezone='US/Eastern')
-def cosc111_homework_files():
-    read_email_from_gmail("Files Homework")
+#@sched.scheduled_job('interval', id='cosc111_homework_files', minutes=1, end_date='2020-11-17 20:00:00', timezone='US/Eastern')
+#def cosc111_homework_files():
+#    read_email_from_gmail("Files Homework")
     
 # Generic jobs sent to everyone
 
@@ -140,12 +140,17 @@ for student in students:
 #def cosc_timed3():
 #    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 3")
 
-@sched.scheduled_job('date', id='cosc_timed_4', run_date='2020-11-02 12:00:00', timezone='US/Eastern')
-def cosc_timed4():
-    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 4")
+#@sched.scheduled_job('date', id='cosc_timed_4', run_date='2020-11-02 12:00:00', timezone='US/Eastern')
+#def cosc_timed4():
+#    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 4")
 
-@sched.scheduled_job('date', id='cosc_timed_5', run_date='2020-11-16 12:00:00', timezone='US/Eastern')
-def cosc_timed5():
-    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 5")
+#@sched.scheduled_job('date', id='cosc_timed_5', run_date='2020-11-16 12:00:00', timezone='US/Eastern')
+#def cosc_timed5():
+#    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 5")
+    
+# Post survey reminder
+@sched.scheduled_job('date', id='survey_reminder', run_date='2020-11-25 11:30:00', timezone='US/Eastern')
+def survey_remind():
+    message_the_list_static(student_numbers, survey_reminder, picsul_number_static)
 
 sched.start()
