@@ -75,7 +75,7 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    resp.message("Thanks for your response.")
+    resp.message("If you have any issues accessing the survey, please contact us at jmrosenberg@utk.edu")
     
     return str(resp)
     
