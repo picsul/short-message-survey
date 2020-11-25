@@ -36,6 +36,13 @@ def message_the_list(num_list, body, from_num, assignment):
         except twilio.base.exceptions.TwilioRestException:
             pass 
          
+def message_the_list_static(num_list, body, from_num):
+    for num in num_list:
+        try:
+            outgoing_sms(num, body, from_num)
+        except twilio.base.exceptions.TwilioRestException:
+            pass             
+
 def message_the_list_unique(num_list, body, from_num):
     for num, mess in zip(num_list, body):
         outgoing_sms(num, mess, from_num)
