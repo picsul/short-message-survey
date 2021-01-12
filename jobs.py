@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 t1 = datetime.now() 
 
 ## One job   
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-01-11 21:45:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-01-11 21:53:00', timezone='US/Eastern')
 def single_job():
     read_email_from_gmail(assignments_list)
     t2 = datetime.now()
