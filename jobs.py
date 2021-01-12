@@ -19,12 +19,13 @@ from datetime import datetime, timedelta
 t1 = datetime.now() 
 
 ## One job   
-@sched.scheduled_job('interval', id='single_job', minutes=100, end_date='2020-01-22 23:59:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-01-11 21:45:00', timezone='US/Eastern')
 def single_job():
     read_email_from_gmail(assignments_list)
     t2 = datetime.now()
     print(t2-t1)
     
+#@sched.scheduled_job('interval', id='single_job', minutes=100, end_date='2020-01-22 23:59:00', timezone='US/Eastern')
     
 # then do a series of 5 jobs with a different list object just containing 1 thing
 
