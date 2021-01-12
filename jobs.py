@@ -11,6 +11,23 @@ import os
 
 sched = BlockingScheduler()
 
+assignments_list = ["Final Exam", "Lab 6", "Lab 5a", "Lab 4a", "Lab 3a"]
+
+from datetime import datetime, timedelta 
+  
+# Using current time 
+t1 = datetime.now() 
+
+## One job   
+@sched.scheduled_job('interval', id='single_job', minutes=100, end_date='2020-01-22 23:59:00', timezone='US/Eastern')
+def single_job():
+    read_email_from_gmail(assignments_list)
+    t2 = datetime.now()
+    print(t2-t1)
+    
+    
+# then do a series of 5 jobs with a different list object just containing 1 thing
+
 # COSC 102
 # Labs
 ## Lab 1
@@ -59,9 +76,9 @@ sched = BlockingScheduler()
 #    read_email_from_gmail("Lab 5b")
   
 ## Lab 6    
-@sched.scheduled_job('interval', id='cosc102_lab6', minutes=1, end_date='2020-11-26 23:59:00', timezone='US/Eastern')
-def cosc102_lab6():
-    read_email_from_gmail("Lab 6")
+#@sched.scheduled_job('interval', id='cosc102_lab6', minutes=1, end_date='2020-11-26 23:59:00', timezone='US/Eastern')
+#def cosc102_lab6():
+#    read_email_from_gmail("Lab 6")
 
 ## Exam 1 
 #@sched.scheduled_job('interval', id='cosc102_exam1', minutes=1, end_date='2020-09-09 23:59:00', timezone='US/Eastern')
@@ -121,12 +138,12 @@ def cosc102_lab6():
     
 # Generic jobs sent to everyone
 
-students = Number.query.all()
+#students = Number.query.all()
 
-student_numbers = []
+#student_numbers = []
 
-for student in students:
-    student_numbers.append(student.number)
+#for student in students:
+    #student_numbers.append(student.number)
 
 #@sched.scheduled_job('date', id='cosc_timed_1', run_date='2020-09-21 12:10:00', timezone='US/Eastern')
 #def cosc_timed():
@@ -149,8 +166,8 @@ for student in students:
 #    message_the_list(student_numbers, survey_prompt, picsul_number, "timed 5")
     
 # Post survey reminder
-@sched.scheduled_job('date', id='survey_reminder', run_date='2020-11-25 11:30:00', timezone='US/Eastern')
-def survey_remind():
-    message_the_list_static(student_numbers, survey_reminder, picsul_number_static)
+#@sched.scheduled_job('date', id='survey_reminder', run_date='2020-11-25 11:30:00', timezone='US/Eastern')
+#def survey_remind():
+#    message_the_list_static(student_numbers, survey_reminder, picsul_number_static)
 
 sched.start()
