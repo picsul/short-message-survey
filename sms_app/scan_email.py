@@ -54,9 +54,9 @@ def read_email_from_gmail(assignments):
                     print('Subject : ' + email_subject + '\n')
 
                 # If the name (confusingly named 'number') isn't in the database, delete the message
-                    #if number is None:
-                        #mail.store(i, '+X-GM-LABELS', '\\Trash')
-                        #mail.expunge()
+                    if number is None:
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        mail.expunge()
 
             # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
                     for assignment in assignments:
@@ -70,8 +70,8 @@ def read_email_from_gmail(assignments):
                                     print("Survey sent")
                                 else:
                                     print("Didn't send that one")
-                                #mail.store(i, '+X-GM-LABELS', '\\Trash')
-                                #mail.expunge()
+                                mail.store(i, '+X-GM-LABELS', '\\Trash')
+                                mail.expunge()
                             except twilio.base.exceptions.TwilioRestException:
                                 pass 
 
