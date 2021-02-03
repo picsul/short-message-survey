@@ -43,8 +43,8 @@ def read_email_from_gmail(assignments):
             # get the email message into a readable format, get the name readable, and query the database
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
                     name = msg['from'].split("<")[0].strip(' "')
-                    #number = Number.query.filter_by(name = name).first()
-                    number = Number.query.filter_by(name = 'alex').first()
+                    number = Number.query.filter_by(name = name).first()
+                    #number = Number.query.filter_by(name = 'alex').first()
 
                     # print message info so that I can make sure it's still running 
                     email_subject = msg['subject']
@@ -54,22 +54,17 @@ def read_email_from_gmail(assignments):
                     print('Subject : ' + email_subject + '\n')
 
                 # If the name (confusingly named 'number') isn't in the database, delete the message
-                    if number is None:
-                        mail.store(i, '+X-GM-LABELS', '\\Trash')
-                        mail.expunge()
+                    #if number is None:
+                        #mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        #mail.expunge()
 
             # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
                     for assignment in assignments:
                         if parse_email(msg, assignment):
                             try:
                                 # put a random number cutoff so I don't get 300 text messages
-                                ran = random()
-                                if ran < 0.05:
-                                    sms = outgoing_sms(number.number, survey_prompt, picsul_number)
-                                    db.save(Instance(sid = sms, assign = assignment))
-                                    print("Survey sent")
-                                else:
-                                    print("Didn't send that one")
+                                sms = outgoing_sms(number.number, survey_prompt, picsul_number)
+                                db.save(Instance(sid = sms, assign = assignment))
                                 mail.store(i, '+X-GM-LABELS', '\\Trash')
                                 mail.expunge()
                             except twilio.base.exceptions.TwilioRestException:
