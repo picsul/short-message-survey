@@ -11,14 +11,14 @@ import os
 
 sched = BlockingScheduler()
 
-assignments_list = ["Final Exam", "Lab 6", "Lab 5a", "Lab 4a", "Lab 3a"]
+assignments_list = ["Lab 1a"]
 
 from datetime import datetime, timedelta 
   
 # Using current time 
 
 ## One job   
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-01-14 15:15:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-02-03 14:42:00', timezone='US/Eastern')
 def single_job():
     t1 = datetime.now() 
     read_email_from_gmail(assignments_list)
