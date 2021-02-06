@@ -17,9 +17,9 @@ FROM_PWD    = os.environ.get("EMAIL_PASSWORD")
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT   = 993
 
-survey_prompt = "Ready to take the COSC 102 / 111 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
-welcome_message = 'Please indicate your agreement at this moment with the following statements about your experiences in COSC 102 / 111 on a 1-5 scale, with 1 indicating strong disagreement, 3 indicating that you neither agree nor disagree, and 5 indicating strong agreement.' 
-survey_reminder = "Thank you for responding to the text message surveys about your experiences in COSC 102 or 111 this semester! We have just one more thing to ask of you, to complete our end of the semester survey. You should have received an email this morning with more details and the link to the survey, so please complete that at your earliest convenience. Thank you."
+survey_prompt = "Ready to take the COSC 102/111/505 survey? Please respond to this message when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should take less than a minute."
+welcome_message = 'Please indicate your agreement at this moment with the following statements about your experiences in COSC 102/111/505 on a 1-5 scale, with 1 indicating strong disagreement, 3 indicating that you neither agree nor disagree, and 5 indicating strong agreement.' 
+survey_reminder = "Thank you for responding to the text message surveys about your experiences in COSC 102, 111, or 505 this semester! We have just one more thing to ask of you, to complete our end of the semester survey. You should have received an email this morning with more details and the link to the survey, so please complete that at your earliest convenience. Thank you."
 picsul_number = os.environ.get("TWILIO_NUMBER_1")
 picsul_number_static = os.environ.get("TWILIO_NUMBER_2")
 
