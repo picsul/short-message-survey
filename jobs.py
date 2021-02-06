@@ -15,7 +15,7 @@ sched = BlockingScheduler()
 assignments_102 = ["Lab 1a", "Lab 1b", "Lab 2a", "Lab 2b", "Lab 3a", "Lab 3b", "Lab 4a", "Lab 4b", "Lab 5a", "Lab 5b", "Lab 6", "Exam 1", "Exam 2", "Exam 3"]
 assignments_111 = ["Intro to Python Homework", "Variables and Types Homework", "Operators Homework", "Conditions Homework", "Loops Homework", "Functions Homework",
                   "Classes Homework", "Libraries Homework", "Files Homework"]
-assignments_505 = []
+assignments_505 = ["Calculator Project", "Bitmap Project", "Pandas Data Project"]
 assignments_list = assignments_102 + assignments_111 + assignments_505
   
 # Using current time 
