@@ -59,15 +59,16 @@ def read_email_from_gmail(assignments):
                         mail.expunge()
 
             # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
-                    for assignment in assignments:
-                        if parse_email(msg, assignment):
-                            try:
-                                sms = outgoing_sms(number.number, survey_prompt, picsul_number)
-                                db.save(Instance(sid = sms, assign = assignment))
-                                mail.store(i, '+X-GM-LABELS', '\\Trash')
-                                mail.expunge()
-                            except twilio.base.exceptions.TwilioRestException:
-                                pass 
+                    elif not number is None:
+                        for assignment in assignments:
+                            if parse_email(msg, assignment):
+                                try:
+                                    sms = outgoing_sms(number.number, survey_prompt, picsul_number)
+                                    db.save(Instance(sid = sms, assign = assignment))
+                                    mail.store(i, '+X-GM-LABELS', '\\Trash')
+                                    mail.expunge()
+                                except twilio.base.exceptions.TwilioRestException:
+                                    pass 
 
             # There are a lot of emails about assessments, and we definitely never want those, so move them to trash
                     #elif 'Assessment' in msg['subject']:
