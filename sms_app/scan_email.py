@@ -70,9 +70,9 @@ def read_email_from_gmail(assignments):
                                 pass 
 
             # There are a lot of emails about assessments, and we definitely never want those, so move them to trash
-                    elif 'Assessment' in msg['subject']:
-                        mail.store(i, '+X-GM-LABELS', '\\Trash')
-                        mail.expunge()
+                    #elif 'Assessment' in msg['subject']:
+                        #mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        #mail.expunge()
 
         mail.logout()
             
