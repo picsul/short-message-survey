@@ -54,15 +54,14 @@ def read_email_from_gmail(assignments):
                     print('Subject : ' + email_subject + '\n')
 
                 # If the name (confusingly named 'number') isn't in the database, delete the message
-                    #if number is None:
-                        #mail.store(i, '+X-GM-LABELS', '\\Trash')
-                        #mail.expunge()
+                    if number is None:
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        mail.expunge()
 
             # If the number is in the database, and if it's for a correct assignment, send the survey prompt, unless twilio complains
                     for assignment in assignments:
                         if parse_email(msg, assignment):
                             try:
-                                # put a random number cutoff so I don't get 300 text messages
                                 sms = outgoing_sms(number.number, survey_prompt, picsul_number)
                                 db.save(Instance(sid = sms, assign = assignment))
                                 mail.store(i, '+X-GM-LABELS', '\\Trash')
@@ -71,9 +70,9 @@ def read_email_from_gmail(assignments):
                                 pass 
 
             # There are a lot of emails about assessments, and we definitely never want those, so move them to trash
-                    #elif 'Assessment' in msg['subject']:
-                        #mail.store(i, '+X-GM-LABELS', '\\Trash')
-                        #mail.expunge()
+                    elif 'Assessment' in msg['subject']:
+                        mail.store(i, '+X-GM-LABELS', '\\Trash')
+                        mail.expunge()
 
         mail.logout()
             
