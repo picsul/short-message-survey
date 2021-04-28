@@ -1,19 +1,23 @@
 {
   "questions": [
     {
-      "body": "How challenged do you feel?",
+      "body": "I feel challenged.",
       "type": "numeric"
     },
     {
-      "body": "How accomplished do you feel?",
+      "body": "I feel accomplished.",
       "type": "numeric"
     },
     {
-      "body": "How frustrated do you feel?",
+      "body": "I feel frustrated.",
       "type": "numeric"
     },
     {
-      "body": "How confident do you feel about being able to do the work going forward?",
+      "body": "I feel confident about being able to do the work going forward.",
+      "type": "numeric"
+    },
+    {
+      "body": "I feel interested in computer science.",
       "type": "numeric"
     }
   ],

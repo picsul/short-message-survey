@@ -3,6 +3,7 @@ from .models import Survey
 from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
 from sms_app.send_sms import client
+from sms_app.scan_email import survey_prompt, welcome_message
 import datetime
 
 @app.route('/message')
@@ -18,34 +19,24 @@ def sms_survey():
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
-
-    
-    # old code
-    #survey = Survey.query.first()
-    #if survey_error(survey, response.message):
-    #    return str(response)
-
-    #if 'question_id' in session:
-    #    response.redirect(url_for('answer',
-    #                              question_id=session['question_id']))
-    #else:
-    #    welcome_user(survey, response.message)
-    #    redirect_to_first_question(response, survey)
-    #return str(response)
-    
+        
     # new code with 5 minute time limit, and reprompt reset
 
-    if message_text == "Are you ready to take the COSC 102 survey? Please respond when you are ready to begin. You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes.":
+    if message_text == survey_prompt:
+        if 'instance_id' in session:
+            del session['instance_id']
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
             del session['start_time']
+        session['instance_id'] = messages[0].sid
 
     if 'question_id' in session:
         delta = now - session['start_time']
         if delta.seconds > 300:
             del session['start_time']
             del session['question_id']
+            del session['instance_id']
             response.message("The time to complete the survey has expired")
         else:
             response.redirect(url_for('answer', question_id=session['question_id']))
@@ -67,8 +58,7 @@ def redirect_to_first_question(response, survey):
 
 
 def welcome_user(survey, send_function):
-    #welcome_text = 'Welcome to the %s' % survey.title
-    welcome_text = 'Please indicate your agreement with the following statements with respect to your last COSC 102 class on a 1 - 5 scale, with 1 indicating strong disagreement, 3 indicating that you neither agree nor disagree, and 5 indicating strong agreement.' 
+    welcome_text = welcome_message
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
@@ -85,7 +75,7 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    resp.message("Thanks for your response.")
+    resp.message("If you have any issues accessing the survey, please contact us at jmrosenberg@utk.edu")
     
     return str(resp)
     
