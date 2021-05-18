@@ -1,15 +1,11 @@
-
 from sms_app.send_sms import outgoing_sms, parse_email
 from sms_app.models import Number, Instance
 from sms_app import app, db
 import twilio
-import smtplib
-import time
+#import smtplib
 import imaplib
 import email
 import os 
-# remove this later
-from random import random
 
 ORG_EMAIL   = "@gmail.com"
 FROM_EMAIL  = os.environ.get("EMAIL_ADDRESS") + ORG_EMAIL
@@ -44,13 +40,11 @@ def read_email_from_gmail(assignments):
                     msg = email.message_from_string(response_part[1].decode('utf-8'))
                     name = msg['from'].split("<")[0].strip(' "')
                     number = Number.query.filter_by(name = name).first()
-                    #number = Number.query.filter_by(name = 'alex').first()
 
                     # print message info so that I can make sure it's still running 
                     email_subject = msg['subject']
                     email_from = msg['from']
                     print('From : ' + email_from + '\n')
-                    #print(assignment)
                     print('Subject : ' + email_subject + '\n')
 
                 # If the name (confusingly named 'number') isn't in the database, delete the message

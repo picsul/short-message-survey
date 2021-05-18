@@ -1,7 +1,7 @@
 from twilio.rest import Client
 import twilio
 import os
-from .models import Number, Instance
+from .models import Instance
 from sms_app import app, db
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
@@ -19,15 +19,6 @@ def outgoing_sms(number, body, out_num):
 
     return message.sid
     
-list_of_numbers = [] 
-
-#for i in range(0, Number.query.count()):
-#    try:
-#        num = Number.query.get(i+1)
-#        list_of_numbers.append(num.number)
-#    except AttributeError:
-#        pass
-        
 def message_the_list(num_list, body, from_num, assignment):
     for num in num_list:
         try:

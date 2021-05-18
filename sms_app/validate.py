@@ -1,11 +1,7 @@
-from flask import Flask, request
+from flask import request
 from twilio.twiml.messaging_response import MessagingResponse
 
-# import some_stuff_probably, the outgoing message functions
-
 # response validation functions
-
-
 def validate_text(user_input):
     text = user_input
     text = text.strip()
@@ -33,8 +29,9 @@ def validate_scale(user_input):
     else:
         return message
 
-
-# something like this will go into the question asking functions, will need to make sure it doesn't mess with the count of questions. Also need to make sure it's only saving the "verified" version
+# something like this will go into the question asking functions, w
+# will need to make sure it doesn't mess with the count of questions.
+# Also need to make sure it's only saving the "verified" version
 
 body = request.values.get('Body', None)
 
@@ -47,7 +44,7 @@ wait_until = datetime.now() + timedelta(hours=1)
 while answer != 1 and attempt < 5: 
     resp = MessagingResponse()
     resp.message = answer
-    str(resp) # is this right? How do I send the response? 
+    str(resp)
     
     # increment the attempt
     attempt += 1
@@ -58,7 +55,3 @@ while answer != 1 and attempt < 5:
     # get new message and revalidate
     body = request.values.get('Body', None)
     answer = validate_text(message_body)
-
-
-
-# How do we protect against SQL injection type stuff?
