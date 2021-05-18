@@ -7,3 +7,4 @@ twilio.env
 # env
 .env
 .env.example
+.Rproj.user

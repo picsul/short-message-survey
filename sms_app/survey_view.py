@@ -56,7 +56,6 @@ def redirect_to_first_question(response, survey):
     session['start_time'] = datetime.datetime.now()
     response.redirect(url=first_question_url, method='GET')
 
-
 def welcome_user(survey, send_function):
     welcome_text = welcome_message
     send_function(welcome_text)
