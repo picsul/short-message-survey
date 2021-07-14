@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique, parse_email, message_the_list_static
+from sms_app.send_sms import outgoing_sms, message_the_list, message_the_list_unique, parse_email, message_the_list_static
 from sms_app.scan_email import read_email_from_gmail, survey_prompt, picsul_number, picsul_number_static, survey_reminder
 from sms_app.models import Number
 import twilio
@@ -35,7 +35,7 @@ for student in students:
     
 # Scheduled Jobs 
 
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-07-14 13:30:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-07-14 13:38:00', timezone='US/Eastern')
 def cosc_timed_1():
     message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
 
