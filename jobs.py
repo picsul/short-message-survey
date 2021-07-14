@@ -29,14 +29,16 @@ def main_job():
     
 #students = Number.query.all()
 students = Number.query.filter_by(name = 'Test Student').first()
-student_numbers = []
+student_numbers = [students.number]
 
-for student in students:
-    student_numbers.append(student.number)
+#student_numbers = []
+
+#for student in students:
+#    student_numbers.append(student.number)
     
 # Scheduled Jobs 
 
-@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-07-14 13:38:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_1', run_date='2021-07-14 14:35:00', timezone='US/Eastern')
 def cosc_timed_1():
     message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
 
