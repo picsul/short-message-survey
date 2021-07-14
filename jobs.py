@@ -38,7 +38,7 @@ student_numbers = [students.number]
     
 # Scheduled Jobs 
 
-@sched.scheduled_job('date', id='cosc_timed_test', run_date='2021-07-14 15:22:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='cosc_timed_test', run_date='2021-07-14 15:33:00', timezone='US/Eastern')
 def cosc_timed_1():
     message_the_list(student_numbers, survey_prompt, picsul_number, "timed 1")
 
