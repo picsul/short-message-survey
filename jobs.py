@@ -10,6 +10,7 @@ import email
 import os 
 from datetime import datetime, timedelta 
 
+
 sched = BlockingScheduler()
 
 assignments_102 = ["Lab 1a", "Lab 1b", "Lab 2a", "Lab 2b", "Lab 3a", "Lab 3b", "Lab 4a", "Lab 4b", "Lab 5a", "Lab 5b", "Lab 6", "Exam 1", "Exam 2", "Exam 3"]
