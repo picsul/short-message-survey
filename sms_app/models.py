@@ -81,7 +81,6 @@ class Instance(db.Model):
     sid = db.Column(db.String, primary_key=True)
     assign = db.Column(db.String, nullable = False)
     
-    # I think this table has the one to many relationship with the column in the other table and this is a foreign key of that
     answers = db.relationship('Answer', backref='instance', lazy='dynamic')
     
     def __init__(self, sid, assign):
