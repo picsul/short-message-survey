@@ -28,7 +28,7 @@ manager.add_command('db', MigrateCommand)
 #    with open('survey.json') as survey_file:
 #        db.save(parsers.survey_from_json(survey_file.read()))
            
-surveys = [open('survey.json'), open('survey2.json')]
+surveys = [open('survey.json'), open('survey2.json'), open('survey3.json'), open('survey4.json')]
 
 @manager.command     
 def dbseed():
