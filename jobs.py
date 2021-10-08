@@ -5,12 +5,6 @@ from datetime import date, datetime
 
 sched = BlockingScheduler()
 
-link_base = "https://usc.qualtrics.com/jfe/form/"
-    
-link_tail = "&Q_CHL=gl"
-
-test_instance = "SV_4SYnBkWsvp23LmJ?Q_DL=IunX81MIL25ovHh_4SYnBkWsvp23LmJ_MLRP_"
-
 links = [
 # monday 4/20
 "SV_b166qIhL6OXUdx3?Q_DL=zEb1chDZqGMjroK_b166qIhL6OXUdx3_MLRP_",
