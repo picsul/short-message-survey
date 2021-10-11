@@ -31,9 +31,32 @@ times = [el[1] for el in split_list]
 split_times = [x.split(":") for x in times]
 hours = [el[0] for el in split_times]
 mins = [el[1] for el in split_times]
+# need to make the list of the codes 
 
 
+### NEXT THING TO DO: ARRANGE THESE TO BE IN THE SAME ORDER AS DATETIMES
+codes = ["T1245", "TR1245", "W535", "W420", "TR200", 
+"T225", "TR225", "T1040", "T1105", "TR1105",
+"T200", "W1120", "T1005", "M1235", "W1235", 
+"F1235", "W305", "T520", "T340", "T350",  
+"T536", "TR520", "TR950", "TR850", "TR305", 
+"M305", "F305", "TR900", "T900", "F1005", 
+"W1005", "W650", "W150", "TR1220", "TR340", 
+"TR1040", "F1120", "T420", "F335", "W520"] 
 
+def send_message(day, hour, minute):
+    @sched.scheduled_job('cron', day_of_week=date, hour=hour, minute=minute, timezone='America/New_York')
+    def message_job(): 
+        # get the right people ADJUST THIS TO LOOK FOR THE CODES
+        people = Number.query.filter(Number.name.contains('al')).all()
+        # pull out their numbers
+        message_numbers = [x.number for x in people]
+        message_the_list(message_numbers, survey_prompt, picsul_number)  
+
+        # then ADJUST THIS TO FIT THE CODE HERE 
+#for date in send_dates:
+#    for timezone in timezones:
+ #       send_message(date, links[send_dates.index(date)], timezones[timezone], timezone)  
 
 @sched.scheduled_job('cron', day_of_week='tue', hour='10', minute='30', timezone='America/New_York')
 def message_pre():
