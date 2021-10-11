@@ -13,9 +13,17 @@ picsul_number = "+18653289322"
 
 @sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 10:46:00', timezone='US/Eastern')
 def bio_timed_1():
-    print(message_numbers)
-    print(survey_prompt)
-    print(picsul_number)
+    message_the_list(message_numbers, survey_prompt, picsul_number)      
+    
+# template
+# as a weekly cron job - check the hunter version
+# Say this is mondays at 1234
+@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 12:06:00', timezone='US/Eastern')
+def bio_timed_1():
+    # get the right people
+    people = Number.query.filter(Number.name.contains('al')).all()
+    # pull out their numbers
+    message_numbers = [x.number for x in people]
     message_the_list(message_numbers, survey_prompt, picsul_number)      
 
 sched.start()
