@@ -5,7 +5,7 @@ from datetime import date, datetime
 
 sched = BlockingScheduler()
 
-message_numbers = Number.query.filter_by(name = filter_key).all()
+message_numbers = Number.query.filter_by(code = 'XXX').all()
 
 survey_prompt = "Hi alex"
 
