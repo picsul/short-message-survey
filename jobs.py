@@ -26,8 +26,18 @@ datetimes = ["fri 10:05", "fri 11:20", "fri 12:35", "fri 15:05", "fri 15:35", "m
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
-times = [el[1] for el in split_list]
 
+times = [el[1] for el in split_list]
+split_times = [x.split(":") for x in times]
+hours = [el[0] for el in split_times]
+mins = [el[1] for el in split_times]
+
+
+
+
+@sched.scheduled_job('cron', day_of_week='tue', hour='10', minute='30', timezone='America/New_York')
+def message_pre():
+    message_the_list(student_numbers, '+19179949576', pre_message)
     
 # template
 # as a weekly cron job - check the hunter version
