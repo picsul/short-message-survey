@@ -5,9 +5,11 @@ from datetime import date, datetime
 
 sched = BlockingScheduler()
 
-message_numbers = Number.query.filter_by(code = 'XXX').all()
+#message_numbers = Number.query.filter_by(code = 'XXX').all()
 
-survey_prompt = "Hi alex"
+#survey_prompt = "Hi alex"
+survey_prompt = """Ready to take the Bio 127 pre-class survey? Please respond when you are ready to begin. 
+                 You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes."""
 
 picsul_number = "+18653289322"
 
@@ -52,21 +54,6 @@ def send_message(day, hour, minute, code):
         # need to change the survey prompt
         
 #for i in range(0,len(datetimes)):
-#    send_message(days[i], hours[i], mins[i], codes[i]) 
-
-@sched.scheduled_job('cron', day_of_week='tue', hour='10', minute='30', timezone='America/New_York')
-def message_pre():
-    message_the_list(student_numbers, '+19179949576', pre_message)
-    
-# template
-# as a weekly cron job - check the hunter version
-# Say this is mondays at 1234
-@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 12:06:00', timezone='US/Eastern')
-def bio_timed_1():
-    # get the right people
-    people = Number.query.filter(Number.name.contains('al')).all()
-    # pull out their numbers
-    message_numbers = [x.number for x in people]
-    message_the_list(message_numbers, survey_prompt, picsul_number)      
+#    send_message(days[i], hours[i], mins[i], codes[i])
 
 sched.start()
