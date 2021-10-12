@@ -30,7 +30,7 @@ def redirect_to_first_question(response, survey):
 
 
 def welcome_user(survey, send_function):
-    welcome_text = 'Welcome to the %s' % survey.title
+    welcome_text = "Please respond to the following items on a scale of strongly disagree to strongly agree (1-7)."
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
