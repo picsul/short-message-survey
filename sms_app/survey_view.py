@@ -2,13 +2,14 @@ from . import app
 from .models import Survey
 from flask import url_for, session
 from twilio.twiml.messaging_response import MessagingResponse
+import random
 
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
 
-    survey = Survey.query.first()
-    #survey = Survey.query.get(random.randint(1,4))
+    #survey = Survey.query.first()
+    survey = Survey.query.get(random.randint(1,4))
     
     if survey_error(survey, response.message):
         return str(response)
