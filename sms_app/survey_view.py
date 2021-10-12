@@ -7,8 +7,8 @@ from twilio.twiml.messaging_response import MessagingResponse
 def sms_survey():
     response = MessagingResponse()
 
-    #survey = Survey.query.first()
-    survey = Survey.query.get(random.randint(1,4))
+    survey = Survey.query.first()
+    #survey = Survey.query.get(random.randint(1,4))
     
     if survey_error(survey, response.message):
         return str(response)
