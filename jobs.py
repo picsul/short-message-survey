@@ -13,7 +13,7 @@ survey_prompt = """Ready to take the Bio 127 pre-class survey? Please respond wh
 
 picsul_number = "+18653289322"
 
-@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 23:26:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 23:38:00', timezone='US/Eastern')
 def bio_timed_1():
     message_the_list(nums, survey_prompt, picsul_number)  
     
