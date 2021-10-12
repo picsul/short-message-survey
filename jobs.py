@@ -5,15 +5,14 @@ from datetime import date, datetime
 
 sched = BlockingScheduler()
 
-#message_numbers = Number.query.filter_by(code = 'XXX').all()
+message_numbers = Number.query.filter_by(code = 'XXX').all()
 
-#survey_prompt = "Hi alex"
 survey_prompt = """Ready to take the Bio 127 pre-class survey? Please respond when you are ready to begin. 
                  You will have 5 minutes to complete the survey once you begin, but the survey should only take 1-2 minutes."""
 
 picsul_number = "+18653289322"
 
-@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 10:46:00', timezone='US/Eastern')
+@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 22:54:00', timezone='US/Eastern')
 def bio_timed_1():
     message_the_list(message_numbers, survey_prompt, picsul_number)  
     
