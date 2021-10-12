@@ -5,8 +5,8 @@ from datetime import date, datetime
 
 sched = BlockingScheduler()
 
-message_numbers = Number.query.filter(Number.code.contains("X")).all()
-nums = [x.number for x in message_numbers]
+#message_numbers = Number.query.filter(Number.code.contains("X")).all()
+#nums = [x.number for x in message_numbers]
 
 survey_prompt = "Ready to take the Biology 101 survey? Please respond when you are ready to begin."
 
@@ -14,13 +14,11 @@ picsul_number = "+18653289322"
 
 #@sched.scheduled_job('date', id='bio_test', run_date='2021-10-11 23:38:00', timezone='US/Eastern')
 #def bio_timed_1():
-#    message_the_list(nums, survey_prompt, picsul_number)  
-    
-    
+#    message_the_list(nums, survey_prompt, picsul_number)    
 
-@sched.scheduled_job('cron', id='bio_test', day_of_week = 'mon', hour = 23, minute = 56, timezone='US/Eastern')
-def bio_timed_1():
-    message_the_list(nums, survey_prompt, picsul_number)  
+#@sched.scheduled_job('cron', id='bio_test', day_of_week = 'mon', hour = 23, minute = 56, timezone='US/Eastern')
+#def bio_timed_1():
+#    message_the_list(nums, survey_prompt, picsul_number)  
     
 datetimes = ["fri 10:05", "fri 11:20", "fri 12:35", "fri 15:05", "fri 15:35", "mon 12:35",
              "mon 15:05", "tue 10:05", "tue 10:40", "tue 11:05", "tue 12:45", "tue 14:00",
@@ -55,9 +53,8 @@ def send_message(day, hour, minute, code):
         message_numbers = [x.number for x in people]
         # send the surveys
         message_the_list(message_numbers, survey_prompt, picsul_number)  
-        # need to change the survey prompt
         
-#for i in range(0,len(datetimes)):
-#    send_message(days[i], hours[i], mins[i], codes[i])
+for i in range(0,len(datetimes)):
+    send_message(days[i], hours[i], mins[i], codes[i])
 
 sched.start()
