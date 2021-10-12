@@ -46,7 +46,7 @@ codes = ["F1005", "F1120", "F1235", "F305", "F335", "M1235",
 
 def send_message(day, hour, minute, code):
     @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
-    def message_job(code): 
+    def message_job(): 
         # get the right people
         people = Number.query.filter(Number.code.contains(code)).all()
         # pull out their numbers
