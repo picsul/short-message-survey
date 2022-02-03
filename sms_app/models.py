@@ -70,7 +70,8 @@ class Number(db.Model):
     code = db.Column(db.String, nullable=False, server_default = 'NA')
     week = db.Column(db.String, nullable=False, server_default = 'NA')
 
-    def __init__(self, number, name, code):
+    def __init__(self, number, name, code, week):
         self.number = number
         self.name = name
         self.code = code
+        self.week = week
