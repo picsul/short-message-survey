@@ -28,7 +28,7 @@ picsul_number = "+18653289322"
 #             "thu 9:50",  "wed 13:50", "wed 10:05", "wed 11:20", "wed 12:35", "wed 15:05", 
 #             "wed 16:20", "wed 17:20", "wed 17:35", "wed 18:50"] 
 
-datetimes = ["thu 11:50", "thu 11:55"]
+datetimes = ["thu 11:55", "thu 12:00"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -52,7 +52,7 @@ def send_message(day, hour, minute, code):
     @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
     def message_job(): 
         # week will be differently defined with the other code
-        week = 1
+        week = str(1)
         # get the right people
         #people = Number.query.filter(Number.code.contains(code)).all()
         people = Number.query.filter(Number.week == week, Number.code.contains(code)).all()        
