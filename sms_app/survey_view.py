@@ -23,16 +23,16 @@ def sms_survey():
     else:
         survey = Survey.query.get(random.randint(1,4))
     
-    if survey_error(survey, response.message):
-        return str(response)
+        if survey_error(survey, response.message):
+            return str(response)
 
-    if 'question_id' in session:
-        response.redirect(url_for('answer',
+        if 'question_id' in session:
+            response.redirect(url_for('answer',
                                   question_id=session['question_id']))
-    else:
-        welcome_user(survey, response.message)
-        redirect_to_first_question(response, survey)
-    return str(response)
+        else:
+            welcome_user(survey, response.message)
+            redirect_to_first_question(response, survey)
+        return str(response)
 
 
 def redirect_to_first_question(response, survey):
