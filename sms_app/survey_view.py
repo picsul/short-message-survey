@@ -14,6 +14,7 @@ def sms_survey():
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
+    print(messages[0].body)
     
     if message_text == "Thank you!":
         response.redirect(url='/static', method='GET')
