@@ -1,6 +1,7 @@
 from . import app
 from .models import Survey
 from flask import url_for, session, request
+from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
 
