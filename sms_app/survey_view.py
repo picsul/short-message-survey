@@ -18,6 +18,12 @@ def sms_survey():
     message_text = messages[0].body
     print(messages[0].body)
     
+    if message_text == survey_prompt:
+        if 'question_id' in session:
+            del session['question_id']
+        if 'start_time' in session:
+            del session['start_time']
+    
     if message_text == "Thank you!":
         response.redirect(url='/static', method='GET')
     else:
