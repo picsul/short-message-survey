@@ -7,9 +7,18 @@ import random
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
-
-    #survey = Survey.query.first()
-    survey = Survey.query.get(random.randint(1,4))
+    
+    from_num = request.values['From']
+    to_num = request.values['To']
+       
+    # Get the message most recently sent from us
+    messages = client.messages.list(from_=to_num, to=from_num, limit=1)
+    message_text = messages[0].body
+    
+    if message_text == "Thank you!":
+        response.redirect(url='/static', method='GET')
+    else:
+        survey = Survey.query.get(random.randint(1,4))
     
     if survey_error(survey, response.message):
         return str(response)
@@ -47,6 +56,6 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    resp.message("Please use the link above to access the survey.")
+    resp.message("If you have any issues with the survey, please contact us at jmrosenberg@utk.edu.")
     
     return str(resp)
