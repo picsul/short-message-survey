@@ -10,7 +10,7 @@ survey_prompt = "Ready to take the BIOL 102/150/160 survey? Please respond with 
 
 picsul_number = "+18653289322"
 
-datetimes = ["mon 10:10", "mon 12:40", "mon 15:10", 
+datetimes = ["mon 10:10", "mon 12:40", "mon 15:00", 
 	"tue 09:05", "tue 10:45", "tue 11:10", "tue 11:20", "tue 12:25", "tue 12:50", "tue 13:50", "tue 14:05", "tue 14:30", "tue 15:45", "tue 16:20", "tue 17:25", "tue 18:30",
 	"wed 08:55", "wed 10:10", "wed 11:20", "wed 11:25", "wed 12:40", "wed 13:50", "wed 13:55", "wed 15:10", "wed 16:20", "wed 16:25", "wed 18:30", "wed 18:55",
 	"thu 09:05", "thu 10:45", "thu 11:10", "thu 11:20", "thu 12:25", "thu 12:50", "thu 13:50", "thu 13:55", "thu 14:05", "thu 14:30", "thu 15:45", "thu 16:20", "thu 17:25", "thu 18:30", 
