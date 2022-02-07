@@ -1,6 +1,6 @@
 from . import app
 from .models import Survey
-from flask import url_for, session
+from flask import url_for, session, request
 from twilio.twiml.messaging_response import MessagingResponse
 import random
 
