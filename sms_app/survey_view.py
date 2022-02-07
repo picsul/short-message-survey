@@ -5,6 +5,8 @@ from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
 
+survey_prompt = "Ready to take the BIOL 102/150/160 survey? Please respond with 'y' or 'yes' when you are ready to begin."
+
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
