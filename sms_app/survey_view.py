@@ -10,6 +10,7 @@ def sms_survey():
     
     from_num = request.values['From']
     to_num = request.values['To']
+    #print(request)
        
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
