@@ -14,12 +14,10 @@ def sms_survey():
     
     from_num = request.values['From']
     to_num = request.values['To']
-    #print(request)
        
     # Get the message most recently sent from us
     messages = client.messages.list(from_=to_num, to=from_num, limit=1)
     message_text = messages[0].body
-    print(messages[0].body)
     
     if message_text == survey_prompt:
         if 'question_id' in session:
@@ -44,7 +42,6 @@ def sms_survey():
             welcome_user(survey, response.message)
             redirect_to_first_question(response, survey)
         return str(response)
-
 
 def redirect_to_first_question(response, survey):
     first_question = survey.questions.order_by('id').first()
