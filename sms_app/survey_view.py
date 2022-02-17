@@ -27,7 +27,7 @@ def sms_survey():
         if 'start_time' in session:
             del session['start_time']
     
-    if message_text == "Thank you!" or message_text = sorry_message:
+    if (message_text == "Thank you!" or message_text = sorry_message):
         resp = MessagingResponse()
         resp.message(sorry_message)
         return str(resp)
