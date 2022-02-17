@@ -6,6 +6,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 import random
 
 survey_prompt = "Ready to take the BIOL 102/150/160 survey? Please respond with 'y' or 'yes' when you are ready to begin."
+sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
 
 @app.route('/message')
 def sms_survey():
@@ -26,14 +27,12 @@ def sms_survey():
         if 'start_time' in session:
             del session['start_time']
     
-    if message_text == "Thank you!":
-        #response.redirect(url_for('static'), method='GET')
-        print(url_for('static'))
+    if message_text == "Thank you!" or message_text = sorry_message:
+        resp = MessagingResponse()
+        resp.message(sorry_message)
+        return str(resp)
     else:
         if 'question_id' in session:
-            #print(url_for('answer', question_id=session['question_id'])))
-            print(url_for('answer',
-                                  question_id=session['question_id']))
             response.redirect(url_for('answer',
                                   question_id=session['question_id']))
         else:
