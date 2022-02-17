@@ -31,7 +31,7 @@ def sms_survey():
         print(url_for('static'))
     else:
         if 'question_id' in session:
-            print(url_for('answer', question_id=session['question_id'])))
+            #print(url_for('answer', question_id=session['question_id'])))
             response.redirect(url_for('answer',
                                   question_id=session['question_id']))
         else:
