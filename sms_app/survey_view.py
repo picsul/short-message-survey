@@ -27,9 +27,11 @@ def sms_survey():
             del session['start_time']
     
     if message_text == "Thank you!":
-        response.redirect(url_for('static'), method='GET')
+        #response.redirect(url_for('static'), method='GET')
+        print(url_for('static'))
     else:
         if 'question_id' in session:
+            print(url_for('answer', question_id=session['question_id'])))
             response.redirect(url_for('answer',
                                   question_id=session['question_id']))
         else:
