@@ -20,10 +20,13 @@ def sms_survey():
     message_text = messages[0].body
     
     if message_text == survey_prompt:
+        if 'instance_id' in session:
+            del session['instance_id']
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
             del session['start_time']
+        session['instance_id'] = messages[0].sid
     
     if (message_text == "Thank you!" or message_text == sorry_message):
         resp = MessagingResponse()

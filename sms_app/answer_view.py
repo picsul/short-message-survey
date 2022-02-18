@@ -1,15 +1,18 @@
 from . import app, db
-from .models import Question, Answer
+from .models import Question, Answer, Instance
 from flask import url_for, request, session
 from twilio.twiml.messaging_response import MessagingResponse
 
 @app.route('/answer/<question_id>', methods=['POST'])
 def answer(question_id):
     question = Question.query.get(question_id)
+    
+    instance = Instance.query.get(session['instance_id'])
 
     db.save(Answer(content=extract_content(question),
                    question=question,
-                   session_id=session_id()))
+                   session_id=session_id(),
+                   instance=instance))
 
     next_question = question.next()
     if next_question:
@@ -35,6 +38,7 @@ def goodbye_twiml():
         response.message("Thank you!")
     if 'question_id' in session:
         del session['question_id']
+        #del session['instance_id']
     return str(response)
 
 
