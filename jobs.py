@@ -5,7 +5,10 @@ from sms_app.models import Number
 import datetime
 import os
 
+############ DB scheduler experiment
+
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+# perhaps I still need this somewhere?
 #app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 sched_postgres = BlockingScheduler()
@@ -13,15 +16,7 @@ url = os.environ.get('DATABASE_URL')
 sched_postgres.add_jobstore('sqlalchemy', url = url)
 
 
-
-
-
-
-
-
-
-
-
+########################
 
 sched = BlockingScheduler()
 
