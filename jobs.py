@@ -3,6 +3,25 @@ from sms_app.send_sms import outgoing_sms, message_the_list, message_the_list_un
 from sms_app.models import Number
 #from datetime import date, datetime
 import datetime
+import os
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+#app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
+sched_postgres = BlockingScheduler()
+url = os.environ.get('DATABASE_URL')
+sched_postgres.add_jobstore('sqlalchemy', url = url)
+
+
+
+
+
+
+
+
+
+
+
 
 sched = BlockingScheduler()
 
