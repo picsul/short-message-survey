@@ -12,7 +12,7 @@ gunicorn
 idna==2.8
 itsdangerous==1.1.0
 jinja2>=2.11.3
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 phonenumbers==8.10.23
 psycopg2
