@@ -5,7 +5,7 @@ from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
 
-survey_prompt = "Ready to take the BIOL 102/150/160 survey? Please respond with 'y' or 'yes' when you are ready to begin."
+survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
 
 #@app.route('/message')
@@ -94,7 +94,7 @@ def redirect_to_first_question(response, survey):
 
 
 def welcome_user(survey, send_function):
-    welcome_text = "Please respond with your perspective on the following statements."
+    welcome_text = "Please respond to the following items about your BIOL 102 lecture."
     send_function(welcome_text)
 
 def survey_error(survey, send_function):
