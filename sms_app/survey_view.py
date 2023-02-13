@@ -57,22 +57,24 @@ def sms_survey():
     message_text = messages[0].body
         
     # new code with 5 minute time limit, and reprompt reset
+    
+    print(message_text)
 
     if message_text == survey_prompt:
-        if 'instance_id' in session:
-            del session['instance_id']
+        #if 'instance_id' in session:
+        #    del session['instance_id']
         if 'question_id' in session:
             del session['question_id']
         if 'start_time' in session:
             del session['start_time']
-        session['instance_id'] = messages[0].sid
+        #session['instance_id'] = messages[0].sid
 
     if 'question_id' in session:
         delta = now - session['start_time']
         if delta.seconds > 300:
             del session['start_time']
             del session['question_id']
-            del session['instance_id']
+            #del session['instance_id']
             response.message("The time to complete the survey has expired")
         else:
             response.redirect(url_for('answer', question_id=session['question_id']))
