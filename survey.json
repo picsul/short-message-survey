@@ -11,6 +11,7 @@
     {
       "body": "On a scale of very low (1) to very high (7): What is your confidence that you can succeed in this biology class?",
       "type": "numeric"
+    }
   ],
   "title": "Survey"
 }
