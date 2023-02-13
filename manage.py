@@ -28,13 +28,18 @@ manager.add_command('db', MigrateCommand)
 #    with open('survey.json') as survey_file:
 #        db.save(parsers.survey_from_json(survey_file.read()))
            
-surveys = [open('survey.json'), open('survey2.json'), open('survey3.json'), open('survey4.json')]
+#surveys = [open('survey.json'), open('survey2.json'), open('survey3.json'), open('survey4.json')]
 
-@manager.command     
+#@manager.command     
+#def dbseed():
+#    for survey in surveys:
+#        with survey as survey_file:
+#            db.save(parsers.survey_from_json(survey_file.read()))  
+                      
+@manager.command
 def dbseed():
-    for survey in surveys:
-        with survey as survey_file:
-            db.save(parsers.survey_from_json(survey_file.read()))  
+    with open('survey.json') as survey_file:
+        db.save(parsers.survey_from_json(survey_file.read()))
         
 if __name__ == "__main__":
     manager.run()
