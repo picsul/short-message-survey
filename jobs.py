@@ -17,6 +17,8 @@ picsul_number = "+18653289322"
 #	"thu 09:05", "thu 10:45", "thu 11:10", "thu 11:20", "thu 12:25", "thu 12:50", "thu 13:50", "thu 13:55", "thu 14:05", "thu 14:30", "thu 15:45", "thu 16:20", "thu 17:25", "thu 18:30", 
 #	"fri 10:10", "fri 12:40", "fri 15:10"]
 
+datetimes = ["mon 12:26", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
 
@@ -31,8 +33,6 @@ mins = [el[1] for el in split_times]
 #	"R0905", "R1045", "R1110", "R1120", "R1225", "R1250", "R1350", "R1355", "R1405", "R1430", "R1545", "R1620", "R1725", "R1830", 
 #	"F1010", "F1240", "F1510"]
              
-datetimes = ["mon 12:23", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
-
 codes = ["M1220", "W1220", "F1220", "T1100", "R1100", "T1235", "R1235", "T1410", "R1410"]
 
 # create list of beginning of week times to index the weeks
