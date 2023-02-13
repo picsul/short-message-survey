@@ -6,6 +6,7 @@ import datetime
 
 sched = BlockingScheduler()
 
+
 survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 
 picsul_number = "+18653289322"
