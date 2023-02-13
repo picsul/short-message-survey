@@ -60,8 +60,6 @@ def sms_survey():
         
     # new code with 5 minute time limit, and reprompt reset
     
-    print(message_text)
-
     if message_text == survey_prompt:
         #if 'instance_id' in session:
         #    del session['instance_id']
