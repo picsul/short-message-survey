@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "body": "Biology lecture is stressful.",
+      "body": "On a scale of very low (1) to very high (7): What is your interest level in this biology class?",
       "type": "text"
     }
   ],
