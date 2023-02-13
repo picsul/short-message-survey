@@ -17,7 +17,7 @@ picsul_number = "+18653289322"
 #	"thu 09:05", "thu 10:45", "thu 11:10", "thu 11:20", "thu 12:25", "thu 12:50", "thu 13:50", "thu 13:55", "thu 14:05", "thu 14:30", "thu 15:45", "thu 16:20", "thu 17:25", "thu 18:30", 
 #	"fri 10:10", "fri 12:40", "fri 15:10"]
 
-datetimes = ["mon 13:08", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["mon 13:12", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
