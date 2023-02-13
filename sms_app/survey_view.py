@@ -43,6 +43,7 @@ sorry_message = "If you have any issues with the survey, please contact us at jm
 #            redirect_to_first_question(response, survey)
 #        return str(response)
     
+@app.route('/message')
 def sms_survey():
     response = MessagingResponse()
     
