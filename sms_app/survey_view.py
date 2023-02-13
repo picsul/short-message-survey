@@ -4,6 +4,7 @@ from flask import url_for, session, request
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
+import datetime
 
 survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
