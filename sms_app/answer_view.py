@@ -35,6 +35,7 @@ def goodbye_twiml():
         response.message("Thank you!")
     if 'question_id' in session:
         del session['question_id']
+        del session['start_time']
     return str(response)
 
 
