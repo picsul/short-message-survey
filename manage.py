@@ -44,7 +44,7 @@ migrate.init_app(app, db)
 #        db.save(parsers.survey_from_json(survey_file.read()))
         
 #cli.add_command()
-@cli.command
+@app.cli.command
 def dbseed():
     with open('survey.json') as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
