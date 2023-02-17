@@ -1,5 +1,5 @@
 #from flask_script import Manager
-
+import click
 from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
@@ -43,9 +43,15 @@ migrate.init_app(app, db)
 #    with open('survey.json') as survey_file:
 #        db.save(parsers.survey_from_json(survey_file.read()))
         
+#cli.add_command()
+@cli.command
+def dbseed():
+    with open('survey.json') as survey_file:
+        db.save(parsers.survey_from_json(survey_file.read()))
+           
 #if __name__ == "__main__":
 #    manager.run()
 
 if __name__ == "__main__":
-    app = create_app(env, args)
+    cli()
 
