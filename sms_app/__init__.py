@@ -18,6 +18,7 @@ def prepare_app(environment='development', p_db=db):
     from . import views
     return app
 
+create_app(app)
 
 def save_and_commit(item):
     db.session.add(item)
