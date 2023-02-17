@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-def prepare_app(environment='development', p_db=db):
+def prepare_app(p_db=db):
     #app.config.from_object(config_env_files[environment])
     p_db.init_app(app)
     # load views by importing them
