@@ -1,4 +1,5 @@
-from flask_script import Manager
+#from flask_script import Manager
+
 from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
@@ -6,9 +7,11 @@ from sms_app import app, db, parsers, prepare_app
 prepare_app(environment='development')
 migrate = Migrate(app, db)
 
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
+#manager = Manager(app)
+#manager.add_command('db', MigrateCommand)
 
+migrate = Migrate()
+migrate.init_app(app, db)
 
 #@manager.command
 #def test():
@@ -23,7 +26,6 @@ manager.add_command('db', MigrateCommand)
 #    if not test_result.wasSuccessful():
 #        sys.exit(1)
 
-#@manager.command
 #def dbseed():
 #    with open('survey.json') as survey_file:
 #        db.save(parsers.survey_from_json(survey_file.read()))
@@ -36,10 +38,14 @@ manager.add_command('db', MigrateCommand)
 #        with survey as survey_file:
 #            db.save(parsers.survey_from_json(survey_file.read()))  
                       
-@manager.command
-def dbseed():
-    with open('survey.json') as survey_file:
-        db.save(parsers.survey_from_json(survey_file.read()))
+#@manager.command
+#def dbseed():
+#    with open('survey.json') as survey_file:
+#        db.save(parsers.survey_from_json(survey_file.read()))
         
+#if __name__ == "__main__":
+#    manager.run()
+
 if __name__ == "__main__":
-    manager.run()
+    app = create_app(env, args)
+
