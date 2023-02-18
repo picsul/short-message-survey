@@ -1,4 +1,5 @@
-from . import app
+#from . import app
+from manage import app
 from . import question_view
 from . import answer_view
 from . import survey_view
