@@ -20,6 +20,8 @@ def prepare_app(p_db=db):
     return app
 
 #app.run()
+app = prepare_app()
+#migrate = Migrate(app, db)
 
 def save_and_commit(item):
     db.session.add(item)
