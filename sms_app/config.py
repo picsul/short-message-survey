@@ -8,7 +8,13 @@ class DefaultConfig(object):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' +
                                os.path.join(basedir, 'default.sqlite'))
-
+    
+   
+class NewConfig(object):
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEBUG = False
 
 class DevelopmentConfig(DefaultConfig):
     DEBUG = True
