@@ -2,10 +2,12 @@
 import click
 from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
-from sms_app import app, db, parsers, prepare_app
+from sms_app import db, parsers, prepare_app
+#from sms_app import app, db, parsers, prepare_app
+
 
 #prepare_app(environment='development')
-prepare_app()
+app = prepare_app()
 migrate = Migrate(app, db)
 
 #manager = Manager(app)
