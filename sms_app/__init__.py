@@ -18,7 +18,7 @@ def prepare_app(p_db=db):
     from . import views
     return app
 
-app.run()
+#app.run()
 
 def save_and_commit(item):
     db.session.add(item)
