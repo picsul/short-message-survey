@@ -31,4 +31,5 @@ class TestConfig(DefaultConfig):
 config_env_files = {
     'test': 'sms_app.config.TestConfig',
     'development': 'sms_app.config.DevelopmentConfig',
+    'new': 'sms_app.config.NewConfig',
 }
