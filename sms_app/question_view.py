@@ -1,5 +1,5 @@
-#from . import app
-from flask import current_app
+from . import app
+#from flask import current_app
 from twilio.twiml.messaging_response import MessagingResponse
 from .models import Question
 from flask import url_for, request, session
