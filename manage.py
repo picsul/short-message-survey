@@ -60,5 +60,6 @@ def dbseed():
 #    manager.run()
 
 if __name__ == "__main__":
+    app.run()
     cli()
 
