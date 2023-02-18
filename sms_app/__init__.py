@@ -2,6 +2,8 @@ from sms_app.config import config_env_files
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
+from . import views
+
 
 #app = Flask(__name__)
 
@@ -23,7 +25,6 @@ def prepare_app(p_db=db):
 #app = prepare_app()
 #migrate = Migrate(app, db)
 
-from . import views
 
 
 def save_and_commit(item):
