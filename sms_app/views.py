@@ -1,5 +1,5 @@
-from . import app
-#from manage import app
+#from . import app
+from manage import app
 #from flask import current_app
 from . import question_view
 from . import answer_view
