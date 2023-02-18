@@ -2,7 +2,7 @@ from sms_app.config import config_env_files
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-from . import views
+#from . import views
 
 
 #app = Flask(__name__)
