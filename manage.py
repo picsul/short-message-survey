@@ -4,6 +4,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
 from sms_app import db, parsers, prepare_app
 #from sms_app import app, db, parsers, prepare_app
+from . import views
 
 
 #prepare_app(environment='development')
