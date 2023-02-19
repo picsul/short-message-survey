@@ -1,5 +1,5 @@
 from . import db
-from manage import app
+#from manage import app
 from .models import Question, Answer
 from flask import url_for, request, session
 from twilio.twiml.messaging_response import MessagingResponse
