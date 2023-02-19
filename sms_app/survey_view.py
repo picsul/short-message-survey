@@ -4,6 +4,7 @@ from flask import url_for, session, request
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
+import pytz
 import datetime
 
 survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
@@ -13,7 +14,7 @@ sorry_message = "If you have any issues with the survey, please contact us at jm
 def sms_survey():
     response = MessagingResponse()
     
-    now = datetime.datetime.now()
+    now = datetime.datetime.now(pytz.utc)
     
     # Get the to/from numbers from the latest request
     from_num = request.values['From']
