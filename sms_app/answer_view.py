@@ -1,4 +1,4 @@
-from . import db
+from . import app, db
 #from manage import app
 from .models import Question, Answer
 from flask import url_for, request, session
