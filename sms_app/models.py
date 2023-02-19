@@ -1,6 +1,4 @@
 from sms_app import app, db
-# adding this to fix lack of context
-#from manage import app
 
 class Survey(db.Model):
     __tablename__ = 'surveys'
@@ -39,7 +37,6 @@ class Question(db.Model):
         return self.survey.questions\
                     .filter(Question.id > self.id)\
                     .order_by('id').first()
-
 
 class Answer(db.Model):
     __tablename__ = 'answers'
