@@ -1,5 +1,4 @@
 from . import app, db
-#from manage import app
 from .models import Question, Answer
 from flask import url_for, request, session
 from twilio.twiml.messaging_response import MessagingResponse
@@ -18,7 +17,6 @@ def answer(question_id):
     else:
         return goodbye_twiml()
 
-
 def extract_content(question):
     if is_sms_request():
         return request.values['Body']
@@ -29,7 +27,6 @@ def redirect_twiml(question):
                       method='GET')
     return str(response)
 
-
 def goodbye_twiml():
     if is_sms_request():
         response = MessagingResponse()
@@ -38,7 +35,6 @@ def goodbye_twiml():
         del session['question_id']
         del session['start_time']
     return str(response)
-
 
 def is_sms_request():
     return 'MessageSid' in request.values.keys()
