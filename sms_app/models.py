@@ -1,5 +1,6 @@
 from sms_app import db
-
+# adding this to fix lack of context
+from manage import app
 
 class Survey(db.Model):
     __tablename__ = 'surveys'
