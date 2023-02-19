@@ -4,6 +4,8 @@ from sms_app.models import Number
 import datetime
 # never needed this before, but maybe thas the missing piece
 #from sms_app import app, db
+from flask import current_app
+
 
 sched = BlockingScheduler()
 
