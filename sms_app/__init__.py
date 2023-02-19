@@ -18,11 +18,11 @@ def prepare_app(p_db=db):
     app.config.from_object(config_env_files["new"])
     p_db.init_app(app)
     # load views by importing them
-    #from . import views
+    from . import views
     return app
 
 #app.run()
-#app = prepare_app()
+app = prepare_app()
 #migrate = Migrate(app, db)
 
 
