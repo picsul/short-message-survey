@@ -2,7 +2,6 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, message_the_list_unique
 from sms_app.models import Number
 import datetime
-#from flask import current_app
 from sms_app import app, db
 
 sched = BlockingScheduler()
@@ -11,7 +10,7 @@ survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or '
 
 picsul_number = "+18653289322"
 
-datetimes = ["sat 22:36", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["sat 22:40", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -41,8 +40,8 @@ def week_check(time):
 def send_message(day, hour, minute, code):
     @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
     def message_job():    
-	with app.app_context():
-	    # figure out which week we're in when job runs
+        with app.app_context():
+            # figure out which week we're in when job runs
             now = datetime.datetime.today()
             week = week_check(now)
             # get the right people for that week
