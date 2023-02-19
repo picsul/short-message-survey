@@ -33,6 +33,9 @@ def sms_survey():
         if 'start_time' in session:
             del session['start_time']
         #session['instance_id'] = messages[0].sid
+        
+    print(now)
+    print(session)
 
     if 'question_id' in session:
         delta = now - session['start_time']
