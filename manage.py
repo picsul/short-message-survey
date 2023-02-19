@@ -38,4 +38,4 @@ def dbseed():
          
 if __name__ == "__main__":
     cli()
-    app.run()
+    #app.run()
