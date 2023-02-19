@@ -3,7 +3,7 @@ from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, me
 from sms_app.models import Number
 import datetime
 # never needed this before, but maybe thas the missing piece
-from sms_app import app, db
+#from sms_app import app, db
 
 sched = BlockingScheduler()
 
@@ -11,7 +11,7 @@ survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or '
 
 picsul_number = "+18653289322"
 
-datetimes = ["sat 22:09", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["sat 22:12", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
