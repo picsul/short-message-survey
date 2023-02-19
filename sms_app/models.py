@@ -1,4 +1,4 @@
-from sms_app import db
+from sms_app import app, db
 # adding this to fix lack of context
 #from manage import app
 
