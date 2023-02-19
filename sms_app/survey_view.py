@@ -1,5 +1,5 @@
-#from . import app
-from manage import app
+from . import app
+#from manage import app
 from .models import Survey
 from flask import url_for, session, request
 from sms_app.send_sms import client
