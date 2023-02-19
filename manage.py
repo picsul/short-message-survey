@@ -1,23 +1,13 @@
 import click
 from flask_migrate import Migrate, MigrateCommand
 from flask_migrate import upgrade as upgrade_database
-#from sms_app import db, parsers, prepare_app
 from sms_app import app, db, parsers, prepare_app
 
-#prepare_app(environment='development')
-#app = prepare_app()
-
-# this probably needs to move back too but we'll see
-#from sms_app import views
-
-#with app.app_context()
 # so when all is said and done I may just want to move this over to init also, or delete,
 #because I'm not sure why it exists except for pairing with flask script stuff
 migrate = Migrate(app, db)
 
-#migrate = Migrate()
-#migrate.init_app(app, db)
-
+# this could be a new cli command if I have a use for it
 #@manager.command
 #def test():
 #    """Run the unit tests."""
