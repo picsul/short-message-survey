@@ -8,6 +8,7 @@ sched = BlockingScheduler()
 
 survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 
+
 picsul_number = "+18652639199"
 
 datetimes = ["sun 21:19", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
