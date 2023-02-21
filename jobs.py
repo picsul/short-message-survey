@@ -37,11 +37,42 @@ def week_check(time):
             diffs.append(0)
     return str(sum(diffs))
 
-jobs = []
+#jobs = []
         
-def message_job(code):    
-    with app.app_context():
-        # figure out which week we're in when job runs
+#def message_job(code):    
+#    with app.app_context():
+#        # figure out which week we're in when job runs
+#        now = datetime.datetime.today()
+#        week = week_check(now)
+#        # get the right people for that week
+#        people = Number.query.filter(Number.week == week, Number.code.contains(code)).all()        
+#        # pull out their numbers
+#        message_numbers = [x.number for x in people]
+#        # send the surveys
+#        message_the_list(message_numbers, survey_prompt, picsul_number)      
+       
+# create the cron jobs for each unique datetime
+#for i in range(0,len(datetimes)):
+#    job = sched.add_job(message_job, 'cron', day_of_week=days[i], hour=hours[i], minute=mins[i], args=[codes[i]], timezone='America/New_York')
+#    jobs.append(job)
+
+# create an empty list to hold job references
+
+# access job attributes using the job references
+#for job in jobs:
+#    job_id = job.id
+#    job_name = job.name
+#    job_next_run_time = job.trigger.next_run_time(None, job)
+
+#    print(f'Job ID: {job_id}')
+#    print(f'Job name: {job_name}')
+#    print(f'Next run time: {job_next_run_time}')
+    
+# create a cron job to send a message to a subset of people dependent on the week
+def send_message(day, hour, minute, code):
+    @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
+    def message_job():    
+	# figure out which week we're in when job runs
         now = datetime.datetime.today()
         week = week_check(now)
         # get the right people for that week
@@ -49,24 +80,13 @@ def message_job(code):
         # pull out their numbers
         message_numbers = [x.number for x in people]
         # send the surveys
-        message_the_list(message_numbers, survey_prompt, picsul_number)      
-       
+        message_the_list(message_numbers, survey_prompt, picsul_number)  
+        
 # create the cron jobs for each unique datetime
 for i in range(0,len(datetimes)):
-    job = sched.add_job(message_job, 'cron', day_of_week=days[i], hour=hours[i], minute=mins[i], args=[codes[i]], timezone='America/New_York')
-    jobs.append(job)
-
-# create an empty list to hold job references
-
-# access job attributes using the job references
-for job in jobs:
-    job_id = job.id
-    job_name = job.name
-    job_next_run_time = job.trigger.next_run_time(None, job)
-
-    print(f'Job ID: {job_id}')
-    print(f'Job name: {job_name}')
-    print(f'Next run time: {job_next_run_time}')
+    send_message(days[i], hours[i], mins[i], codes[i])
 
 # start the scheduler
 sched.start()
+
+sched.get_jobs()
