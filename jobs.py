@@ -11,7 +11,7 @@ survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or '
 
 picsul_number = "+18652639199"
 
-datetimes = ["mon 21:06", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["mon 21:16", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -28,40 +28,76 @@ base = datetime.datetime(2023, 2, 13, 1,1,1)
 date_list = [base + datetime.timedelta(weeks=x) for x in range(13)]
 
 # count which week we are in by comparing a time to the beginning of week times list
-def week_check(time):
-    diffs = []
-    for i in range(0, len(date_list)):
-        if time > date_list[i]:
-            diffs.append(1)
-        else:
-            diffs.append(0)
-    return str(sum(diffs))
+#def week_check(time):
+#    diffs = []
+#    for i in range(0, len(date_list)):
+#        if time > date_list[i]:
+#            diffs.append(1)
+#        else:
+#            diffs.append(0)
+#    return str(sum(diffs))
+
+# create a cron job to send a message to a subset of people dependent on the week
+#def send_message(day, hour, minute, code):
+#    @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
+#    def message_job():    
+#        with app.app_context():
+#            # figure out which week we're in when job runs
+#            now = datetime.datetime.today()
+#            week = week_check(now)
+#            # get the right people for that week
+#            people = Number.query.filter(Number.week == week, Number.code.contains(code)).all()        
+#            # pull out their numbers
+#            message_numbers = [x.number for x in people]
+#            # send the surveys
+#            message_the_list(message_numbers, survey_prompt, picsul_number)  
+        
+# create the cron jobs for each unique datetime
+#for i in range(0,len(datetimes)):
+#    send_message(days[i], hours[i], mins[i], codes[i])
+
+# create an empty list to hold job references
+jobs = []
 
 # create a cron job to send a message to a subset of people dependent on the week
 def send_message(day, hour, minute, code):
-    @sched.scheduled_job('cron', day_of_week=day, hour=hour, minute=minute, timezone='America/New_York')
-    def message_job():    
+    job = sched.add_job(
+        func=message_job,
+        trigger='cron',
+        day_of_week=day,
+        hour=hour,
+        minute=minute,
+        timezone='America/New_York'
+    )
+
+    # add the job reference to the list of jobs
+    jobs.append(job)
+
+    def message_job():
         with app.app_context():
             # figure out which week we're in when job runs
             now = datetime.datetime.today()
             week = week_check(now)
             # get the right people for that week
-            people = Number.query.filter(Number.week == week, Number.code.contains(code)).all()        
+            people = Number.query.filter(Number.week == week, Number.code.contains(code)).all()
             # pull out their numbers
             message_numbers = [x.number for x in people]
             # send the surveys
-            message_the_list(message_numbers, survey_prompt, picsul_number)  
-        
+            message_the_list(message_numbers, survey_prompt, picsul_number)
+
 # create the cron jobs for each unique datetime
-for i in range(0,len(datetimes)):
+for i in range(len(datetimes)):
     send_message(days[i], hours[i], mins[i], codes[i])
-    
-job_id = message_job.id
-job_name = message_job.name
-job_next_run_time = message_job.next_run_time
 
-print(f'Job ID: {job_id}')
-print(f'Job name: {job_name}')
-print(f'Next run time: {job_next_run_time}')
+# access job attributes using the job references
+for job in jobs:
+    job_id = job.id
+    job_name = job.name
+    job_next_run_time = job.next_run_time
 
+    print(f'Job ID: {job_id}')
+    print(f'Job name: {job_name}')
+    print(f'Next run time: {job_next_run_time}')
+
+# start the scheduler
 sched.start()
