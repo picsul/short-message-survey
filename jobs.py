@@ -53,7 +53,7 @@ def message_job(code):
        
 # create the cron jobs for each unique datetime
 for i in range(0,len(datetimes)):
-    job = sched.add_job('cron', day_of_week=days[i], hour=hours[i], minute=mins[i], func=message_job, args=[codes[i]], timezone='America/New_York')
+    job = sched.add_job(message_job, 'cron', day_of_week=days[i], hour=hours[i], minute=mins[i], args=[codes[i]], timezone='America/New_York')
     jobs.append(job)
 
 # create an empty list to hold job references
