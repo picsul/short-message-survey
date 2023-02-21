@@ -11,7 +11,7 @@ survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or '
 
 picsul_number = "+18652639199"
 
-datetimes = ["mon 21:38", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["mon 21:44", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -62,7 +62,7 @@ for i in range(0,len(datetimes)):
 for job in jobs:
     job_id = job.id
     job_name = job.name
-    job_next_run_time = job.next_run_time
+    job_next_run_time = job.trigger.next_run_time(None, job)
 
     print(f'Job ID: {job_id}')
     print(f'Job name: {job_name}')
