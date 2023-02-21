@@ -11,7 +11,7 @@ survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or '
 
 picsul_number = "+18652639199"
 
-datetimes = ["mon 20:56", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["mon 21:06", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -55,5 +55,13 @@ def send_message(day, hour, minute, code):
 # create the cron jobs for each unique datetime
 for i in range(0,len(datetimes)):
     send_message(days[i], hours[i], mins[i], codes[i])
+    
+job_id = message_job.id
+job_name = message_job.name
+job_next_run_time = message_job.next_run_time
+
+print(f'Job ID: {job_id}')
+print(f'Job name: {job_name}')
+print(f'Next run time: {job_next_run_time}')
 
 sched.start()
