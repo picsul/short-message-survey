@@ -1,0 +1,26 @@
+{
+    "id": "C67F461D",
+    "path": "~/Documents/work/picsul/short-message-survey/sms_app/survey_view.py",
+    "project_path": "sms_app/survey_view.py",
+    "type": "python",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1650550559187.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "80,7",
+        "scrollLine": "52"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677115300,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1677115300040,
+    "read_only": false,
+    "read_only_alternatives": []
+}

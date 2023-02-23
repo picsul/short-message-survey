@@ -1,0 +1,47 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
+library(shiny)
+library(httr)
+library(listviewer)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("App Config Info"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            actionButton("load", "reload config")
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+            jsoneditOutput("config_info")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+    
+                 url <- "https://usc-survey.herokuapp.com/config_read"
+                 b <- GET(url = url)
+                 config <- content(b, type="application/json")
+
+    
+    output$config_info <- renderJsonedit({
+        jsonedit(config)
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)

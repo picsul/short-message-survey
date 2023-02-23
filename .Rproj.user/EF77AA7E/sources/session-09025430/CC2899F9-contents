@@ -1,0 +1,44 @@
+library(blogdown)
+library(jsonlite)
+
+write_toml()
+
+custom_messages <- list(
+  prompt = "Ready to take the BIOL 102/150/160 survey? Please respond with 'y' or 'yes' when you are ready to begin.",
+  sorry = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu.",
+  welcome = "Please respond with your agreement to the following statement on a scale from strongly disagree (1) to strongly agree (7).",
+  number = "+18652639199"
+)
+
+
+write_toml(custom_messages, "config.toml")
+
+
+json_string <- '{"a": "fjsodif", "b": "sjfodi", "c": "fjsodi"}'
+
+ss <- jsonlite::fromJSON('{"number": "+18652639199", "prompt": "Ready to take the BIOL 102/150/160 survey? Please respond with \'y\' or \'yes\' when you are ready to begin.", "sorry": "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu.", "welcome": "Please respond with your agreement to the following statement on a scale from strongly disagree (1) to strongly agree (7)."}')
+ss
+is.list(ss)
+
+
+
+library(httr)
+url="https://usc-survey.herokuapp.com/config_read"
+
+body<-list(my_text="What a great experience! I feel really happy :)")
+
+b<-POST(url, body = body, encode = "json")
+
+t1<-content(b, type="application/json")
+
+?POST
+
+b <- GET(url = url)
+
+content(b, type="application/json")
+?content
+
+
+library(listviewer)
+
+jsonedit(custom_messages)

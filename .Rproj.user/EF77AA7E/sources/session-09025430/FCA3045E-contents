@@ -1,0 +1,38 @@
+id <- 1:100
+number <- runif(100, min = 1000000000, max = 9999999999)
+name <- randomNames(100) %>%
+  str_split(", ") %>% 
+  map(~map_chr(., ~str_replace_all(., "[:punct:]", ""))) %>%
+  map_chr(~paste(tolower(str_sub(.[1], 1,8)), tolower(str_sub(.[2],1,1)), sep = ""))
+
+fake <- bind_cols("id" = id, "number" = number, "name" = name)
+
+library(tidyverse)
+library(stringr)
+library(randomNames)
+library(purrr)
+rr <- randomNames(100)
+
+rr[94]
+
+
+ss94 <- str_split(rr[94], ", ")
+ss94
+
+map(ss94, ~str_replace_all(., "[:punct:]", ""))
+
+ss <- str_split(rr, ", ")
+
+map(rr)
+
+  
+  
+map_chr(ss, ~str_replace_all(., "[:punct:]", "")) #%>% 
+  
+
+function(list){
+  map_chr(list, ~str_replace_all(., "[:punct:]", ""))
+}
+
+
+rr[100]

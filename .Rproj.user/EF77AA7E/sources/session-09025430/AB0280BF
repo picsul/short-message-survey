@@ -1,0 +1,26 @@
+{
+    "id": "AB0280BF",
+    "path": "~/Documents/work/picsul/short-message-survey/sms_app/send_sms.py",
+    "project_path": "sms_app/send_sms.py",
+    "type": "python",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1677114365781.0,
+    "source_on_save": false,
+    "relative_order": 15,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677114393,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1677114393,
+    "read_only": false,
+    "read_only_alternatives": []
+}

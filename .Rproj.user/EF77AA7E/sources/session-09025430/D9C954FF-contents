@@ -1,0 +1,17 @@
+from . import app
+from flask import url_for, session, request
+from flask import jsonify
+import toml
+import json
+
+config = toml.load("config.toml")
+
+# return what is in the toml file
+@app.route('/config_read')
+def read_config():
+    return json.dumps(config)
+
+
+@app.route('/config_write')
+def write_config():
+    pass
