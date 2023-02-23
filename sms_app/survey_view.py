@@ -56,22 +56,22 @@ def sms_survey():
     # return str(response)
 
 
-   if (message_text == "Thank you!" or message_text == sorry_message):
-      resp = MessagingResponse()
-      resp.message(sorry_message)
-      return str(resp)
-   else:
-      if 'question_id' in session:
-          delta = now - session['start_time']
-          if delta.seconds > 300:
-              del session['start_time']
-              del session['question_id']
-              #del session['instance_id']
-              response.message("The time to complete the survey has expired")
-          else:
-              response.redirect(url_for('answer', question_id=session['question_id']))
-      else:
-          survey = Survey.query.first()
+    if (message_text == "Thank you!" or message_text == sorry_message):
+       resp = MessagingResponse()
+       resp.message(sorry_message)
+       return str(resp)
+    else:
+       if 'question_id' in session:
+           delta = now - session['start_time']
+           if delta.seconds > 300:
+               del session['start_time']
+               del session['question_id']
+               #del session['instance_id']
+               response.message("The time to complete the survey has expired")
+           else:
+               response.redirect(url_for('answer', question_id=session['question_id']))
+       else:
+           survey = Survey.query.first()
 
            if survey_error(survey, response.message):
               return str(response)
