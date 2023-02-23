@@ -6,8 +6,10 @@ from twilio.twiml.messaging_response import MessagingResponse
 import random
 import pytz
 import datetime
+from sms_app import config
 
-survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
+survey_prompt = config['survey_prompt']
+#survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
 time_expired  = "The time to complete the survey has expired"
 welcome_text  = "Please respond to the following items about your BIOL 102 lecture."     
