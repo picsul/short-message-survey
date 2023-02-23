@@ -6,11 +6,13 @@ import datetime
 from sms_app import app, db, confi
 import os
 
-jobstores = {
-    'default': SQLAlchemyJobStore(url=os.environ.get('DATABASE_URL'))
-}
+# jobstores = {
+#     'default': SQLAlchemyJobStore(url=os.environ.get('DATABASE_URL'))
+# }
+# 
+# sched = BlockingScheduler(jobstores = jobstores)
 
-sched = BlockingScheduler(jobstores = jobstores)
+sched = BlockingScheduler()
 
 survey_prompt = confi['survey_prompt']
 phone_number = confi['phone_number']
