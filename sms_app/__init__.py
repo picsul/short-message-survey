@@ -11,7 +11,7 @@ def prepare_app(p_db=db):
     app.config.from_object(config_env_files["new"])
     p_db.init_app(app)
     with open("config.toml", "rb") as f:
-        config = tomllib.load(f)
+        confi = tomllib.load(f)
     return app
 
 app = prepare_app()
