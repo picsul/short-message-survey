@@ -9,10 +9,14 @@ import datetime
 from sms_app import confi
 
 survey_prompt = confi['survey_prompt']
+sorry_message = confi['sorry_message']
+time_expired = confi['time_expired']
+welcome_text = confi['welcome_text']
+
 #survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
-sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
-time_expired  = "The time to complete the survey has expired"
-welcome_text  = "Please respond to the following items about your BIOL 102 lecture."     
+#sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
+#time_expired  = "The time to complete the survey has expired"
+#welcome_text  = "Please respond to the following items about your BIOL 102 lecture."     
 
 @app.route('/message')
 def sms_survey():
