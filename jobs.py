@@ -3,16 +3,18 @@ from sms_app.send_sms import outgoing_sms, message_the_list, list_of_numbers, me
 from sms_app.models import Number
 import datetime
 from sms_app import app, db, confi
+import os
 
-sched = BlockingScheduler()
+jobstores = {
+    'default': SQLAlchemyJobStore(url=os.environ.get('DATABASE_URL'))
+}
 
-#survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
-#picsul_number = "+18652639199"
+sched = BlockingScheduler(jobstores = jobstores)
 
 survey_prompt = confi['survey_prompt']
 phone_number = confi['phone_number']
 
-datetimes = ["wed 22:35", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["wed 22:16", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
