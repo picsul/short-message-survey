@@ -10,12 +10,12 @@ def prepare_app(p_db=db):
     app = Flask(__name__)
     app.config.from_object(config_env_files["new"])
     p_db.init_app(app)
-    with open("config.toml", "rb") as f:
-        confi = tomllib.load(f)
     return app
 
 app = prepare_app()
 #migrate = Migrate(app, db)
+with open("config.toml", "rb") as f:
+    confi = tomllib.load(f)
 
 from . import views
 
