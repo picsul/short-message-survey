@@ -9,7 +9,9 @@ import datetime
 
 survey_prompt = "Ready to take the BIOL 102 survey? Please respond with 'y' or 'yes' when you are ready to begin."
 sorry_message = "If you have any issues with the survey, please contact us at jmrosenberg@utk.edu."
-    
+time_expired  = "The time to complete the survey has expired"
+welcome_text  = "Please respond to the following items about your BIOL 102 lecture."     
+
 @app.route('/message')
 def sms_survey():
     response = MessagingResponse()
@@ -67,7 +69,7 @@ def sms_survey():
                del session['start_time']
                del session['question_id']
                #del session['instance_id']
-               response.message("The time to complete the survey has expired")
+               response.message(time_expired)
            else:
                response.redirect(url_for('answer', question_id=session['question_id']))
        else:
@@ -89,8 +91,9 @@ def redirect_to_first_question(response, survey):
 
 
 def welcome_user(survey, send_function):
-    welcome_text = "Please respond to the following items about your BIOL 102 lecture."
     send_function(welcome_text)
+    
+    
 
 def survey_error(survey, send_function):
     if not survey:
