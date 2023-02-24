@@ -1,6 +1,6 @@
 import click
-from flask_migrate import Migrate, MigrateCommand
-from flask_migrate import upgrade as upgrade_database
+#from flask_migrate import Migrate, MigrateCommand
+#from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
 
 # so when all is said and done I may just want to move this over to init also, or delete,

@@ -1,6 +1,8 @@
 from sms_app.config import config_env_files
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 
