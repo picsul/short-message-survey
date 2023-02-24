@@ -17,6 +17,8 @@ app = prepare_app()
 with open("config.toml", "rb") as f:
     confi = tomllib.load(f)
 
+migrate = Migrate(app, db)
+
 from . import views
 
 def save_and_commit(item):
