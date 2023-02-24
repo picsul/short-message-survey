@@ -45,6 +45,7 @@ class Answer(db.Model):
     content = db.Column(db.String, nullable=False)
     session_id = db.Column(db.String, nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
+    survey_id = db.Column(db.String, db.ForeignKey('instances.sid'))
 
     @classmethod
     def update_content(cls, session_id, question_id, content):
@@ -54,10 +55,11 @@ class Answer(db.Model):
         db.session.add(existing_answer)
         db.session.commit()
 
-    def __init__(self, content, question, session_id):
+    def __init__(self, content, question, session_id, instance):
         self.content = content
         self.question = question
         self.session_id = session_id
+        self.instance = instance
         
 class Number(db.Model):
     __tablename__ = 'numbers'
@@ -73,3 +75,16 @@ class Number(db.Model):
         self.name = name
         self.code = code
         self.week = week
+        
+class Instance(db.Model):
+    __tablename__ = 'instances'
+    
+    sid = db.Column(db.String, primary_key=True)
+    assign = db.Column(db.String, nullable = False)
+    
+    answers = db.relationship('Answer', backref='instance', lazy='dynamic')
+    
+    def __init__(self, sid, assign):
+        self.sid = sid
+        self.assign = assign
+

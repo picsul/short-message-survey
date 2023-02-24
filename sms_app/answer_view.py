@@ -6,10 +6,13 @@ from twilio.twiml.messaging_response import MessagingResponse
 @app.route('/answer/<question_id>', methods=['POST'])
 def answer(question_id):
     question = Question.query.get(question_id)
+    
+    instance = Instance.query.get(session['instance_id'])
 
     db.save(Answer(content=extract_content(question),
                    question=question,
-                   session_id=session_id()))
+                   session_id=session_id(),
+                   instance=instance))
 
     next_question = question.next()
     if next_question:
