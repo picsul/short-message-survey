@@ -6,7 +6,6 @@ from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 import click
-import sms_app.parsers
 #from flask import Blueprint
 
 db = SQLAlchemy()
@@ -29,6 +28,7 @@ with open("config.toml", "rb") as f:
 migrate = Migrate(app, db)
 
 from . import views
+import sms_app.parsers
 
 @app.cli.command("dbseed")
 def dbseed():
