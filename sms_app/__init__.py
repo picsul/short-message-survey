@@ -6,6 +6,7 @@ from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 import click
+from flask import Blueprint
 
 db = SQLAlchemy()
 
