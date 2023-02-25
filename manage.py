@@ -18,7 +18,7 @@ from flask import Blueprint
 #    if not test_result.wasSuccessful():
 #        sys.exit(1)
 
-db_bp = Blueprint('db', __name__)
+db_bp = Blueprint('dbstuff', __name__)
         
 @db_bp.cli.command("dbseed")
 def dbseed():
