@@ -3,10 +3,6 @@ import click
 #from flask_migrate import upgrade as upgrade_database
 from sms_app import app, db, parsers, prepare_app
 
-# so when all is said and done I may just want to move this over to init also, or delete,
-#because I'm not sure why it exists except for pairing with flask script stuff
-#migrate = Migrate(app, db)
-
 # this could be a new cli command if I have a use for it
 #@manager.command
 #def test():
@@ -28,4 +24,3 @@ def dbseed():
          
 if __name__ == "__main__":
     cli()
-    #app.run()
