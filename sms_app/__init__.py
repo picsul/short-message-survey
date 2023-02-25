@@ -18,8 +18,6 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 
-#from manage import db_bp
-
 db_bp = Blueprint('dbstuff', __name__)
 
 app.register_blueprint(db_bp)
@@ -35,7 +33,6 @@ from . import views
 def dbseed():
     with open('survey.json') as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
-       
 
 def save_and_commit(item):
     db.session.add(item)
