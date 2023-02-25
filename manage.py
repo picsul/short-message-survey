@@ -1,7 +1,7 @@
 import click
 #from flask_migrate import Migrate, MigrateCommand
 #from flask_migrate import upgrade as upgrade_database
-from sms_app import db, parsers, prepare_app
+from sms_app import db, parsers
 from flask import Blueprint
 
 # this could be a new cli command if I have a use for it
