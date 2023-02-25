@@ -1,10 +1,9 @@
 import click
 #from flask_migrate import Migrate, MigrateCommand
 #from flask_migrate import upgrade as upgrade_database
-from sms_app import app, db, parsers, prepare_app
+#from sms_app import app, db, parsers, prepare_app
 from flask import Blueprint
 
-db_bp = Blueprint('dbseed', __name__)
 
 # this could be a new cli command if I have a use for it
 #@manager.command
@@ -19,6 +18,8 @@ db_bp = Blueprint('dbseed', __name__)
 
 #    if not test_result.wasSuccessful():
 #        sys.exit(1)
+
+db_bp = Blueprint('db', __name__)
         
 @db_bp.cli.command("dbseed")
 def dbseed():
