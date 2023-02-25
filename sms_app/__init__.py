@@ -7,7 +7,6 @@ import os
 import tomllib
 import click
 ###
-from manage import db_bp
 
 db = SQLAlchemy()
 
@@ -18,6 +17,8 @@ def prepare_app(p_db=db):
     return app
 
 app = prepare_app()
+
+from manage import db_bp
 
 app.register_blueprint(db_bp)
 
