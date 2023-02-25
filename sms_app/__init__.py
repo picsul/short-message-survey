@@ -31,6 +31,12 @@ migrate = Migrate(app, db)
 
 from . import views
 
+@db_bp.cli.command("dbseed")
+def dbseed():
+    with open('survey.json') as survey_file:
+        db.save(parsers.survey_from_json(survey_file.read()))
+       
+
 def save_and_commit(item):
     db.session.add(item)
     db.session.commit()

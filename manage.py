@@ -1,9 +1,9 @@
-import click
-#from flask_migrate import Migrate, MigrateCommand
-#from flask_migrate import upgrade as upgrade_database
-from sms_app import db, parsers, db_bp
-from flask import Blueprint
-from flask import current_app as app
+# import click
+# #from flask_migrate import Migrate, MigrateCommand
+# #from flask_migrate import upgrade as upgrade_database
+# from sms_app import db, parsers, db_bp
+# from flask import Blueprint
+# from flask import current_app as app
 
 # this could be a new cli command if I have a use for it
 #@manager.command
@@ -20,8 +20,4 @@ from flask import current_app as app
 #        sys.exit(1)
 
         
-@db_bp.cli.command("dbseed")
-def dbseed():
-    with open('survey.json') as survey_file:
-        db.save(parsers.survey_from_json(survey_file.read()))
-         
+  
