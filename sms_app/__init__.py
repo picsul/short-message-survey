@@ -6,7 +6,7 @@ from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 import click
-from flask import Blueprint
+#from flask import Blueprint
 
 db = SQLAlchemy()
 
@@ -18,9 +18,9 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 
-db_bp = Blueprint('dbstuff', __name__)
+#db_bp = Blueprint('dbstuff', __name__)
 
-app.register_blueprint(db_bp)
+#app.register_blueprint(db_bp)
 
 with open("config.toml", "rb") as f:
     confi = tomllib.load(f)
@@ -29,7 +29,7 @@ migrate = Migrate(app, db)
 
 from . import views
 
-@db_bp.cli.command("dbseed")
+@app.cli.command("dbseed")
 def dbseed():
     with open('survey.json') as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
