@@ -3,6 +3,7 @@ import twilio
 import os
 from .models import Number
 import datetime
+from sms_app import db
 
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
