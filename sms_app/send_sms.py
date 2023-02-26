@@ -1,7 +1,7 @@
 from twilio.rest import Client
 import twilio
 import os
-from .models import Number
+from .models import Instance
 import datetime
 from sms_app import db
 
