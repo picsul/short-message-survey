@@ -1,6 +1,6 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-from sms_app.send_sms import outgoing_sms, list_of_numbers, message_the_list_unique
+from sms_app.send_sms import outgoing_sms, message_the_list, message_the_list_unique
 from sms_app.models import Number
 import datetime
 from sms_app import app, db, confi
@@ -17,7 +17,7 @@ sched = BlockingScheduler()
 survey_prompt = confi['survey_prompt']
 phone_number = confi['phone_number']
 
-datetimes = ["sat 22:55", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["sat 22:58", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
