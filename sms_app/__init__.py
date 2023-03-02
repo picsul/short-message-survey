@@ -22,8 +22,8 @@ app = prepare_app()
 
 #app.register_blueprint(db_bp)
 
-with open("config.toml", "rb") as f:
-    confi = tomllib.load(f)
+#with open("config.toml", "rb") as f:
+#    confi = tomllib.load(f)
 
 migrate = Migrate(app, db)
 
