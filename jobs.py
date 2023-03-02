@@ -22,7 +22,7 @@ sched = BlockingScheduler()
 with open("config.toml", "rb") as f:
     confi = tomllib.load(f)
 
-datetimes = ["wed 22:53", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["wed 22:56", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
