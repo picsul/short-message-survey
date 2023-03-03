@@ -6,7 +6,6 @@ from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 import click
-#from flask import Blueprint
 
 db = SQLAlchemy()
 
@@ -18,12 +17,8 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 
-#db_bp = Blueprint('dbstuff', __name__)
-
-#app.register_blueprint(db_bp)
-
-#with open("config.toml", "rb") as f:
-#    confi = tomllib.load(f)
+with open("config.toml", "rb") as f:
+   confi = tomllib.load(f)
 
 migrate = Migrate(app, db)
 
