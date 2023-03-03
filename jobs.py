@@ -15,13 +15,13 @@ import tomllib
 
 sched = BlockingScheduler()
 
-#survey_prompt = confi['survey_prompt']
-#phone_number = confi['phone_number']
+survey_prompt = confi['survey_prompt']
+phone_number = confi['phone_number']
 
 # with open("config.toml", "rb") as f:
 #     confi = tomllib.load(f)
 
-datetimes = ["thu 22:44", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["thu 22:54", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -60,7 +60,7 @@ def send_message(day, hour, minute, code):
             # pull out their numbers
             message_numbers = [x.number for x in people]
             # send the surveys
-            message_the_list(message_numbers, confi['survey_prompt'], confi['phone_number'])  
+            message_the_list(message_numbers, survey_prompt, phone_number)  
         
 # create the cron jobs for each unique datetime
 for i in range(0,len(datetimes)):
