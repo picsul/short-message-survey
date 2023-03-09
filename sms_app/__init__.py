@@ -33,6 +33,7 @@ def dbseed():
 def save_and_commit(item):
     db.session.add(item)
     db.session.commit()
+    
 db.save = save_and_commit
 
 if __name__ == "__main__":
