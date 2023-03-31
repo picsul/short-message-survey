@@ -9,6 +9,12 @@ import click
 
 db = SQLAlchemy()
 
+def save_and_commit(item):
+    db.session.add(item)
+    db.session.commit()
+    
+db.save = save_and_commit
+
 def prepare_app(p_db=db):
     app = Flask(__name__)
     app.config.from_object(config_env_files["new"])
@@ -29,12 +35,6 @@ import sms_app.parsers
 def dbseed():
     with open('survey.json') as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
-
-def save_and_commit(item):
-    db.session.add(item)
-    db.session.commit()
-    
-db.save = save_and_commit
 
 if __name__ == "__main__":
     cli()
