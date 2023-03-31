@@ -22,7 +22,7 @@ phone_number = confi['phone_number']
 # with open("config.toml", "rb") as f:
 #     confi = tomllib.load(f)
 
-datetimes = ["thu 22:32", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["thu 22:49", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
