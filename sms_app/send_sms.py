@@ -18,7 +18,7 @@ def outgoing_sms(number, body, out_num):
                      to = number 
                  )
 
-    print(message.sid)
+    #print(message.sid)
     return message.sid
 
 def message_the_list(num_list, body, from_num):
