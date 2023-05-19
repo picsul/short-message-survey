@@ -8,8 +8,6 @@ import pytz
 import datetime
 from .config import confi
 from jobs import datetimes
-#from jobs import confi
-#from .views import bp
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
@@ -98,8 +96,6 @@ def redirect_to_first_question(response, survey):
 
 def welcome_user(survey, send_function):
     send_function(welcome_text)
-    
-    
 
 def survey_error(survey, send_function):
     if not survey:
@@ -111,7 +107,7 @@ def survey_error(survey, send_function):
     return False
 
 # Static Response 
-@app.route('/static')
+@survey_bp.route('/static')
 def sms_static():
     resp = MessagingResponse()
     
