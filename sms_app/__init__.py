@@ -23,8 +23,8 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 
-#with open("config.toml", "rb") as f:
-#   confi = tomllib.load(f)
+with open("config.toml", "rb") as f:
+   confi = tomllib.load(f)
 
 migrate = Migrate(app, db)
 
