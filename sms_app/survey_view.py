@@ -1,4 +1,4 @@
-from . import app
+#from . import app
 from .models import Survey
 from flask import url_for, session, request
 from sms_app.send_sms import client
@@ -6,9 +6,9 @@ from twilio.twiml.messaging_response import MessagingResponse
 import random
 import pytz
 import datetime
-#from sms_app import confi
+from sms_app import confi
 from jobs import datetimes
-from jobs import confi
+#from jobs import confi
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
