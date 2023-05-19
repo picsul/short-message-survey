@@ -14,7 +14,7 @@ sorry_message = confi['sorry_message']
 time_expired = confi['time_expired']
 welcome_text = confi['welcome_text']
 
-survey_bp = Blueprint('survey_view_bp', __name__, url_prefix = '/message')
+survey_bp = Blueprint('survey_view_bp', __name__, url_prefix = '/survey')
 
 @survey_bp.route('/message')
 def sms_survey():
