@@ -30,7 +30,7 @@ with open("config.toml", "rb") as f:
 from . import views
 #from . import question_view
 #from . import answer_view
-from . import survey_view
+#from . import survey_view
 
 migrate = Migrate(app, db)
 
