@@ -2,6 +2,8 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+with open("config.toml", "rb") as f:
+   confi = tomllib.load(f)
 
 class DefaultConfig(object):
     SECRET_KEY = 'secret-key'
@@ -9,7 +11,6 @@ class DefaultConfig(object):
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' +
                                os.path.join(basedir, 'default.sqlite'))
     
-   
 class NewConfig(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SECRET_KEY = os.environ.get('SECRET_KEY')
