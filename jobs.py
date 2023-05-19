@@ -3,7 +3,7 @@ from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from sms_app.send_sms import outgoing_sms, message_the_list, message_the_list_unique
 from sms_app.models import Number
 import datetime
-#from sms_app import app, db, confi
+from sms_app import app, db, confi
 import os
 import tomllib
 
