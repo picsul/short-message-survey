@@ -25,9 +25,8 @@ app = prepare_app()
 # register blueprint with views
 from .views import bp
 app.register_blueprint(bp)
-
-#from .survey_view import survey_bp
-#app.register_blueprint(survey_bp)
+from .survey_view import survey_bp
+app.register_blueprint(survey_bp)
 
 migrate = Migrate(app, db)
 
