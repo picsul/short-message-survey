@@ -5,7 +5,7 @@ from flask import url_for, request, session, Blueprint
 
 question_bp = Blueprint('question_view_bp', __name__, url_prefix = '/question')
 
-@app.route('/question/<question_id>')
+@question_bp.route('/question/<question_id>')
 def question(question_id):
     question = Question.query.get(question_id)
     session['question_id'] = question.id
