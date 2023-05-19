@@ -27,8 +27,8 @@ app.debug = True
 # register blueprint with views
 from .question_view import question_bp
 app.register_blueprint(question_bp)
-#from .views import bp
-#app.register_blueprint(bp)
+from .views import bp
+app.register_blueprint(bp)
 #from .survey_view import survey_bp
 #app.register_blueprint(survey_bp)
 from .answer_view import answer_bp
