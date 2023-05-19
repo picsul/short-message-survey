@@ -29,8 +29,8 @@ app.register_blueprint(views.bp)
 app.register_blueprint(survey_bp)
 
 
-with open("config.toml", "rb") as f:
-   confi = tomllib.load(f)
+#with open("config.toml", "rb") as f:
+#   confi = tomllib.load(f)
 
 #from . import views
 #from . import question_view
