@@ -23,23 +23,13 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 # register blueprint with views
-from . import views
-from .survey_view import survey_bp
-app.register_blueprint(views.bp)
-app.register_blueprint(survey_bp)
-
-
-#with open("config.toml", "rb") as f:
-#   confi = tomllib.load(f)
-
 #from . import views
-#from . import question_view
-#from . import answer_view
-#from . import survey_view
+from .survey_view import survey_bp
+#app.register_blueprint(views.bp)
+app.register_blueprint(survey_bp)
 
 migrate = Migrate(app, db)
 
-#from . import views
 import sms_app.parsers
 
 @app.cli.command("dbseed")
