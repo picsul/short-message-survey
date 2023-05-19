@@ -9,13 +9,14 @@ import datetime
 from sms_app import confi
 from jobs import datetimes
 #from jobs import confi
+#from .views import bp
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
 time_expired = confi['time_expired']
 welcome_text = confi['welcome_text']
 
-@app.route('/message')
+@bp.route('/message')
 def sms_survey():
     response = MessagingResponse()
     
