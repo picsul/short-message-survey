@@ -1,4 +1,4 @@
-from . import app
+#from . import app
 from twilio.twiml.messaging_response import MessagingResponse
 from .models import Question
 from flask import url_for, request, session
