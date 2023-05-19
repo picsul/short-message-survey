@@ -6,7 +6,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 import random
 import pytz
 import datetime
-from sms_app import confi
+from .config import confi
 from jobs import datetimes
 #from jobs import confi
 #from .views import bp
