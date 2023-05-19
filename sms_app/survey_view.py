@@ -7,7 +7,7 @@ import random
 import pytz
 import datetime
 from .config import confi
-from jobs import datetimes
+#from jobs import datetimes
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
