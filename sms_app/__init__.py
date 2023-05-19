@@ -28,7 +28,7 @@ app = prepare_app()
 
 migrate = Migrate(app, db)
 
-from . import views
+#from . import views
 #import sms_app.parsers
 
 #@app.cli.command("dbseed")
