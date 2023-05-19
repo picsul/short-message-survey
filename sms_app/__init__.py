@@ -27,7 +27,7 @@ app = prepare_app()
 with open("config.toml", "rb") as f:
    confi = tomllib.load(f)
 
-from . import views
+#from . import views
 #from . import question_view
 #from . import answer_view
 #from . import survey_view
