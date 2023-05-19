@@ -1,4 +1,3 @@
-#from . import app
 from .models import Survey
 from .question_view import question_bp
 from flask import url_for, session, request, Blueprint
@@ -8,7 +7,6 @@ import random
 import pytz
 import datetime
 from .config import confi
-#from jobs import datetimes
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
@@ -76,7 +74,7 @@ def sms_survey():
                del session['instance_id']
                response.message(time_expired)
            else:
-               response.redirect(url_for('answer', question_id=session['question_id']))
+               response.redirect(url_for('answer_view_bp.answer', question_id=session['question_id']))
        else:
            survey = Survey.query.first()
 
