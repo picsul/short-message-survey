@@ -1,6 +1,6 @@
 #from . import app
 from .models import Survey
-from flask import url_for, session, request
+from flask import url_for, session, request, Blueprint
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
@@ -16,7 +16,9 @@ sorry_message = confi['sorry_message']
 time_expired = confi['time_expired']
 welcome_text = confi['welcome_text']
 
-@bp.route('/message')
+survey_bp = Blueprint('survey_view_bp', __name__, url_prefix = '/message')
+
+@survey_bp.route('/message')
 def sms_survey():
     response = MessagingResponse()
     
