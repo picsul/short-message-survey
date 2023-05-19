@@ -1,4 +1,4 @@
-#from . import app, db
+from . import app, db
 from .models import Question, Answer, Instance
 from flask import url_for, request, session
 from twilio.twiml.messaging_response import MessagingResponse
