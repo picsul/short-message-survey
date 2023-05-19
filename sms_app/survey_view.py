@@ -1,6 +1,6 @@
 #from . import app
 from .models import Survey
-from .question_view import question_view_bp
+from .question_view import question_bp
 from flask import url_for, session, request, Blueprint
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
