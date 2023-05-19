@@ -1,5 +1,5 @@
 from .models import Survey
-from .question_view import question_bp
+#from .question_view import question_bp
 from flask import url_for, session, request, Blueprint
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
@@ -39,7 +39,6 @@ def sms_survey():
         if 'start_time' in session:
             del session['start_time']
         session['instance_id'] = messages[0].sid
-
 
     # if 'question_id' in session:
     #     delta = now - session['start_time']

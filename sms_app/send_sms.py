@@ -25,9 +25,10 @@ def message_the_list(num_list, body, from_num):
     for num in num_list:
         try:
             sms = outgoing_sms(num, body, from_num)
-            #db.save(Instance(sid = sms, assign = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")))
+            db.save(Instance(sid = sms, assign = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")))
         except twilio.base.exceptions.TwilioRestException:
-            pass   
+            pass
+            # could try removing from database here
          
 def message_the_list_unique(num_list, body, from_num):
     for num, mess in zip(num_list, body):

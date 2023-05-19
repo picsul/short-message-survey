@@ -1,4 +1,3 @@
-# removed app from here 5/18
 from sms_app import db
 
 class Survey(db.Model):
