@@ -5,7 +5,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 answer_bp = Blueprint('answer_view_bp', __name__, url_prefix = '/answer')
 
-@answer_bp.route('/answer/<question_id>', methods=['POST'])
+@answer_bp.route('/<question_id>', methods=['POST'])
 def answer(question_id):
     question = Question.query.get(question_id)
     
