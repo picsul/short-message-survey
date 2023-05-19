@@ -1,4 +1,4 @@
-#from . import app
+from . import app
 #from . import question_view
 #from . import answer_view
 from flask import render_template, Blueprint
@@ -12,5 +12,6 @@ def root():
     questions = Question.query.all()
     return render_template('index.html', questions=questions)
 
+app.register_blueprint(bp)
 
 #from .survey_view import sms_survey
