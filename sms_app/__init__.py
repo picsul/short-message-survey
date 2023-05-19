@@ -22,6 +22,8 @@ def prepare_app(p_db=db):
     return app
 
 app = prepare_app()
+
+app.debug = True
 # register blueprint with views
 from .views import bp
 app.register_blueprint(bp)
