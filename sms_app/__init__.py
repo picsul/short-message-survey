@@ -25,6 +25,9 @@ def prepare_app(p_db=db):
 app = prepare_app()
 
 from . import views
+from . import question_view
+from . import answer_view
+from . import survey_view
 
 with open("config.toml", "rb") as f:
    confi = tomllib.load(f)
