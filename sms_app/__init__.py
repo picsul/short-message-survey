@@ -23,8 +23,9 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 # register blueprint with views
-from . import views
+from . import views, survey_view
 app.register_blueprint(views.bp)
+app.register_blueprint(survey_view.survey_bp)
 
 
 with open("config.toml", "rb") as f:
