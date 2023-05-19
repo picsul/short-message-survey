@@ -19,10 +19,12 @@ def prepare_app(p_db=db):
     app = Flask(__name__)
     app.config.from_object(config_env_files["new"])
     p_db.init_app(app)
-    from . import views
+    #from . import views
     return app
 
 app = prepare_app()
+
+from . import views
 
 with open("config.toml", "rb") as f:
    confi = tomllib.load(f)
