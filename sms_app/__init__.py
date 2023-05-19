@@ -6,6 +6,7 @@ from flask_migrate import upgrade as upgrade_database
 import os
 import tomllib
 import click
+from .views import bp
 
 db = SQLAlchemy()
 
@@ -23,9 +24,9 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 # register blueprint with views
-#from . import views
+app.register_blueprint(bp)
+
 #from .survey_view import survey_bp
-#app.register_blueprint(views.bp)
 #app.register_blueprint(survey_bp)
 
 migrate = Migrate(app, db)
