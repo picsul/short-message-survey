@@ -28,7 +28,7 @@ def extract_content(question):
 
 def redirect_twiml(question):
     response = MessagingResponse()
-    response.redirect(url=url_for('question', question_id=question.id),
+    response.redirect(url=url_for('question_view_bp.question', question_id=question.id),
                       method='GET')
     return str(response)
 
