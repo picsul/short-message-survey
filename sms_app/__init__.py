@@ -28,13 +28,13 @@ app = prepare_app()
 
 migrate = Migrate(app, db)
 
-#from . import views
-#import sms_app.parsers
+from . import views
+import sms_app.parsers
 
-#@app.cli.command("dbseed")
-#def dbseed():
-#    with open('survey.json') as survey_file:
-#        db.save(parsers.survey_from_json(survey_file.read()))
+@app.cli.command("dbseed")
+def dbseed():
+    with open('survey.json') as survey_file:
+        db.save(parsers.survey_from_json(survey_file.read()))
 
-#if __name__ == "__main__":
-#    cli()
+if __name__ == "__main__":
+    cli()
