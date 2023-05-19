@@ -23,7 +23,7 @@ def prepare_app(p_db=db):
 
 app = prepare_app()
 # register blueprint with views
-from . import views, survey_view
+from . import views
 from .survey_view import survey_bp
 app.register_blueprint(views.bp)
 app.register_blueprint(survey_bp)
