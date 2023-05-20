@@ -1,5 +1,4 @@
 from .models import Survey
-#from .question_view import question_bp
 from flask import url_for, session, request, Blueprint
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
@@ -12,6 +11,7 @@ survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
 time_expired = confi['time_expired']
 welcome_text = confi['welcome_text']
+time_limit = confi['time_limit']
 
 survey_bp = Blueprint('survey_view_bp', __name__, url_prefix = '/survey')
 
@@ -40,26 +40,6 @@ def sms_survey():
             del session['start_time']
         session['instance_id'] = messages[0].sid
 
-    # if 'question_id' in session:
-    #     delta = now - session['start_time']
-    #     if delta.seconds > 300:
-    #         del session['start_time']
-    #         del session['question_id']
-    #         #del session['instance_id']
-    #         response.message("The time to complete the survey has expired")
-    #     else:
-    #         response.redirect(url_for('answer', question_id=session['question_id']))
-    # else:
-    #     survey = Survey.query.first()
-    #         
-    #     if survey_error(survey, response.message):
-    #         return str(response)
-    #     
-    #     welcome_user(survey, response.message)
-    #     redirect_to_first_question(response, survey)
-    # return str(response)
-
-
     if (message_text == "Thank you!" or message_text == sorry_message):
        resp = MessagingResponse()
        resp.message(sorry_message)
@@ -67,7 +47,7 @@ def sms_survey():
     else:
        if 'question_id' in session:
            delta = now - session['start_time']
-           if delta.seconds > 300:
+           if delta.seconds > time_limit:
                del session['start_time']
                del session['question_id']
                del session['instance_id']
@@ -109,6 +89,6 @@ def survey_error(survey, send_function):
 def sms_static():
     resp = MessagingResponse()
     
-    resp.message("If you have any issues with the survey, please contact us at jmrosenberg@utk.edu.")
+    resp.message(sorry_message)
     
     return str(resp)
