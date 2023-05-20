@@ -1,0 +1,49 @@
+{
+  "questions": [
+    {
+      "body": "Does Monday work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 2
+    },
+
+    {
+      "body": "Does Tuesday work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 3
+    },
+    
+    {
+      "body": "Does Wednesday work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 4
+    },
+    {
+      "body": "Does Wednesday work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 5
+    },
+    {
+      "body": "Does Wednesday work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 6
+    },
+    {
+      "body": "Okay can you please tell alex when will work?",
+      "type": "text"
+      "test": "val == yes"
+      "yes" : 0
+      "no"  : 0
+    },
+  ],
+  "title": "Survey"
+}

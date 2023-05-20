@@ -26,12 +26,18 @@ class Question(db.Model):
     content = db.Column(db.String, nullable=False)
     kind = db.Column(db.Enum(TEXT, NUMERIC, BOOLEAN,
                              name='question_kind'))
+    test = db.Column(db.String)
+    yes = db.Column(db.Integer)
+    no = db.Column(db.integer)
     survey_id = db.Column(db.Integer, db.ForeignKey('surveys.id'))
     answers = db.relationship('Answer', backref='question', lazy='dynamic')
 
-    def __init__(self, content, kind=TEXT):
+    def __init__(self, content, kind=TEXT, test, yes, no):
         self.content = content
         self.kind = kind
+        self.test = test
+        self.yes = yes
+        self.no = no
 
     def next(self):
         return self.survey.questions\

@@ -3,8 +3,17 @@ from . import db
 
 # this file uses whatever logic we have to return a question number that comes next
 
-def ifelse(cond, yes, no):
-    if cond == True:
+answer = "yEs"
+te = "val == 'yes'"
+y = 1
+n = 2
+
+def tester(val, cond, yes, no):
+    val = val.lower()
+    if eval(cond) == True:
         return yes
-    elif cond == False: 
+    elif eval(cond) == False: 
         return no
+    
+
+

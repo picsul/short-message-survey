@@ -2,6 +2,7 @@ from . import db
 from .models import Question, Answer, Instance
 from flask import url_for, request, session, Blueprint
 from twilio.twiml.messaging_response import MessagingResponse
+from .logic import tester
 
 answer_bp = Blueprint('answer_view_bp', __name__, url_prefix = '/answer')
 
@@ -16,7 +17,14 @@ def answer(question_id):
                    session_id=session_id(),
                    instance=instance))
 
-    next_question = question.next()
+    # check if there is a question test
+    if question.test != None:
+        next_question_id = tester(extract_content(question), question.test, question.yes, question.no)
+        if next_question_id != 0:
+            next_question = Question.query.get(next_question_id)
+    else:
+        next_question = question.next()
+    
     if next_question:
         return redirect_twiml(next_question)
     else:
