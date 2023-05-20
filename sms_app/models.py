@@ -1,4 +1,4 @@
-from sms_app import app, db
+from sms_app import db
 
 class Survey(db.Model):
     __tablename__ = 'surveys'

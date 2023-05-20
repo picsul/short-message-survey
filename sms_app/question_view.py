@@ -1,9 +1,11 @@
-from . import app
+#from . import app
 from twilio.twiml.messaging_response import MessagingResponse
 from .models import Question
-from flask import url_for, request, session
+from flask import url_for, request, session, Blueprint
 
-@app.route('/question/<question_id>')
+question_bp = Blueprint('question_view_bp', __name__, url_prefix = '/question')
+
+@question_bp.route('/<question_id>')
 def question(question_id):
     question = Question.query.get(question_id)
     session['question_id'] = question.id

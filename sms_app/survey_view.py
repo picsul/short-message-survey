@@ -1,21 +1,21 @@
-from . import app
 from .models import Survey
-from flask import url_for, session, request
+#from .question_view import question_bp
+from flask import url_for, session, request, Blueprint
 from sms_app.send_sms import client
 from twilio.twiml.messaging_response import MessagingResponse
 import random
 import pytz
 import datetime
-#from sms_app import confi
-from jobs import datetimes
-from jobs import confi
+from .config import confi
 
 survey_prompt = confi['survey_prompt']
 sorry_message = confi['sorry_message']
 time_expired = confi['time_expired']
 welcome_text = confi['welcome_text']
 
-@app.route('/message')
+survey_bp = Blueprint('survey_view_bp', __name__, url_prefix = '/survey')
+
+@survey_bp.route('/message')
 def sms_survey():
     response = MessagingResponse()
     
@@ -39,7 +39,6 @@ def sms_survey():
         if 'start_time' in session:
             del session['start_time']
         session['instance_id'] = messages[0].sid
-
 
     # if 'question_id' in session:
     #     delta = now - session['start_time']
@@ -74,7 +73,7 @@ def sms_survey():
                del session['instance_id']
                response.message(time_expired)
            else:
-               response.redirect(url_for('answer', question_id=session['question_id']))
+               response.redirect(url_for('answer_view_bp.answer', question_id=session['question_id']))
        else:
            survey = Survey.query.first()
 
@@ -88,15 +87,13 @@ def sms_survey():
 
 def redirect_to_first_question(response, survey):
     first_question = survey.questions.order_by('id').first()
-    first_question_url = url_for('question', question_id=first_question.id)
+    first_question_url = url_for('question_view_bp.question', question_id=first_question.id)
     session['start_time'] = datetime.datetime.now()
     response.redirect(url=first_question_url, method='GET')
 
 
 def welcome_user(survey, send_function):
     send_function(welcome_text)
-    
-    
 
 def survey_error(survey, send_function):
     if not survey:
@@ -108,7 +105,7 @@ def survey_error(survey, send_function):
     return False
 
 # Static Response 
-@app.route('/static')
+@survey_bp.route('/static')
 def sms_static():
     resp = MessagingResponse()
     

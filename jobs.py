@@ -3,7 +3,8 @@ from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from sms_app.send_sms import outgoing_sms, message_the_list, message_the_list_unique
 from sms_app.models import Number
 import datetime
-from sms_app import app, db, confi
+from sms_app import app, db 
+from sms_app.config import confi
 import os
 import tomllib
 
@@ -13,16 +14,12 @@ import tomllib
 # 
 # sched = BlockingScheduler(jobstores = jobstores)
 
-
 sched = BlockingScheduler()
 
 survey_prompt = confi['survey_prompt']
 phone_number = confi['phone_number']
 
-with open("config.toml", "rb") as f:
-    confi = tomllib.load(f)
-
-datetimes = ["fri 19:21", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
+datetimes = ["fri 13:30", "wed 12:20", "fri 12:20", "tue 11:00", "thu 11:00", "tue 12:35", "thu 12:35", "tue 14:10", "thu 14:10"]
 
 split_list = [x.split(" ") for x in datetimes]
 days = [el[0] for el in split_list]
@@ -35,7 +32,7 @@ mins = [el[1] for el in split_times]
 codes = ["M1220", "W1220", "F1220", "T1100", "R1100", "T1235", "R1235", "T1410", "R1410"]
 
 # create list of beginning of week times to index the weeks
-base = datetime.datetime(2023, 3, 26, 1,1,1)
+base = datetime.datetime(2023, 5, 15, 1,1,1)
 date_list = [base + datetime.timedelta(weeks=x) for x in range(13)]
 
 # count which week we are in by comparing a time to the beginning of week times list
