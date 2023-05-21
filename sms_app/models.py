@@ -32,12 +32,13 @@ class Question(db.Model):
     survey_id = db.Column(db.Integer, db.ForeignKey('surveys.id'))
     answers = db.relationship('Answer', backref='question', lazy='dynamic')
 
-    def __init__(self, content, kind=TEXT, test, yes, no):
+    def __init__(self, content, test, yes, no, kind=TEXT):
         self.content = content
-        self.kind = kind
         self.test = test
         self.yes = yes
         self.no = no
+        self.kind = kind
+
 
     def next(self):
         return self.survey.questions\
