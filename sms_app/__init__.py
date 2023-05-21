@@ -1,4 +1,4 @@
-from sms_app.config import config_env_files
+from sms_app.config import config_env_files, confi
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
@@ -40,7 +40,7 @@ import sms_app.parsers
 
 @app.cli.command("dbseed")
 def dbseed():
-    with open('survey.json') as survey_file:
+    with open(confi['survey_file']) as survey_file:
         db.save(parsers.survey_from_json(survey_file.read()))
 
 if __name__ == "__main__":
