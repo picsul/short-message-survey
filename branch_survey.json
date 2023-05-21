@@ -43,7 +43,7 @@
       "test": "val == yes",
       "yes" : 0,
       "no"  : 0
-    },
+    }
   ],
   "title": "Survey"
 }
