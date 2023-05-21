@@ -95,6 +95,8 @@ class Instance(db.Model):
         self.sid = sid
         self.assign = assign
 
+
+
 class Controller(db.Model):
     __tablename__ = 'controllers'
     
