@@ -28,7 +28,7 @@ class Question(db.Model):
                              name='question_kind'))
     test = db.Column(db.String)
     yes = db.Column(db.Integer)
-    no = db.Column(db.integer)
+    no = db.Column(db.Integer)
     survey_id = db.Column(db.Integer, db.ForeignKey('surveys.id'))
     answers = db.relationship('Answer', backref='question', lazy='dynamic')
 
