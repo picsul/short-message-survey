@@ -38,6 +38,7 @@ migrate = Migrate(app, db)
 
 import sms_app.parsers
 
+
 @app.cli.command("dbseed")
 def dbseed():
     with open(confi['survey_file']) as survey_file:
