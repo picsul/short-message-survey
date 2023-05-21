@@ -22,6 +22,9 @@ def answer(question_id):
         next_question_id = tester(extract_content(question), question.test, question.yes, question.no)
         if next_question_id != 0:
             next_question = Question.query.get(next_question_id)
+        else:
+            next_question = False
+            return goodbye_twiml()
     else:
         next_question = question.next()
     
