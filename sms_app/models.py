@@ -95,3 +95,13 @@ class Instance(db.Model):
         self.sid = sid
         self.assign = assign
 
+class Controller(db.Model):
+    __tablename__ = 'controllers'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+
+    def __init__(self, number, name):
+        self.number = number
+        self.name = name
