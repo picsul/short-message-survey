@@ -4,3 +4,4 @@ time_expired  = "The time to complete the survey has expired"
 welcome_text  = "Please respond to the following items about your availability with 'yes' or 'no'"   
 phone_number = "+18652639199"
 time_limit = 300
+controller_message = "Hi would you like to trigger a survey or would you like to check the status. Reply 1 to check the status, 2 to trigger a survey."
