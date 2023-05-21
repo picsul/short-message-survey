@@ -31,8 +31,8 @@ from .survey_view import survey_bp
 app.register_blueprint(survey_bp)
 from .answer_view import answer_bp
 app.register_blueprint(answer_bp)
-from .controller_view import controller_bp
-app.register_blueprint(controller_bp)
+from .controller_view import control_bp
+app.register_blueprint(control_bp)
 
 migrate = Migrate(app, db)
 
