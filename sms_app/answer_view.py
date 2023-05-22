@@ -25,7 +25,7 @@ def answer(question_id):
         print(question.yes)
         print(question.no)
         val = extract_content(question).lower()
-        print(eval(test))
+        print(eval(question.test))
         print(next_question_id)
         if next_question_id != 0:
             next_question = Question.query.get(next_question_id)
