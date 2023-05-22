@@ -20,6 +20,7 @@ def answer(question_id):
     # check if there is a question test
     if question.test != None:
         next_question_id = tester(extract_content(question), question.test, question.yes, question.no)
+        print(next_question_id)
         if next_question_id != 0:
             next_question = Question.query.get(next_question_id)
         else:
