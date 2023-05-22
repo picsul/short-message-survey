@@ -20,13 +20,13 @@ def answer(question_id):
     # check if there is a question test
     if question.test != None:
         next_question_id = tester(extract_content(question), question.test, question.yes, question.no)
-        print(extract_content(question))
-        print(question.test)
-        print(question.yes)
-        print(question.no)
+        #print(extract_content(question))
+        #print(question.test)
+        #print(question.yes)
+        #print(question.no)
         val = extract_content(question).lower()
-        print(eval(question.test))
-        print(next_question_id)
+        #print(eval(question.test))
+        #print(next_question_id)
         if next_question_id != 0:
             next_question = Question.query.get(next_question_id)
         else:
@@ -53,7 +53,7 @@ def redirect_twiml(question):
 def goodbye_twiml():
     if is_sms_request():
         response = MessagingResponse()
-        response.message("Thank you!")
+        response.message("Thank you, Alex will follow up with you for further scheduling.")
     if 'question_id' in session:
         del session['question_id']
         del session['start_time']
